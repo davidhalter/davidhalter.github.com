@@ -10,7 +10,7 @@ About me
 
 Hi. I'm David Halter. I wish I would still be 23, but that's not the case
 anymore. I studied computer science @zhaw.ch. I'm currently working on open
-source projects, as long as this is working out. Also I'm deeply fascinated by
+source projects, as long as money isn't an issue. Also I'm deeply fascinated by
 the likes of `Shane Claiborne <https://www.youtube.com/watch?v=LCdqI-woLRo>`_.
 
 Contact
@@ -23,4 +23,4 @@ Online Stuff
 
 :Github: https://github.com/davidhalter
 :Stackoverflow: http://stackoverflow.com/users/552671/david-halter
-:Github: http://jedidjah.ch
+:Homepage: http://jedidjah.ch
