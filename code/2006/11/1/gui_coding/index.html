@@ -1,0 +1,196 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <title>GUI - Coding</title>
+
+        <!-- meta -->
+        <meta name="author" content="David Halter">
+        <meta name="dc.language" content="en-US">
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta name="description" content="Game GUI Coding">
+        <meta name="keywords" content="delphi, game, gui, matura">
+        
+            <meta name="dc.date.created" content="2006-11-01">
+            <meta name="dc.date.issued" content="2006-11-01">
+        
+
+        <!-- favicon -->
+        <link rel="icon" href="/favicon.ico" type="image/x-icon">
+
+        <!-- newsfeed -->
+        <link href="/feed.atom" rel="alternate" title="Feed" type="application/atom+xml">
+
+        <!-- assets -->
+        <link href="https://fonts.googleapis.com/css?family=Linden+Hill:400,400italic" rel="stylesheet" type="text/css">
+        <link rel="stylesheet" href="/static/style.css?1358541794" type="text/css">
+            <link rel="stylesheet" href="/static/_pygments.css?1358541795" type="text/css">
+    </head>
+    <body>
+        <div id="wrapper">
+            <div id="blogtitle">code.jedidjah</div>
+            <ul id="mainnav">
+                <li><a href="/code">code</a></li>
+                <li><a href="/code/archive">archive</a></li>
+                <li><a href="/code/tags">tags</a></li>
+                <li><a href="/">jedidjah.ch</a></li>
+                <li class="last"><a href="/about">about</a></li>
+            </ul>
+
+            <div class="clearboth"></div>
+
+            <div id="content" class="hyphenate">
+                
+  <h1 class="title">GUI - Coding</h1>
+
+  
+    <div class="date">
+      <p>written on Wednesday, November 1, 2006</p>
+    </div>
+  
+
+  <div class="note">
+<p class="first admonition-title">Note</p>
+<p class="last">This is about a game I once wrote, which was part of my high school
+thesis. Unfortunately, it's written in German.</p>
+</div>
+<p>Ich hab in den Herbstferien und auch in den folgenden Wochen ziemlich lange
+Zeit mit dem proggen einer selbst entworfenen GUI (graphical user interface)
+zugebracht. Mittlerweile ist die Unit 2100 Zeilen lang, was ungefähr 40 Seiten
+entspricht. Also nicht gerade ein kleines Projekt ;)</p>
+<p>Das ganze ist natürlich Objekt - Orientiert um diese GUI so leicht wie möglich
+in verschiedene Projekte importieren zu können. Durch die Objektorientierung
+kann man auch beliebige Elemente für Fenster hinzufügen. Sie braucht ausserdem
+zwei Bibliotheken namens <cite>dglOpenGL.pas</cite> und <cite>Textures.pas</cite>. Dies ist übrigens
+auch mein erster wirklicher Versuch Objekt - Orientiert zu programmieren und
+ich finde, es ist mir wirklich ziemlich gut gelungen!</p>
+<p>Im allgemeinen Erben alle Komponenten von der Klasse TGUIObject, wo die ganzen
+grundsätzlichen Variabeln drin sind (z.B. <cite>X</cite>,`Y`, <cite>Width</cite>, <cite>onMousedownEvent</cite>,
+etc...)</p>
+<p>Die Klasse <cite>TButton</cite> sieht dann zb nur noch so aus:</p>
+<div class="highlight"><pre><span class="n">TButton</span> <span class="o">=</span> <span class="k">class</span><span class="p">(</span><span class="n">TGUIObject</span><span class="p">)</span>
+    <span class="n">Caption</span><span class="o">:</span> <span class="k">String</span><span class="o">;</span>
+    <span class="n">Pressed</span><span class="o">:</span> <span class="kt">boolean</span><span class="o">;</span>
+    <span class="n">TextColor</span><span class="o">:</span> <span class="n">TColor</span><span class="o">;</span>
+    <span class="k">procedure</span> <span class="nf">Render</span><span class="o">;</span>
+<span class="k">end</span><span class="o">;</span>
+</pre></div>
+<p>die Klasse <cite>TPanel</cite> gar so:</p>
+<div class="highlight"><pre><span class="n">TPanel</span> <span class="o">=</span> <span class="k">class</span><span class="p">(</span><span class="n">TGUIObject</span><span class="p">)</span>
+    <span class="k">procedure</span> <span class="nf">Render</span><span class="o">;</span>
+<span class="k">end</span><span class="o">;</span>
+</pre></div>
+<p>Die Klasse <cite>TGUIObject</cite> möchte ich jetzt nicht niederschreiben, dass würde wohl
+den Rahmen sprengen (Es sind nämlich über 50 Elemente die da drin versteckt
+sind ;) ).</p>
+<p>Die GUI besteht aus 10 verschiedenen Elementen:</p>
+<ul class="simple">
+<li>0: Buttons</li>
+<li>1: Text</li>
+<li>2: Panels</li>
+<li>3: ProgressBars</li>
+<li>4: Edits</li>
+<li>5: Checkboxes</li>
+<li>6: RadioButtons</li>
+<li>7: Windows</li>
+<li>8: minimizeButton</li>
+<li>9: maximizeButton</li>
+<li>10: closeButton</li>
+</ul>
+<p>Dabei muss man aber zwingenderweise betrachten, dass die letzten 3 Elemente nur
+für die Vervollständigung der Windows sind.
+Ausserdem gibt es folgende Key/Mouse Routinen:</p>
+<ul class="simple">
+<li>onclickevent</li>
+<li>onMousedownevent</li>
+<li>onMouseupevent</li>
+<li>onMousemove</li>
+<li>onkeydownevent</li>
+<li>onkeyupevent</li>
+<li>onDragEvent</li>
+<li>afterDragEvent</li>
+</ul>
+<p>Diese sind auf alle Objekte anwendbar (ausser die Buttons in der Captionbar).
+Das schöne an diesem Aufbau ist, dass ich durch diese Befehle z.B.(Das zweite
+kleine Fenster):</p>
+<div class="highlight"><pre><span class="n">i</span> <span class="o">:=</span> <span class="n">GUIclass</span><span class="o">.</span><span class="n">AddWindow</span><span class="p">(</span><span class="mi">400</span><span class="o">,</span><span class="mi">300</span><span class="o">,</span><span class="mi">100</span><span class="o">,</span><span class="mi">100</span><span class="o">,</span><span class="mi">0</span><span class="o">,</span><span class="s">&#39;Test2&#39;</span><span class="p">)</span><span class="o">;</span>
+<span class="n">GUIclass</span><span class="o">.</span><span class="n">Windows</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">visible</span> <span class="o">:=</span> <span class="k">true</span><span class="o">;</span>
+<span class="n">GUIclass</span><span class="o">.</span><span class="n">Windows</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">dragevent</span> <span class="o">:=</span> <span class="k">true</span><span class="o">;</span>
+<span class="n">GUIclass</span><span class="o">.</span><span class="n">Windows</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">CaptionBar</span> <span class="o">:=</span> <span class="k">true</span><span class="o">;</span>
+</pre></div>
+<p>ganz einfach ein Window anzeigen kann. Das dann auch schon verschiebbar ist und
+alle Grundelemente hat. Wenn man dann noch
+<cite>GUIclass.Windows[0].AddButton(220,60,125,20,'Decrease Alpha!');</cite> eingibt, kann
+man auch ganz leicht Buttons und ähnliche Elemente anzeigen.</p>
+<p>Die GUI ist noch nicht wirklich voll ausgearbeitet, es ist erst ein
+Anfangsstadium. Ausserdem ist der Style momentan auf dem doofen Windows 2000
+und dies möchte ich definitiv nicht beibehalten (<em>schäm</em>). Die Texturen sind
+auch noch gekehrt, dies müsste ich noch bei allen ändern. Dies sollte
+allerdings nicht ein rieses Problem sein.</p>
+<p>Da man aber im generellen sagt, jede Beschreibung kommt nicht an Bilder heran,
+hier sind sie:
+Bild mit 100% Alpha...
+(Die Frameraten sollten übrigens überhaupt nicht entscheidend sein, denn da ist
+noch ein sleep von 10ms drin bei jedem Frame, also ist 100 das Maximum)</p>
+<img alt="../sample1.0.jpg" class="align-center" src="../sample1.0.jpg" />
+<p>Bild 2 mit 30% Alpha oder sowas ähnliches...</p>
+<img alt="../sample2.1.jpg" class="align-center" src="../sample2.1.jpg" />
+<p>Zwei Tipps noch an OpenGL/Delphi Programmierer:</p>
+<ol class="arabic simple">
+<li>Achtet auf eure Pointer, die müssen immer schön aktuell sein, sonst kanns zu
+ziemlich dämlichen Komplikationen kommen.</li>
+<li>Ich konnte irgendwie mit <cite>Pointer := &#64;self;</cite> nicht den Effekt erreichen, den
+ich erreiche wenn ich das ganze einfach zb so eingebe: <cite>Pointer := &#64;windows[j]</cite>.
+Hantiert also nicht mit <cite>&#64;self</cite> herum, ist zumindest bei mir schief gelaufen.</li>
+</ol>
+
+
+  
+    <div class="tags">
+      <p>This entry was tagged
+      
+        <a href="/code/tags/delphi/">delphi</a>, 
+        <a href="/code/tags/game/">game</a>, 
+        <a href="/code/tags/gui/">gui</a> and 
+        <a href="/code/tags/matura/">matura</a></p>
+    </div>
+  
+
+  
+    
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_shortname = 'jedidjah-code'; // required: replace example with your forum shortname
+    
+    
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">blog comments powered by <span class="logo-disqus">Disqus</span></a>
+
+  
+
+            </div>
+        </div>
+
+        <script type="text/javascript">
+          var _gaq = _gaq || [];
+          _gaq.push(['_setAccount', 'UA-37770631-1']);
+          _gaq.push(['_trackPageview']);
+          (function() {
+            var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+            var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+          })();
+        </script>
+        <script type="text/javascript" src="/static/hyphenator.js"></script>
+        <script type="text/javascript">
+            Hyphenator.run();
+        </script>
+
+    </body>
+</html>

@@ -1,0 +1,471 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title type="text">Recent Blog Posts</title>
+  <id>http://jedidjah.ch/code/feed.atom</id>
+  <updated>2013-01-18T00:00:00Z</updated>
+  <link href="http://jedidjah.ch/code/" />
+  <link href="http://jedidjah.ch/code/feed.atom" rel="self" />
+  <subtitle type="text">Recent blog posts</subtitle>
+  <generator>Werkzeug</generator>
+  <entry xml:base="http://jedidjah.ch/code/feed.atom">
+    <title type="text">rstblog - what a charm!</title>
+    <id>http://jedidjah.ch/code/2013/1/18/rstblog</id>
+    <updated>2013-01-18T00:00:00Z</updated>
+    <link href="http://jedidjah.ch/code/2013/1/18/rstblog" />
+    <author>
+      <name>David Halter</name>
+    </author>
+    <content type="html">&lt;p&gt;I never really had the motivation to have my own website. But because I'm going
+to be in Afghanistan for a while, I wanted to do a little bit of blogging, so I
+decided to start a &lt;a class="reference external" href="http://xkcd.com/148/"&gt;blag&lt;/a&gt; after all.&lt;/p&gt;
+&lt;p&gt;The reason why I was not going for tumblr, blogspot, etc. was that once your
+content is there, it's hard to get it away from there. I always like to have
+open formats. Fortunately a &lt;a class="reference external" href="http://blog.dbrgn.ch"&gt;good friend&lt;/a&gt; is using
+rstblog, which uses the rst format (google it, if you don't know it yet!) to
+create blog content.&lt;/p&gt;
+&lt;p&gt;The only really awful thing about rstblog is that there's no documentation
+around. It's just an unmaintaned project. This is pretty annoying sometimes,
+but if you're just going for a blog (no special wishes like me), you'll be
+fine. I'm hosting it on github now (html only).&lt;/p&gt;
+&lt;p&gt;So with his permission, I cloned his &lt;a class="reference external" href="https://github.com/dbrgn/blog"&gt;blog&lt;/a&gt;,
+tweaked it a little (to have something more like a website). And here it is.
+He also gives a little introduction into the &lt;a class="reference external" href="http://blog.dbrgn.ch/2012/6/11/rstblog/"&gt;powers of rstblog&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Further ressources:&lt;/p&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;&lt;a class="reference external" href="https://github.com/mitsuhiko/rstblog"&gt;rstblog&lt;/a&gt; by &lt;a class="reference external" href="http://lucumr.pocoo.org/"&gt;Armin Ronacher&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;source code for my blog on &lt;a class="reference external" href="https://github.com/davidhalter/davidhalter.github.com/tree/dev"&gt;github&lt;/a&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+</content>
+  </entry>
+  <entry xml:base="http://jedidjah.ch/code/feed.atom">
+    <title type="text">Double Encoding / Full Text Problems with MySQL 5.1</title>
+    <id>http://jedidjah.ch/code/2010/9/26/double_encoding</id>
+    <updated>2010-09-26T00:00:00Z</updated>
+    <link href="http://jedidjah.ch/code/2010/9/26/double_encoding" />
+    <author>
+      <name>David Halter</name>
+    </author>
+    <content type="html">&lt;div class="warning"&gt;
+&lt;p class="first admonition-title"&gt;Warning&lt;/p&gt;
+&lt;p class="last"&gt;This is an old blog post. I don't recommend to use mysql at all.  Switch to
+&lt;a class="reference external" href="http://www.postgresql.org/"&gt;PostgreSQL&lt;/a&gt;, as I did, it's so much better.&lt;/p&gt;
+&lt;/div&gt;
+&lt;p&gt;As I updated MySQL from 5.0 to 5.1 (due to Debian I'm not always as uptodate as
+others) I realized that I had huge problems with the fulltext indexes.&lt;/p&gt;
+&lt;p&gt;The following FTS example seemed not to work:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="k"&gt;CREATE&lt;/span&gt; &lt;span class="k"&gt;TABLE&lt;/span&gt; &lt;span class="n"&gt;IF&lt;/span&gt; &lt;span class="k"&gt;NOT&lt;/span&gt; &lt;span class="k"&gt;EXISTS&lt;/span&gt; &lt;span class="o"&gt;`&lt;/span&gt;&lt;span class="n"&gt;fullTextTable&lt;/span&gt;&lt;span class="o"&gt;`&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;
+&lt;span class="o"&gt;`&lt;/span&gt;&lt;span class="n"&gt;id&lt;/span&gt;&lt;span class="o"&gt;`&lt;/span&gt; &lt;span class="nb"&gt;int&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;10&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="n"&gt;unsigned&lt;/span&gt; &lt;span class="k"&gt;NOT&lt;/span&gt; &lt;span class="k"&gt;NULL&lt;/span&gt; &lt;span class="n"&gt;AUTO_INCREMENT&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+&lt;span class="o"&gt;`&lt;/span&gt;&lt;span class="n"&gt;name&lt;/span&gt;&lt;span class="o"&gt;`&lt;/span&gt; &lt;span class="nb"&gt;varchar&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;80&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="nb"&gt;CHARACTER&lt;/span&gt; &lt;span class="k"&gt;SET&lt;/span&gt; &lt;span class="n"&gt;utf8&lt;/span&gt; &lt;span class="k"&gt;COLLATE&lt;/span&gt; &lt;span class="n"&gt;utf8_unicode_ci&lt;/span&gt; &lt;span class="k"&gt;NOT&lt;/span&gt; &lt;span class="k"&gt;NULL&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+&lt;span class="k"&gt;PRIMARY&lt;/span&gt; &lt;span class="k"&gt;KEY&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="o"&gt;`&lt;/span&gt;&lt;span class="n"&gt;id&lt;/span&gt;&lt;span class="o"&gt;`&lt;/span&gt;&lt;span class="p"&gt;),&lt;/span&gt;
+&lt;span class="n"&gt;FULLTEXT&lt;/span&gt; &lt;span class="k"&gt;KEY&lt;/span&gt; &lt;span class="o"&gt;`&lt;/span&gt;&lt;span class="n"&gt;nameFull&lt;/span&gt;&lt;span class="o"&gt;`&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="o"&gt;`&lt;/span&gt;&lt;span class="n"&gt;name&lt;/span&gt;&lt;span class="o"&gt;`&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="n"&gt;ENGINE&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;MyISAM&lt;/span&gt; &lt;span class="k"&gt;DEFAULT&lt;/span&gt; &lt;span class="n"&gt;CHARSET&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;utf8&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+
+&lt;span class="k"&gt;insert&lt;/span&gt; &lt;span class="k"&gt;into&lt;/span&gt; &lt;span class="o"&gt;`&lt;/span&gt;&lt;span class="n"&gt;fullTextTable&lt;/span&gt;&lt;span class="o"&gt;`&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;name&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="k"&gt;values&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;bärtsch&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;),(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;börtsch&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;),(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;böll&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;),(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;büll&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+
+&lt;span class="k"&gt;select&lt;/span&gt; &lt;span class="o"&gt;*&lt;/span&gt; &lt;span class="k"&gt;from&lt;/span&gt; &lt;span class="o"&gt;`&lt;/span&gt;&lt;span class="n"&gt;fullTextTable&lt;/span&gt;&lt;span class="o"&gt;`&lt;/span&gt; &lt;span class="k"&gt;where&lt;/span&gt; &lt;span class="k"&gt;match&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;name&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="n"&gt;against&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;+bärtsch&amp;#39;&lt;/span&gt; &lt;span class="k"&gt;in&lt;/span&gt; &lt;span class="nb"&gt;boolean&lt;/span&gt; &lt;span class="k"&gt;mode&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+
+&lt;span class="k"&gt;drop&lt;/span&gt; &lt;span class="k"&gt;table&lt;/span&gt; &lt;span class="o"&gt;`&lt;/span&gt;&lt;span class="n"&gt;fullTextTable&lt;/span&gt;&lt;span class="o"&gt;`&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;span class="c1"&gt;-----------------------------&lt;/span&gt;
+&lt;span class="k"&gt;Returns&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+&lt;span class="o"&gt;+&lt;/span&gt;&lt;span class="c1"&gt;----+----------+&lt;/span&gt;
+&lt;span class="o"&gt;|&lt;/span&gt; &lt;span class="n"&gt;id&lt;/span&gt; &lt;span class="o"&gt;|&lt;/span&gt; &lt;span class="n"&gt;name&lt;/span&gt; &lt;span class="o"&gt;|&lt;/span&gt;
+&lt;span class="o"&gt;+&lt;/span&gt;&lt;span class="c1"&gt;----+----------+&lt;/span&gt;
+&lt;span class="o"&gt;|&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt; &lt;span class="o"&gt;|&lt;/span&gt; &lt;span class="n"&gt;b&lt;/span&gt;&lt;span class="err"&gt;ä&lt;/span&gt;&lt;span class="n"&gt;rtsch&lt;/span&gt; &lt;span class="o"&gt;|&lt;/span&gt;
+&lt;span class="o"&gt;|&lt;/span&gt; &lt;span class="mi"&gt;2&lt;/span&gt; &lt;span class="o"&gt;|&lt;/span&gt; &lt;span class="n"&gt;b&lt;/span&gt;&lt;span class="err"&gt;ö&lt;/span&gt;&lt;span class="n"&gt;rtsch&lt;/span&gt; &lt;span class="o"&gt;|&lt;/span&gt;
+&lt;span class="o"&gt;|&lt;/span&gt; &lt;span class="mi"&gt;3&lt;/span&gt; &lt;span class="o"&gt;|&lt;/span&gt; &lt;span class="n"&gt;b&lt;/span&gt;&lt;span class="err"&gt;ö&lt;/span&gt;&lt;span class="n"&gt;ll&lt;/span&gt; &lt;span class="o"&gt;|&lt;/span&gt;
+&lt;span class="o"&gt;+&lt;/span&gt;&lt;span class="c1"&gt;----+----------+&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;With the help of the MySQL forums I realized that the cause was a double
+encoding. The length of &lt;tt class="docutils literal"&gt;böll&lt;/tt&gt; for example was not 5, but 7.&lt;/p&gt;
+&lt;p&gt;Solving it was not a huge thing, just one query:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="k"&gt;update&lt;/span&gt; &lt;span class="n"&gt;test&lt;/span&gt; &lt;span class="k"&gt;set&lt;/span&gt; &lt;span class="n"&gt;fileNew&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nb"&gt;binary&lt;/span&gt; &lt;span class="k"&gt;convert&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;file&lt;/span&gt; &lt;span class="k"&gt;using&lt;/span&gt; &lt;span class="n"&gt;latin1&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Since the MySQL convert command doesn't work the expected way, you have to use
+the binary command before the convert.&lt;/p&gt;
+&lt;p&gt;To check if everything worked out the way i wanted it, I used:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="k"&gt;select&lt;/span&gt; &lt;span class="o"&gt;*&lt;/span&gt; &lt;span class="k"&gt;from&lt;/span&gt; &lt;span class="n"&gt;test&lt;/span&gt; &lt;span class="k"&gt;where&lt;/span&gt; &lt;span class="n"&gt;file&lt;/span&gt; &lt;span class="o"&gt;!=&lt;/span&gt; &lt;span class="k"&gt;convert&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="k"&gt;convert&lt;/span&gt;&lt;span class="p"&gt;((&lt;/span&gt;&lt;span class="nb"&gt;binary&lt;/span&gt; &lt;span class="n"&gt;fileNew&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="k"&gt;using&lt;/span&gt; &lt;span class="n"&gt;latin1&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="k"&gt;using&lt;/span&gt; &lt;span class="n"&gt;utf8&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;The double encoding was just a little bug in my php interface: I did not use
+&amp;quot;set names utf8&amp;quot;. Setting it after connecting has solved my problems.&lt;/p&gt;
+&lt;p&gt;If you plan on using fulltext indexes, I would seriously recommend checking
+your charsets.&lt;/p&gt;
+</content>
+  </entry>
+  <entry xml:base="http://jedidjah.ch/code/feed.atom">
+    <title type="text">Game Relase: Terrorist's Revenge</title>
+    <id>http://jedidjah.ch/code/2007/12/7/game_out</id>
+    <updated>2007-12-07T00:00:00Z</updated>
+    <link href="http://jedidjah.ch/code/2007/12/7/game_out" />
+    <author>
+      <name>David Halter</name>
+    </author>
+    <content type="html">&lt;div class="note"&gt;
+&lt;p class="first admonition-title"&gt;Note&lt;/p&gt;
+&lt;p class="last"&gt;This is about a game I once wrote, which was part of my high school
+thesis. Unfortunately, it's written in German.&lt;/p&gt;
+&lt;/div&gt;
+&lt;p&gt;Da morgen meine Präsentation ansteht, habe ich das Spiel nocheinmal wenig
+überarbeitet und möchte es nun auch so herausgeben. Das Spiel ist ca. 25 MB
+gross.&lt;/p&gt;
+&lt;p&gt;Falls irgendwelche Anregungen oder Probleme bestehen, bitte über Mail melden
+oder hier einen Kommentar hinterlassen.&lt;/p&gt;
+&lt;p&gt;Wichtig ist ausserdem noch, dass das Spiel nur über Netzwerk wirklich gespielt
+werden kann, also schliesst euch mit einem Kollegen zusammen.&lt;/p&gt;
+&lt;p&gt;Der Download funktioniert wieder, diesmal auf einem Server wos immer gehen
+sollte.&lt;/p&gt;
+&lt;p&gt;&lt;a class="reference external" href="/static/high_school_thesis/terrorists_revenge_installer.exe"&gt;Download Terrorist's Revenge (Game-25mb)&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a class="reference external" href="/static/high_school_thesis/thesis.pdf"&gt;Download Maturaarbeit (Thesis-5mb)&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a class="reference external" href="/static/high_school_thesis/source.pdf"&gt;Download Code/Source File (PDF-2mb)&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;hier kann nebenbei auch noch die Maturaarbeit und die Source (in einem File)
+heruntergeladen werden. Wer die Source einzeln haben will, soll mir bitte eine
+Mail schreiben.&lt;/p&gt;
+&lt;p&gt;Das Projekt ist offiziell abgeschlossen. Ich werde kaum mehr etwas daran
+verändern.&lt;/p&gt;
+&lt;p&gt;Viel Spass beim Ausprobieren!&lt;/p&gt;
+</content>
+  </entry>
+  <entry xml:base="http://jedidjah.ch/code/feed.atom">
+    <title type="text">Maturaarbeit fertiggestellt</title>
+    <id>http://jedidjah.ch/code/2007/11/14/high_school_thesis_finished</id>
+    <updated>2007-11-14T00:00:00Z</updated>
+    <link href="http://jedidjah.ch/code/2007/11/14/high_school_thesis_finished" />
+    <author>
+      <name>David Halter</name>
+    </author>
+    <content type="html">&lt;div class="note"&gt;
+&lt;p class="first admonition-title"&gt;Note&lt;/p&gt;
+&lt;p class="last"&gt;This is about a game I once wrote, which was part of my high school
+thesis. Unfortunately, it's written in German.&lt;/p&gt;
+&lt;/div&gt;
+&lt;p&gt;Vor ein paar Wochen habe ich meine Maturaarbeit fertiggestellt. Nun werde ich das
+Spiel selbst aber erst nach der Präsentation freigeben. Das liegt daran, dass
+ich noch mindestens zwei Dinge tun muss: Partikelausrichtung und die
+Erweiterung des Netzwerks für 3 und mehr Personen. Ich hoffe, dass das ganze
+auch bald funktioniert, wenn nicht auch egal.&lt;/p&gt;
+&lt;p&gt;Hier noch ein paar Bilder:&lt;/p&gt;
+&lt;img alt="../screen0.jpg" class="align-center" src="../screen0.jpg" style="width: 800px; height: 613px;" /&gt;
+&lt;img alt="../screen1.jpg" class="align-center" src="../screen1.jpg" style="width: 800px; height: 613px;" /&gt;
+&lt;img alt="../screen2.jpg" class="align-center" src="../screen2.jpg" style="width: 800px; height: 613px;" /&gt;
+&lt;img alt="../screen3.jpg" class="align-center" src="../screen3.jpg" style="width: 800px; height: 613px;" /&gt;
+&lt;img alt="../screen4.jpg" class="align-center" src="../screen4.jpg" style="width: 800px; height: 613px;" /&gt;
+&lt;img alt="../screen5.jpg" class="align-center" src="../screen5.jpg" style="width: 800px; height: 613px;" /&gt;
+&lt;img alt="../screen6.jpg" class="align-center" src="../screen6.jpg" style="width: 800px; height: 613px;" /&gt;
+&lt;img alt="../screen7.jpg" class="align-center" src="../screen7.jpg" style="width: 800px; height: 613px;" /&gt;
+&lt;img alt="../screen8.jpg" class="align-center" src="../screen8.jpg" style="width: 800px; height: 613px;" /&gt;
+&lt;img alt="../screen9.jpg" class="align-center" src="../screen9.jpg" style="width: 800px; height: 613px;" /&gt;
+&lt;img alt="../screen10.jpg" class="align-center" src="../screen10.jpg" style="width: 800px; height: 613px;" /&gt;
+&lt;img alt="../screen11.jpg" class="align-center" src="../screen11.jpg" style="width: 800px; height: 613px;" /&gt;
+</content>
+  </entry>
+  <entry xml:base="http://jedidjah.ch/code/feed.atom">
+    <title type="text">Buy-Window / Schüsse</title>
+    <id>http://jedidjah.ch/code/2007/06/07/buy_window</id>
+    <updated>2007-06-07T00:00:00Z</updated>
+    <link href="http://jedidjah.ch/code/2007/06/07/buy_window" />
+    <author>
+      <name>David Halter</name>
+    </author>
+    <content type="html">&lt;div class="note"&gt;
+&lt;p class="first admonition-title"&gt;Note&lt;/p&gt;
+&lt;p class="last"&gt;This is about a game I once wrote, which was part of my high school
+thesis. Unfortunately, it's written in German.&lt;/p&gt;
+&lt;/div&gt;
+&lt;p&gt;Hello again...
+Ich habe leider nicht wirklich weitergearbeitet. Irgendwie hatte ich nicht so
+wirklich lust. Könnte unter Umständen an den Shader liegen, die relativ
+hochkompliziert sind und für mich nicht gerade leicht verdaulich. Gerade da ich
+noch neues Zeug einlernen musse, von wegen Multitexturing oder Rendertotexture.&lt;/p&gt;
+&lt;p&gt;Aber dennoch hab ich das ein oder andere fertig gebracht. Das Spiel umfasst nun
+z.B. ein Buy-Window, wo man Waffen, Equipment usw. kaufen kann.&lt;/p&gt;
+&lt;p&gt;Desweiteren sind Schüsse nun vollständig funktionstüchtig und funktionieren
+auch wirklich perfekt (so wie sie sollen). Da müsste ich jetzt eigentlich nur
+noch das Netwerk testen, um Multiplayer zu ermöglichen. Aber irgendwie macht
+mich das überhaupt nicht an. Gerade da ich weiss wieviele Probleme in
+Netzwerken entstehen können.&lt;/p&gt;
+&lt;p&gt;Aber immerhin nimmt das Spiel langsam gestalt an und ich komme in eine Phase,
+wo all das, was ich eigentlich haben will in meinem Spiel drin ist.&lt;/p&gt;
+&lt;p&gt;Das was jetzt eigentlich noch fehlt ist der richtige Anstrich, dass heisst,
+gute Modells, Levels usw. einfach ein schönes Spieldesign.&lt;/p&gt;
+&lt;p&gt;Buy-Window:&lt;/p&gt;
+&lt;img alt="../buy_window.jpg" class="align-center" src="../buy_window.jpg" style="width: 800px; height: 613px;" /&gt;
+&lt;p&gt;Wie man sieht, sieht das ganze noch wirklich schlecht aus. Das wird aber
+sicherlich noch kommen, genau das ist das, was ich mit einem richtigen Anstrich
+meinte. Die Ausarbeitung der kleinen Details im Spiel.&lt;/p&gt;
+</content>
+  </entry>
+  <entry xml:base="http://jedidjah.ch/code/feed.atom">
+    <title type="text">Shader, Netzwerk &amp; Kollisionen</title>
+    <id>http://jedidjah.ch/code/2007/05/08/shader_network_collisions</id>
+    <updated>2007-05-08T00:00:00Z</updated>
+    <link href="http://jedidjah.ch/code/2007/05/08/shader_network_collisions" />
+    <author>
+      <name>David Halter</name>
+    </author>
+    <content type="html">&lt;div class="note"&gt;
+&lt;p class="first admonition-title"&gt;Note&lt;/p&gt;
+&lt;p class="last"&gt;This is about a game I once wrote, which was part of my high school
+thesis. Unfortunately, it's written in German.&lt;/p&gt;
+&lt;/div&gt;
+&lt;p&gt;Da ich wie immer zu faul war, hier was zu posten, gibts nun mal wieder ein
+grösseres Update. Ich erfülle so langsam alles, was es auch braucht für das
+Spiel.&lt;/p&gt;
+&lt;p&gt;Angefangen hat es mit den Kollisionen. Diese sind schon sehr weit
+fortgeschritten (Dank geht u.a. an meinen Vater, der mir sehr geholfen hat) und
+auch gut optimiert. Da will ich als nächstes die Gravity und das Treppenlaufen
+ermitteln. Bilder dazu gibts leider keine, wäre ja nicht spannend ;)
+Die Technik die ich verwende für die Kollisionen, ist relativ kompliziert.
+Zuerst prüfe ich, ob die Spielfigur auch in einem gewissen Teil des Octrees
+ist, dann wird geschaut ob die Fläche mit der Bounding Sphere der Figur (Eine
+virtuelle Kugel, die die Figur approximiert) schneidet. Anschliessend wird dann
+mit einer komplizierten, aber sehr sehr schnellen Methode überprüft ob das
+Dreieck den Kreis schneidet, den es durch die Kollision mit der Fläche ergab.&lt;/p&gt;
+&lt;p&gt;Daneben habe ich auch noch eine Prozedur geschrieben um eine Kollision eines
+Schusses und einer Boundingsphere zu ermöglichen. Dazu habe ich dann auch eine
+neue Charakter Unit geschrieben, wo alles mit Charakteren abläuft - Waffen,
+Schüsse, Modelle usw.&lt;/p&gt;
+&lt;p&gt;Das nächste was ich bearbeitet habe, ist das Netzwerk. Dieses ist mittlerweile
+auch schon sehr gut fortgeschritten und in einem akzeptablen Zustand,
+allerdings müsste ich das ganze dringend mal testen, da ich aber nicht wirklich
+einen zweiten PC habe und unser zweiter PC sich nur sehr schlecht eignet dafür,
+muss ich da mal auf eine geeignete Gelegenheit warten.
+Beim Netwerk arbeite ich übrigens mit einem kombinierten Protokoll aus UDP/TCP,
+UDP verwende ich für die grossen Datenmengen und TCP für Dinge die unbedingt
+ankommen müssen.&lt;/p&gt;
+&lt;p&gt;Mittlerweile habe ich es auch geschafft, mich in die Shader einzulesen (GLSL).
+Das ganze ist sehr spannend, doch auch hochkompliziert. So habe ich
+mittlerweile Shader implementiert und kann diese nun mit ATI Rendermonkey oder
+einem anderen Editor schreiben.&lt;/p&gt;
+&lt;p&gt;Das ist auch schon das einzige Bild was ich für dieses Mal habe:&lt;/p&gt;
+&lt;img alt="../shader_bug.jpg" class="align-center" src="../shader_bug.jpg" /&gt;
+&lt;p&gt;Das ist ein kleines Beispiel, was man mit Shadern so alles falsch machen kann.
+Dies sollte eigentlich ein Comic Shader sein, aber irgendwie verhält er sich
+ein bisschen anders ;)&lt;/p&gt;
+</content>
+  </entry>
+  <entry xml:base="http://jedidjah.ch/code/feed.atom">
+    <title type="text">Game Levels</title>
+    <id>http://jedidjah.ch/code/2007/3/30/game_levels</id>
+    <updated>2007-03-30T00:00:00Z</updated>
+    <link href="http://jedidjah.ch/code/2007/3/30/game_levels" />
+    <author>
+      <name>David Halter</name>
+    </author>
+    <content type="html">&lt;div class="note"&gt;
+&lt;p class="first admonition-title"&gt;Note&lt;/p&gt;
+&lt;p class="last"&gt;This is about a game I once wrote, which was part of my high school
+thesis. Unfortunately, it's written in German.&lt;/p&gt;
+&lt;/div&gt;
+&lt;p&gt;Ich habe jetzt das Levelladen und den Leveleditor eigentlich fertiggestellt.
+Das ganze ist so aufgebaut, dass man von &lt;cite&gt;.3ds&lt;/cite&gt; Dateien laden kann, die dann
+verarbeitet werden intern und in ein eigenes Format übergehen.&lt;/p&gt;
+&lt;p&gt;Das schöne daran ist, dass ich einfach Levels in &lt;cite&gt;3ds Max&lt;/cite&gt; konstruieren kann,
+die dann in meinem Spiel optimiert werden. Auf den Bildern werden überall die
+Nodes der Octrees angezeigt, die max. 500 dreiecke enthalten.&lt;/p&gt;
+&lt;p&gt;Wie man auf einigen Bildern sieht, sind teilweise Objekte relativ krass Polygon
+- intensiv, wie z.B. dieser Busch hier.&lt;/p&gt;
+&lt;p&gt;Ausserdem habe ich Frustum Culling eingebaut, sodass nur die Würfel, die vor
+der Kamera liegen angezeigt werden.&lt;/p&gt;
+&lt;p&gt;Weiterhin werde ich noch PVS (potentially visible sets) einbauen, die dann
+helfen werden Würfel auszublenden, die hinter anderen Objekten verdeckt werden.&lt;/p&gt;
+&lt;p&gt;Momentan arbeite ich fest an den Kollisionen und bin mich heftig in
+Vektorgeometrie 3d am einarbeiten, da ich dies bei einem Lehrer gehabt hab, wo
+ich nicht gerade viel gelernt hab. Ausserdem sind Kollisionsberechnungen wie
+z.B. Sphere-Triangle und orientet Bounding Box - Triangle, die auf
+Geschwindigkeit optimiert werden müssen nicht gerade die einfachsten.
+Schwerer wirds dann noch wenn ich Treppen usw. realisieren will, wo man dann
+auch noch über polygone hinwegsteigen können sollte. Da frag ich mich dann
+wirklich, wie ich sowas mach. Wenn jemand eine gute Idee hat, bitte melden! ;-)&lt;/p&gt;
+&lt;img alt="../level2.jpg" class="align-center" src="../level2.jpg" /&gt;
+&lt;img alt="../level1.jpg" class="align-center" src="../level1.jpg" /&gt;
+&lt;p&gt;Hier ist leider noch was dazwischengerutscht, sry ;)&lt;/p&gt;
+&lt;img alt="../level3.jpg" class="align-center" src="../level3.jpg" /&gt;
+</content>
+  </entry>
+  <entry xml:base="http://jedidjah.ch/code/feed.atom">
+    <title type="text">Gui goes final</title>
+    <id>http://jedidjah.ch/code/2007/3/3/gui_goes_final</id>
+    <updated>2007-03-03T00:00:00Z</updated>
+    <link href="http://jedidjah.ch/code/2007/3/3/gui_goes_final" />
+    <author>
+      <name>David Halter</name>
+    </author>
+    <content type="html">&lt;div class="note"&gt;
+&lt;p class="first admonition-title"&gt;Note&lt;/p&gt;
+&lt;p class="last"&gt;This is about a game I once wrote, which was part of my high school
+thesis. Unfortunately, it's written in German.&lt;/p&gt;
+&lt;/div&gt;
+&lt;p&gt;Ich habe jetzt meine GUI soweit beendet, mittlerweile habe ich noch sehr viele
+Bugs gefixt. Ausserdem sind nun die Fenster immer schön geordnet im Vorder-
+bzw. Hintergrund.&lt;/p&gt;
+&lt;p&gt;Ich habe auch einen neuen Skin entworfen, was mich ziemlich viel Zeit kostete,
+jedoch bin ich gut zufrieden damit, da er wirklich viel besser aussieht, wie
+der Standart-Windows Skin.&lt;/p&gt;
+&lt;p&gt;Nun habe ich die GUI auch ins Game eingebaut, die Fenster sind zwar vielfach
+noch nicht wirklich mit allen Optionen ausgestattet, jedoch reicht mir das
+ganze so wie es jetzt ist, für den Moment. Das ganze werde ich sicher noch
+verbessern, bzw. verschönern.&lt;/p&gt;
+&lt;p&gt;Hier noch die Screenshots, die sagen wohl am meisten aus:&lt;/p&gt;
+&lt;img alt="../gui1.jpg" class="align-center" src="../gui1.jpg" /&gt;
+&lt;img alt="../gui2.jpg" class="align-center" src="../gui2.jpg" /&gt;
+&lt;img alt="../gui_editor.jpg" class="align-center" src="../gui_editor.jpg" style="width: 800px; height: 613px;" /&gt;
+&lt;p&gt;PS: Im übrigen ist zu sagen, dass ich natürlich nicht nur an der GUI
+drangesessen bin, während der langen Zeit zwischen den Posts. Ich kann jetzt
+schon Levels laden und das ganze sieht auch noch ziemlich gut aus, dazu jedoch
+nächste Woche.&lt;/p&gt;
+</content>
+  </entry>
+  <entry xml:base="http://jedidjah.ch/code/feed.atom">
+    <title type="text">GUI Editor</title>
+    <id>http://jedidjah.ch/code/2007/1/2/gui_editor</id>
+    <updated>2007-01-02T00:00:00Z</updated>
+    <link href="http://jedidjah.ch/code/2007/1/2/gui_editor" />
+    <author>
+      <name>David Halter</name>
+    </author>
+    <content type="html">&lt;div class="note"&gt;
+&lt;p class="first admonition-title"&gt;Note&lt;/p&gt;
+&lt;p class="last"&gt;This is about a game I once wrote, which was part of my high school
+thesis. Unfortunately, it's written in German.&lt;/p&gt;
+&lt;/div&gt;
+&lt;p&gt;Ich habe seit der letzten GUI Version vorallem noch das Streamen (laden &amp;amp;
+speichern) gemacht und somit kann ich nun auch alle Komponenten speichern und
+laden.&lt;/p&gt;
+&lt;p&gt;Nachdem ich nun an der GUI eigentlich nur noch Bugfixes und ein paar kleine
+Änderungen zu machen hatte, startete ich dann mit dem programmieren des
+GUI-Editors, welcher mittlerweile schon sehr weit fortgeschritten ist. Daran
+müssen eigentlich nur noch ein paar kleine Änderungen gemacht werden, wie z.B.
+das ändern von Frames, Popupmenus und Comboboxes.&lt;/p&gt;
+&lt;p&gt;Durch Schulstress hatte ich allerdings auch nicht wirklich viel zeit um an
+meinem Projekt weiterzuarbeiten, dies sollte sich aber nun wieder bessern.&lt;/p&gt;
+&lt;p&gt;Überzeugt euch nun aber selbst:&lt;/p&gt;
+&lt;img alt="../sample6.jpg" class="align-center" src="../sample6.jpg" style="width: 800px; height: 613px;" /&gt;
+&lt;img alt="../sample7.jpg" class="align-center" src="../sample7.jpg" style="width: 800px; height: 613px;" /&gt;
+&lt;p&gt;Und noch der Changelog der letzten Zeit der GUI:&lt;/p&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;09.12.06: Nun habe ich mich ein bisschen in GIMP eingearbeitet (welches
+übrigens ein sehr gutes Zeichenprogramm ist) um
+neue GUI - Texturen machen zu können. Ausserdem habe ich das Rendern der
+Buttons abgeändert.&lt;/li&gt;
+&lt;li&gt;14.12.06: Z-Abfragen funktionieren nun viel besser, ausserdem habe ich
+angefangen eine Speichermethode zu implementieren...&lt;/li&gt;
+&lt;li&gt;25.12.06: Streaming fertiggestellt (save &amp;amp; load) aber Bugs müssen noch
+ausgemerzt werden.&lt;/li&gt;
+&lt;li&gt;26.12.06: Beinahe alle Pointer abgeschafft, weil diese das ganze nur
+kompliziert machten und Bug-anfällig.&lt;/li&gt;
+&lt;li&gt;29.12.06: Streaming läuft nun perfekt, alle Bugs behoben.
+Comboboxes und PopUpMenus hatten einen Bug, wo die Zählvariabeln i und j
+vertauscht wurden (in onMousedown und onMouseup). Fixed.
+Durch Streaming wurde nun Version 1.1 erreicht. Das nächste Ziel wird der
+Editor sein.
+PopUpMenus werden nun beim klicken auf irgendetwas geschlossen.
+Das aktive Fenster wird nun im Z Wert höher gestellt wie normal.&lt;/li&gt;
+&lt;li&gt;31.12.06: Z wurde vielfach falsch gesetzt. Fixed.&lt;/li&gt;
+&lt;li&gt;01.01.07: Space ist nun der bezeichner für den Abstand zwischen den
+Combobox-Zeilen, nicht mehr Height.&lt;/li&gt;
+&lt;li&gt;02.01.07: Der Editor steht nun, man muss nur noch ein paar sachen verbessern.
+Edits und EditFields gaben eine Exception von sich, wenn man an den falschen
+Ort klickte.
+Update auf Version 1.2.&lt;/li&gt;
+&lt;/ul&gt;
+</content>
+  </entry>
+  <entry xml:base="http://jedidjah.ch/code/feed.atom">
+    <title type="text">GUI goes 1.0</title>
+    <id>http://jedidjah.ch/code/2006/12/1/gui_progress</id>
+    <updated>2006-12-01T00:00:00Z</updated>
+    <link href="http://jedidjah.ch/code/2006/12/1/gui_progress" />
+    <author>
+      <name>David Halter</name>
+    </author>
+    <content type="html">&lt;div class="note"&gt;
+&lt;p class="first admonition-title"&gt;Note&lt;/p&gt;
+&lt;p class="last"&gt;This is about a game I once wrote, which was part of my high school
+thesis. Unfortunately, it's written in German.&lt;/p&gt;
+&lt;/div&gt;
+&lt;p&gt;Sooo...
+Nach einiger Zeit hab ich es endlich geschafft die GUI mal vorläufig
+abzuschliessen, es sind vorallem einige neue komponenten hinzugekommen und
+dadurch auch 1500 Zeilen (jetzt 3600). Der Aufwand war enorm, vorallem wurde
+das ganze durch den grossen Code recht unübersichtlich.&lt;/p&gt;
+&lt;p&gt;Das einzige was jetzt noch fehlt ist Save &amp;amp; Load und die Scrollbars, wobei ich
+mir bei der Scrollbar aber nicht ganz sicher bin ob ich dieses Feature noch
+einbaue, da der Aufwand recht extrem ist und der nutzen für Terrorist's
+Revenche nicht gerade gross.&lt;/p&gt;
+&lt;p&gt;Wenn ich aber vom Nutzen spreche, muss ich da auch erwähnen, dass ich jetzt
+vieles programmiert habe, was nicht gerade viel bringt für mein Projekt, da
+Elemente wie &lt;cite&gt;EditField&lt;/cite&gt; wahrscheinlich kaum viel genützt werden. Allerdings
+ist das ganze sehr praktisch, um in anderen Projekten zu nutzen. Da es nur eine
+Unit ist und die GUI wirklich alles übernimmt, was GUI mässig abläuft, kann
+diese Unit auch den Ortho Mode stellen, was aber nur eine Option ist.&lt;/p&gt;
+&lt;p&gt;Schön ist auch, dass die Gui wirklich sehr fehlerfrei läuft und dass alles bis
+in viele Details ausprogrammiert ist.&lt;/p&gt;
+&lt;p&gt;Nun jedoch zu den neuen Elementen, dies sind folgende:&lt;/p&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;11: EditField&lt;/li&gt;
+&lt;li&gt;12: TextField&lt;/li&gt;
+&lt;li&gt;13: PopUpMenu&lt;/li&gt;
+&lt;li&gt;14: Combobox&lt;/li&gt;
+&lt;li&gt;15: Frames&lt;/li&gt;
+&lt;li&gt;16: Image&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Diese Elemente waren eigentlich alle ziemlich schwer einzubinden ausser dem
+Image (welches übrigens auch blending beherrscht). Beim EditField musste ich X
+Key-Messages abfangen, das ganze wurden dann so 100-200 Zeilen Code, der
+seeeeeehhhhhhr kompliziert ist.&lt;/p&gt;
+&lt;p&gt;Die Frames hab ich einfach mit Pointern auf andere Fenster gemacht, dadurch
+kann ich auf diese Fenster verändern und das ganze Frame verändert sich, die
+Frames sind also eher Pseudo mässig da und haben nur den Zweck das ganze etwas
+leichter zu machen.&lt;/p&gt;
+&lt;p&gt;Die Comboboxes und PopUpMenus waren dann auch wieder etwas recht kompliziertes,
+da ich da bei den MouseEvents extrem aufpassen musste, dass ich immer das ganze
+Feld mit einbeziehe, ausserdem ist ja bei mir alles möglichst Speed optimiert
+und darum wird solches Zeug halt schwer.&lt;/p&gt;
+&lt;p&gt;Nun zu ein paar Screenshots:&lt;/p&gt;
+&lt;img alt="../sample5.jpg" class="align-center" src="../sample5.jpg" /&gt;
+&lt;img alt="../sample3.jpg" class="align-center" src="../sample3.jpg" /&gt;
+&lt;img alt="../sample4.jpg" class="align-center" src="../sample4.jpg" /&gt;
+&lt;p&gt;Das sind einfach ein paar Spielereien, ausserdem werde ich in nächster Zeit
+einen neuen Skin entwickeln (nicht diesen besch...ränkten Windows - Style.&lt;/p&gt;
+&lt;p&gt;Die Änderungen der letzten Zeit:&lt;/p&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;1.11.06: First Relase, 7 Grundverschiedene Elemente und 8 verschiedene
+Mouse/Key Routinen.&lt;/li&gt;
+&lt;li&gt;4.11.06: Maximize verbessert, da gab es zwei bugs, man konnte das fenster
+maximiert verschieben und Maximiert wurde auch, wenn nur ein downclick erfolgte.&lt;/li&gt;
+&lt;li&gt;9.11.06: SetPointers so verändert, dass jetzt die Pointer immer richtig
+gesetzt sind.&lt;/li&gt;
+&lt;li&gt;11.11.06: deinitialisierung verbessert, wegen memory leaks&lt;/li&gt;
+&lt;li&gt;13.11.06: Objektorientierte Struktur verbessert, onDestroyEvent geadded.
+Mouseevents grossteils umprogrammiert, zwecks makros auf rechter maustaste.&lt;/li&gt;
+&lt;li&gt;15.11.06: PopUpMenu, Textlist und Frames soweit vorbeireitet, dass nur noch
+die Events gemacht werden müssen.&lt;/li&gt;
+&lt;li&gt;20.11.06: Images funktionieren nun vollständig, mit Blending und Farben.
+Neue Art des Schriften ladens hinzugefügt, die zwar schon funktioniert, aber
+nicht sonderlich schön aussieht.&lt;/li&gt;
+&lt;li&gt;23.11.06: Mouse Events wieder fest umgeschrieben
+PopUpMenu funktioniert in Grundzügen&lt;/li&gt;
+&lt;li&gt;25.11.06: Edit funktioniert nun vollständig, man kann nun schreiben usw
+neue Art Schriften zu laden hinzugefügt, um die Breiten der Schriften Edit
+tauglich zu machen.
+PopUpMenu zum grössten teil funktionierend gemacht
+Makros geschrieben für einige funktionen, zb um mit einem mausklick die
+Progressbar-länge zu verändern.&lt;/li&gt;
+&lt;li&gt;27.11.06: Textlist läuft nun.
+Texturen von PopUpMenu/Combobox verbessert.&lt;/li&gt;
+&lt;li&gt;28.11.06: Skins überarbeitet, nun kann man jpgs tgas und bmps laden.&lt;/li&gt;
+&lt;li&gt;30.11.06: EditField soweit fertiggestellt; Drag-Bug behoben&lt;/li&gt;
+&lt;li&gt;31.11.06: EditField besitzt nun einige Funktionen mehr, man kann es fast wie
+ein Word Dokument bedienen.
+Maximize - Bug behoben, einmal wurde der Boolean Wert verkehrt herum abgerufen.
+CaptionBar verschönert.&lt;/li&gt;
+&lt;li&gt;1.12.06: Nach nun genau einem Monat, nach dem First Release, ist das Release
+1.0 draussen.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Es sind etwa 1400 Zeilen dazu gekommen und jede Menge neue Elemente.  Das was
+sicher noch kommt wird eine Ladefunktion sein, allerdings wird diese bis auf
+weiteres warten müssen, zuerst muss die GUI in Terrorist's Revenge ausgiebig
+getestet werden.&lt;/p&gt;
+</content>
+  </entry>
+</feed>
+

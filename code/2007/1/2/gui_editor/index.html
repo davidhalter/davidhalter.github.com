@@ -1,0 +1,147 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <title>GUI Editor</title>
+
+        <!-- meta -->
+        <meta name="author" content="David Halter">
+        <meta name="dc.language" content="en-US">
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta name="description" content="High school thesis creation of a gui editor.">
+        <meta name="keywords" content="delphi, game, gui, matura">
+        
+            <meta name="dc.date.created" content="2007-01-02">
+            <meta name="dc.date.issued" content="2007-01-02">
+        
+
+        <!-- favicon -->
+        <link rel="icon" href="/favicon.ico" type="image/x-icon">
+
+        <!-- newsfeed -->
+        <link href="/feed.atom" rel="alternate" title="Feed" type="application/atom+xml">
+
+        <!-- assets -->
+        <link href="https://fonts.googleapis.com/css?family=Linden+Hill:400,400italic" rel="stylesheet" type="text/css">
+        <link rel="stylesheet" href="/static/style.css?1358541794" type="text/css">
+            <link rel="stylesheet" href="/static/_pygments.css?1358541795" type="text/css">
+    </head>
+    <body>
+        <div id="wrapper">
+            <div id="blogtitle">code.jedidjah</div>
+            <ul id="mainnav">
+                <li><a href="/code">code</a></li>
+                <li><a href="/code/archive">archive</a></li>
+                <li><a href="/code/tags">tags</a></li>
+                <li><a href="/">jedidjah.ch</a></li>
+                <li class="last"><a href="/about">about</a></li>
+            </ul>
+
+            <div class="clearboth"></div>
+
+            <div id="content" class="hyphenate">
+                
+  <h1 class="title">GUI Editor</h1>
+
+  
+    <div class="date">
+      <p>written on Tuesday, January 2, 2007</p>
+    </div>
+  
+
+  <div class="note">
+<p class="first admonition-title">Note</p>
+<p class="last">This is about a game I once wrote, which was part of my high school
+thesis. Unfortunately, it's written in German.</p>
+</div>
+<p>Ich habe seit der letzten GUI Version vorallem noch das Streamen (laden &amp;
+speichern) gemacht und somit kann ich nun auch alle Komponenten speichern und
+laden.</p>
+<p>Nachdem ich nun an der GUI eigentlich nur noch Bugfixes und ein paar kleine
+Änderungen zu machen hatte, startete ich dann mit dem programmieren des
+GUI-Editors, welcher mittlerweile schon sehr weit fortgeschritten ist. Daran
+müssen eigentlich nur noch ein paar kleine Änderungen gemacht werden, wie z.B.
+das ändern von Frames, Popupmenus und Comboboxes.</p>
+<p>Durch Schulstress hatte ich allerdings auch nicht wirklich viel zeit um an
+meinem Projekt weiterzuarbeiten, dies sollte sich aber nun wieder bessern.</p>
+<p>Überzeugt euch nun aber selbst:</p>
+<img alt="../sample6.jpg" class="align-center" src="../sample6.jpg" style="width: 800px; height: 613px;" />
+<img alt="../sample7.jpg" class="align-center" src="../sample7.jpg" style="width: 800px; height: 613px;" />
+<p>Und noch der Changelog der letzten Zeit der GUI:</p>
+<ul class="simple">
+<li>09.12.06: Nun habe ich mich ein bisschen in GIMP eingearbeitet (welches
+übrigens ein sehr gutes Zeichenprogramm ist) um
+neue GUI - Texturen machen zu können. Ausserdem habe ich das Rendern der
+Buttons abgeändert.</li>
+<li>14.12.06: Z-Abfragen funktionieren nun viel besser, ausserdem habe ich
+angefangen eine Speichermethode zu implementieren...</li>
+<li>25.12.06: Streaming fertiggestellt (save &amp; load) aber Bugs müssen noch
+ausgemerzt werden.</li>
+<li>26.12.06: Beinahe alle Pointer abgeschafft, weil diese das ganze nur
+kompliziert machten und Bug-anfällig.</li>
+<li>29.12.06: Streaming läuft nun perfekt, alle Bugs behoben.
+Comboboxes und PopUpMenus hatten einen Bug, wo die Zählvariabeln i und j
+vertauscht wurden (in onMousedown und onMouseup). Fixed.
+Durch Streaming wurde nun Version 1.1 erreicht. Das nächste Ziel wird der
+Editor sein.
+PopUpMenus werden nun beim klicken auf irgendetwas geschlossen.
+Das aktive Fenster wird nun im Z Wert höher gestellt wie normal.</li>
+<li>31.12.06: Z wurde vielfach falsch gesetzt. Fixed.</li>
+<li>01.01.07: Space ist nun der bezeichner für den Abstand zwischen den
+Combobox-Zeilen, nicht mehr Height.</li>
+<li>02.01.07: Der Editor steht nun, man muss nur noch ein paar sachen verbessern.
+Edits und EditFields gaben eine Exception von sich, wenn man an den falschen
+Ort klickte.
+Update auf Version 1.2.</li>
+</ul>
+
+
+  
+    <div class="tags">
+      <p>This entry was tagged
+      
+        <a href="/code/tags/delphi/">delphi</a>, 
+        <a href="/code/tags/game/">game</a>, 
+        <a href="/code/tags/gui/">gui</a> and 
+        <a href="/code/tags/matura/">matura</a></p>
+    </div>
+  
+
+  
+    
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_shortname = 'jedidjah-code'; // required: replace example with your forum shortname
+    
+    
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">blog comments powered by <span class="logo-disqus">Disqus</span></a>
+
+  
+
+            </div>
+        </div>
+
+        <script type="text/javascript">
+          var _gaq = _gaq || [];
+          _gaq.push(['_setAccount', 'UA-37770631-1']);
+          _gaq.push(['_trackPageview']);
+          (function() {
+            var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+            var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+          })();
+        </script>
+        <script type="text/javascript" src="/static/hyphenator.js"></script>
+        <script type="text/javascript">
+            Hyphenator.run();
+        </script>
+
+    </body>
+</html>

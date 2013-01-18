@@ -1,0 +1,143 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <title>Double Encoding / Full Text Problems with MySQL 5.1</title>
+
+        <!-- meta -->
+        <meta name="author" content="David Halter">
+        <meta name="dc.language" content="en-US">
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta name="description" content="Double encoding problems with mysql">
+        <meta name="keywords" content="mysql">
+        
+            <meta name="dc.date.created" content="2010-09-26">
+            <meta name="dc.date.issued" content="2010-09-26">
+        
+
+        <!-- favicon -->
+        <link rel="icon" href="/favicon.ico" type="image/x-icon">
+
+        <!-- newsfeed -->
+        <link href="/feed.atom" rel="alternate" title="Feed" type="application/atom+xml">
+
+        <!-- assets -->
+        <link href="https://fonts.googleapis.com/css?family=Linden+Hill:400,400italic" rel="stylesheet" type="text/css">
+        <link rel="stylesheet" href="/static/style.css?1358541794" type="text/css">
+            <link rel="stylesheet" href="/static/_pygments.css?1358541795" type="text/css">
+    </head>
+    <body>
+        <div id="wrapper">
+            <div id="blogtitle">code.jedidjah</div>
+            <ul id="mainnav">
+                <li><a href="/code">code</a></li>
+                <li><a href="/code/archive">archive</a></li>
+                <li><a href="/code/tags">tags</a></li>
+                <li><a href="/">jedidjah.ch</a></li>
+                <li class="last"><a href="/about">about</a></li>
+            </ul>
+
+            <div class="clearboth"></div>
+
+            <div id="content" class="hyphenate">
+                
+  <h1 class="title">Double Encoding / Full Text Problems with MySQL 5.1</h1>
+
+  
+    <div class="date">
+      <p>written on Sunday, September 26, 2010</p>
+    </div>
+  
+
+  <div class="warning">
+<p class="first admonition-title">Warning</p>
+<p class="last">This is an old blog post. I don't recommend to use mysql at all.  Switch to
+<a class="reference external" href="http://www.postgresql.org/">PostgreSQL</a>, as I did, it's so much better.</p>
+</div>
+<p>As I updated MySQL from 5.0 to 5.1 (due to Debian I'm not always as uptodate as
+others) I realized that I had huge problems with the fulltext indexes.</p>
+<p>The following FTS example seemed not to work:</p>
+<div class="highlight"><pre><span class="k">CREATE</span> <span class="k">TABLE</span> <span class="n">IF</span> <span class="k">NOT</span> <span class="k">EXISTS</span> <span class="o">`</span><span class="n">fullTextTable</span><span class="o">`</span> <span class="p">(</span>
+<span class="o">`</span><span class="n">id</span><span class="o">`</span> <span class="nb">int</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span> <span class="n">unsigned</span> <span class="k">NOT</span> <span class="k">NULL</span> <span class="n">AUTO_INCREMENT</span><span class="p">,</span>
+<span class="o">`</span><span class="n">name</span><span class="o">`</span> <span class="nb">varchar</span><span class="p">(</span><span class="mi">80</span><span class="p">)</span> <span class="nb">CHARACTER</span> <span class="k">SET</span> <span class="n">utf8</span> <span class="k">COLLATE</span> <span class="n">utf8_unicode_ci</span> <span class="k">NOT</span> <span class="k">NULL</span><span class="p">,</span>
+<span class="k">PRIMARY</span> <span class="k">KEY</span> <span class="p">(</span><span class="o">`</span><span class="n">id</span><span class="o">`</span><span class="p">),</span>
+<span class="n">FULLTEXT</span> <span class="k">KEY</span> <span class="o">`</span><span class="n">nameFull</span><span class="o">`</span> <span class="p">(</span><span class="o">`</span><span class="n">name</span><span class="o">`</span><span class="p">)</span>
+<span class="p">)</span> <span class="n">ENGINE</span><span class="o">=</span><span class="n">MyISAM</span> <span class="k">DEFAULT</span> <span class="n">CHARSET</span><span class="o">=</span><span class="n">utf8</span><span class="p">;</span>
+
+<span class="k">insert</span> <span class="k">into</span> <span class="o">`</span><span class="n">fullTextTable</span><span class="o">`</span> <span class="p">(</span><span class="n">name</span><span class="p">)</span> <span class="k">values</span><span class="p">(</span><span class="s1">&#39;bärtsch&#39;</span><span class="p">),(</span><span class="s1">&#39;börtsch&#39;</span><span class="p">),(</span><span class="s1">&#39;böll&#39;</span><span class="p">),(</span><span class="s1">&#39;büll&#39;</span><span class="p">);</span>
+
+<span class="k">select</span> <span class="o">*</span> <span class="k">from</span> <span class="o">`</span><span class="n">fullTextTable</span><span class="o">`</span> <span class="k">where</span> <span class="k">match</span><span class="p">(</span><span class="n">name</span><span class="p">)</span> <span class="n">against</span><span class="p">(</span><span class="s1">&#39;+bärtsch&#39;</span> <span class="k">in</span> <span class="nb">boolean</span> <span class="k">mode</span><span class="p">);</span>
+
+<span class="k">drop</span> <span class="k">table</span> <span class="o">`</span><span class="n">fullTextTable</span><span class="o">`</span><span class="p">;</span>
+<span class="c1">-----------------------------</span>
+<span class="k">Returns</span><span class="p">:</span>
+<span class="o">+</span><span class="c1">----+----------+</span>
+<span class="o">|</span> <span class="n">id</span> <span class="o">|</span> <span class="n">name</span> <span class="o">|</span>
+<span class="o">+</span><span class="c1">----+----------+</span>
+<span class="o">|</span> <span class="mi">1</span> <span class="o">|</span> <span class="n">b</span><span class="err">ä</span><span class="n">rtsch</span> <span class="o">|</span>
+<span class="o">|</span> <span class="mi">2</span> <span class="o">|</span> <span class="n">b</span><span class="err">ö</span><span class="n">rtsch</span> <span class="o">|</span>
+<span class="o">|</span> <span class="mi">3</span> <span class="o">|</span> <span class="n">b</span><span class="err">ö</span><span class="n">ll</span> <span class="o">|</span>
+<span class="o">+</span><span class="c1">----+----------+</span>
+</pre></div>
+<p>With the help of the MySQL forums I realized that the cause was a double
+encoding. The length of <tt class="docutils literal">böll</tt> for example was not 5, but 7.</p>
+<p>Solving it was not a huge thing, just one query:</p>
+<div class="highlight"><pre><span class="k">update</span> <span class="n">test</span> <span class="k">set</span> <span class="n">fileNew</span> <span class="o">=</span> <span class="nb">binary</span> <span class="k">convert</span><span class="p">(</span><span class="n">file</span> <span class="k">using</span> <span class="n">latin1</span><span class="p">)</span>
+</pre></div>
+<p>Since the MySQL convert command doesn't work the expected way, you have to use
+the binary command before the convert.</p>
+<p>To check if everything worked out the way i wanted it, I used:</p>
+<div class="highlight"><pre><span class="k">select</span> <span class="o">*</span> <span class="k">from</span> <span class="n">test</span> <span class="k">where</span> <span class="n">file</span> <span class="o">!=</span> <span class="k">convert</span><span class="p">(</span><span class="k">convert</span><span class="p">((</span><span class="nb">binary</span> <span class="n">fileNew</span><span class="p">)</span> <span class="k">using</span> <span class="n">latin1</span><span class="p">)</span> <span class="k">using</span> <span class="n">utf8</span><span class="p">);</span>
+</pre></div>
+<p>The double encoding was just a little bug in my php interface: I did not use
+&quot;set names utf8&quot;. Setting it after connecting has solved my problems.</p>
+<p>If you plan on using fulltext indexes, I would seriously recommend checking
+your charsets.</p>
+
+
+  
+    <div class="tags">
+      <p>This entry was tagged
+      
+        <a href="/code/tags/mysql/">mysql</a></p>
+    </div>
+  
+
+  
+    
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_shortname = 'jedidjah-code'; // required: replace example with your forum shortname
+    
+    
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">blog comments powered by <span class="logo-disqus">Disqus</span></a>
+
+  
+
+            </div>
+        </div>
+
+        <script type="text/javascript">
+          var _gaq = _gaq || [];
+          _gaq.push(['_setAccount', 'UA-37770631-1']);
+          _gaq.push(['_trackPageview']);
+          (function() {
+            var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+            var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+          })();
+        </script>
+        <script type="text/javascript" src="/static/hyphenator.js"></script>
+        <script type="text/javascript">
+            Hyphenator.run();
+        </script>
+
+    </body>
+</html>

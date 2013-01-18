@@ -1,0 +1,141 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <title>Shader, Netzwerk &amp; Kollisionen</title>
+
+        <!-- meta -->
+        <meta name="author" content="David Halter">
+        <meta name="dc.language" content="en-US">
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta name="description" content="High school thesis, about shaders, networks and collisions.">
+        <meta name="keywords" content="delphi, game, gui, matura">
+        
+            <meta name="dc.date.created" content="2007-05-08">
+            <meta name="dc.date.issued" content="2007-05-08">
+        
+
+        <!-- favicon -->
+        <link rel="icon" href="/favicon.ico" type="image/x-icon">
+
+        <!-- newsfeed -->
+        <link href="/feed.atom" rel="alternate" title="Feed" type="application/atom+xml">
+
+        <!-- assets -->
+        <link href="https://fonts.googleapis.com/css?family=Linden+Hill:400,400italic" rel="stylesheet" type="text/css">
+        <link rel="stylesheet" href="/static/style.css?1358541794" type="text/css">
+            <link rel="stylesheet" href="/static/_pygments.css?1358541795" type="text/css">
+    </head>
+    <body>
+        <div id="wrapper">
+            <div id="blogtitle">code.jedidjah</div>
+            <ul id="mainnav">
+                <li><a href="/code">code</a></li>
+                <li><a href="/code/archive">archive</a></li>
+                <li><a href="/code/tags">tags</a></li>
+                <li><a href="/">jedidjah.ch</a></li>
+                <li class="last"><a href="/about">about</a></li>
+            </ul>
+
+            <div class="clearboth"></div>
+
+            <div id="content" class="hyphenate">
+                
+  <h1 class="title">Shader, Netzwerk &amp; Kollisionen</h1>
+
+  
+    <div class="date">
+      <p>written on Tuesday, May 8, 2007</p>
+    </div>
+  
+
+  <div class="note">
+<p class="first admonition-title">Note</p>
+<p class="last">This is about a game I once wrote, which was part of my high school
+thesis. Unfortunately, it's written in German.</p>
+</div>
+<p>Da ich wie immer zu faul war, hier was zu posten, gibts nun mal wieder ein
+grösseres Update. Ich erfülle so langsam alles, was es auch braucht für das
+Spiel.</p>
+<p>Angefangen hat es mit den Kollisionen. Diese sind schon sehr weit
+fortgeschritten (Dank geht u.a. an meinen Vater, der mir sehr geholfen hat) und
+auch gut optimiert. Da will ich als nächstes die Gravity und das Treppenlaufen
+ermitteln. Bilder dazu gibts leider keine, wäre ja nicht spannend ;)
+Die Technik die ich verwende für die Kollisionen, ist relativ kompliziert.
+Zuerst prüfe ich, ob die Spielfigur auch in einem gewissen Teil des Octrees
+ist, dann wird geschaut ob die Fläche mit der Bounding Sphere der Figur (Eine
+virtuelle Kugel, die die Figur approximiert) schneidet. Anschliessend wird dann
+mit einer komplizierten, aber sehr sehr schnellen Methode überprüft ob das
+Dreieck den Kreis schneidet, den es durch die Kollision mit der Fläche ergab.</p>
+<p>Daneben habe ich auch noch eine Prozedur geschrieben um eine Kollision eines
+Schusses und einer Boundingsphere zu ermöglichen. Dazu habe ich dann auch eine
+neue Charakter Unit geschrieben, wo alles mit Charakteren abläuft - Waffen,
+Schüsse, Modelle usw.</p>
+<p>Das nächste was ich bearbeitet habe, ist das Netzwerk. Dieses ist mittlerweile
+auch schon sehr gut fortgeschritten und in einem akzeptablen Zustand,
+allerdings müsste ich das ganze dringend mal testen, da ich aber nicht wirklich
+einen zweiten PC habe und unser zweiter PC sich nur sehr schlecht eignet dafür,
+muss ich da mal auf eine geeignete Gelegenheit warten.
+Beim Netwerk arbeite ich übrigens mit einem kombinierten Protokoll aus UDP/TCP,
+UDP verwende ich für die grossen Datenmengen und TCP für Dinge die unbedingt
+ankommen müssen.</p>
+<p>Mittlerweile habe ich es auch geschafft, mich in die Shader einzulesen (GLSL).
+Das ganze ist sehr spannend, doch auch hochkompliziert. So habe ich
+mittlerweile Shader implementiert und kann diese nun mit ATI Rendermonkey oder
+einem anderen Editor schreiben.</p>
+<p>Das ist auch schon das einzige Bild was ich für dieses Mal habe:</p>
+<img alt="../shader_bug.jpg" class="align-center" src="../shader_bug.jpg" />
+<p>Das ist ein kleines Beispiel, was man mit Shadern so alles falsch machen kann.
+Dies sollte eigentlich ein Comic Shader sein, aber irgendwie verhält er sich
+ein bisschen anders ;)</p>
+
+
+  
+    <div class="tags">
+      <p>This entry was tagged
+      
+        <a href="/code/tags/delphi/">delphi</a>, 
+        <a href="/code/tags/game/">game</a>, 
+        <a href="/code/tags/gui/">gui</a> and 
+        <a href="/code/tags/matura/">matura</a></p>
+    </div>
+  
+
+  
+    
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_shortname = 'jedidjah-code'; // required: replace example with your forum shortname
+    
+    
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">blog comments powered by <span class="logo-disqus">Disqus</span></a>
+
+  
+
+            </div>
+        </div>
+
+        <script type="text/javascript">
+          var _gaq = _gaq || [];
+          _gaq.push(['_setAccount', 'UA-37770631-1']);
+          _gaq.push(['_trackPageview']);
+          (function() {
+            var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+            var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+          })();
+        </script>
+        <script type="text/javascript" src="/static/hyphenator.js"></script>
+        <script type="text/javascript">
+            Hyphenator.run();
+        </script>
+
+    </body>
+</html>

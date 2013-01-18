@@ -1,0 +1,179 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <title>Blog reST Styleguide</title>
+
+        <!-- meta -->
+        <meta name="author" content="David Halter">
+        <meta name="dc.language" content="en-US">
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        
+        
+        
+
+        <!-- favicon -->
+        <link rel="icon" href="/favicon.ico" type="image/x-icon">
+
+        <!-- newsfeed -->
+        <link href="/feed.atom" rel="alternate" title="Feed" type="application/atom+xml">
+
+        <!-- assets -->
+        <link href="https://fonts.googleapis.com/css?family=Linden+Hill:400,400italic" rel="stylesheet" type="text/css">
+        <link rel="stylesheet" href="/static/style.css?1358541794" type="text/css">
+            <link rel="stylesheet" href="/static/_pygments.css?1358541795" type="text/css">
+    </head>
+    <body>
+        <div id="wrapper">
+            
+                <div id="blogtitle">jedidjah</div>
+                <ul id="mainnav">
+                    <li><a href="/">home</a></li>
+                    <li><a href="/code">code</a></li>
+                    <li><a href="/leben">leben</a></li>
+                    <li class="last"><a href="/about/">about</a></li>
+                </ul>
+
+                <div class="clearboth"></div>
+
+                <div id="content" class="hyphenate">
+                    
+  <h1 class="title">Blog reST Styleguide</h1>
+
+  
+
+  <div class="section" id="sourcecode-style">
+<h2>Sourcecode style</h2>
+<ul class="simple">
+<li>Max line length is 80 characters.</li>
+</ul>
+</div>
+<div class="section" id="basic-formatting">
+<h2>Basic Formatting</h2>
+<ul class="simple">
+<li>Use a single asterisk for <em>italic</em> text and a double asterisk for <strong>bold</strong>
+text.</li>
+</ul>
+<p><strong>Example:</strong></p>
+<div class="highlight"><pre><span class="ge">*italic*</span>
+<span class="gs">**bold**</span>
+</pre></div>
+</div>
+<div class="section" id="computer-stuff">
+<h2>Computer stuff</h2>
+<ul class="simple">
+<li>Use single backticks for filenames or directories.</li>
+<li>Use double backticks for inline sourcecode or variable names.</li>
+<li>Use <tt class="docutils literal">.. sourcecode:: language</tt> for larger parts of sourcecode.</li>
+</ul>
+<p><strong>Example:</strong></p>
+<div class="highlight"><pre><span class="nv">`/path/to/file.ext`</span>
+<span class="s">``size = 1000``</span>
+
+<span class="p">..</span> <span class="ow">sourcecode</span><span class="p">::</span> python
+    for i in xrange(0, 11):
+        print i
+</pre></div>
+<ul class="simple">
+<li>If you don't want any syntax highlighting, use a normal literal block using
+<tt class="docutils literal">::</tt>.</li>
+</ul>
+<p>** Example:**</p>
+<div class="highlight"><pre>Following a block of code without syntax highlighting<span class="se">::</span>
+
+<span class="s">    $ ./manage.py migrate cmsplugin_mailchimp</span>
+
+<span class="s">    Running migrations for cmsplugin_mailchimp:</span>
+<span class="s">     - Migrating forwards to 0003_redirect_url.</span>
+<span class="s">     &gt; cmsplugin_mailchimp:0003_redirect_url</span>
+<span class="s">     - Loading initial data for cmsplugin_mailchimp.</span>
+<span class="s">    Installed 0 object(s) from 0 fixture(s)</span>
+</pre></div>
+</div>
+<div class="section" id="images-alignment">
+<h2>Images, alignment</h2>
+<ul class="simple">
+<li>To include images, use the <tt class="docutils literal">image</tt> or <tt class="docutils literal">figure</tt> directives. By default,
+images should be left aligned. You should provide an alt text using the
+<tt class="docutils literal">:alt:</tt> attribute.</li>
+<li>A figure may provide a caption, it should be rendered in <em>italic</em> font.</li>
+<li>Images should be placed in a <cite>/static/img/&lt;year&gt;/&lt;month&gt;/&lt;day&gt;/</cite> folder.</li>
+</ul>
+<p><strong>Example:</strong></p>
+<div class="highlight"><pre><span class="p">..</span> <span class="ow">image</span><span class="p">::</span> /static/img/2012/6/17/spam.png
+    <span class="nc">:alt:</span> <span class="nf">Picture of a can of spam</span>
+
+<span class="p">..</span> <span class="ow">figure</span><span class="p">::</span> /static/img/2012/6/17/ni.jpg
+    :alt: A knight who says NI!
+
+    A knight who says NI!
+</pre></div>
+</div>
+<div class="section" id="videos">
+<h2>Videos</h2>
+<ul class="simple">
+<li>Use the <tt class="docutils literal">youtube</tt> and <tt class="docutils literal">vimeo</tt> directives.</li>
+<li>Videos sometimes look nice if they're scaled up to the width of the page. You
+can use the <tt class="docutils literal">:width:</tt> and <tt class="docutils literal">:height:</tt> attributes to resize them.</li>
+</ul>
+<p><strong>Example:</strong></p>
+<div class="highlight"><pre><span class="p">..</span> <span class="ow">youtube</span><span class="p">::</span> UsMvG8Tz0Ac
+
+<span class="p">..</span> <span class="ow">vimeo</span><span class="p">::</span> 17227977
+    :width: 900
+    <span class="nc">:height:</span> <span class="nf">504</span>
+</pre></div>
+</div>
+<div class="section" id="tags">
+<h2>Tags</h2>
+<p>Use English, lowercase tag names.</p>
+</div>
+<div class="section" id="todo">
+<h2>TODO</h2>
+<ul class="simple">
+<li>quotes, blockquotes</li>
+</ul>
+</div>
+
+
+  
+
+  
+    
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_shortname = 'jedidjah'; // required: replace example with your forum shortname
+    
+    
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">blog comments powered by <span class="logo-disqus">Disqus</span></a>
+
+  
+
+                </div>
+            
+        </div>
+
+        <script type="text/javascript">
+          var _gaq = _gaq || [];
+          _gaq.push(['_setAccount', 'UA-37770631-1']);
+          _gaq.push(['_trackPageview']);
+          (function() {
+            var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+            var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+          })();
+        </script>
+        <script type="text/javascript" src="/static/hyphenator.js"></script>
+        <script type="text/javascript">
+            Hyphenator.run();
+        </script>
+
+    </body>
+</html>

@@ -1,0 +1,131 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <title>Game Levels</title>
+
+        <!-- meta -->
+        <meta name="author" content="David Halter">
+        <meta name="dc.language" content="en-US">
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta name="description" content="High school thesis, loading of game levels.">
+        <meta name="keywords" content="delphi, game, gui, matura">
+        
+            <meta name="dc.date.created" content="2007-03-30">
+            <meta name="dc.date.issued" content="2007-03-30">
+        
+
+        <!-- favicon -->
+        <link rel="icon" href="/favicon.ico" type="image/x-icon">
+
+        <!-- newsfeed -->
+        <link href="/feed.atom" rel="alternate" title="Feed" type="application/atom+xml">
+
+        <!-- assets -->
+        <link href="https://fonts.googleapis.com/css?family=Linden+Hill:400,400italic" rel="stylesheet" type="text/css">
+        <link rel="stylesheet" href="/static/style.css?1358541794" type="text/css">
+            <link rel="stylesheet" href="/static/_pygments.css?1358541795" type="text/css">
+    </head>
+    <body>
+        <div id="wrapper">
+            <div id="blogtitle">code.jedidjah</div>
+            <ul id="mainnav">
+                <li><a href="/code">code</a></li>
+                <li><a href="/code/archive">archive</a></li>
+                <li><a href="/code/tags">tags</a></li>
+                <li><a href="/">jedidjah.ch</a></li>
+                <li class="last"><a href="/about">about</a></li>
+            </ul>
+
+            <div class="clearboth"></div>
+
+            <div id="content" class="hyphenate">
+                
+  <h1 class="title">Game Levels</h1>
+
+  
+    <div class="date">
+      <p>written on Friday, March 30, 2007</p>
+    </div>
+  
+
+  <div class="note">
+<p class="first admonition-title">Note</p>
+<p class="last">This is about a game I once wrote, which was part of my high school
+thesis. Unfortunately, it's written in German.</p>
+</div>
+<p>Ich habe jetzt das Levelladen und den Leveleditor eigentlich fertiggestellt.
+Das ganze ist so aufgebaut, dass man von <cite>.3ds</cite> Dateien laden kann, die dann
+verarbeitet werden intern und in ein eigenes Format übergehen.</p>
+<p>Das schöne daran ist, dass ich einfach Levels in <cite>3ds Max</cite> konstruieren kann,
+die dann in meinem Spiel optimiert werden. Auf den Bildern werden überall die
+Nodes der Octrees angezeigt, die max. 500 dreiecke enthalten.</p>
+<p>Wie man auf einigen Bildern sieht, sind teilweise Objekte relativ krass Polygon
+- intensiv, wie z.B. dieser Busch hier.</p>
+<p>Ausserdem habe ich Frustum Culling eingebaut, sodass nur die Würfel, die vor
+der Kamera liegen angezeigt werden.</p>
+<p>Weiterhin werde ich noch PVS (potentially visible sets) einbauen, die dann
+helfen werden Würfel auszublenden, die hinter anderen Objekten verdeckt werden.</p>
+<p>Momentan arbeite ich fest an den Kollisionen und bin mich heftig in
+Vektorgeometrie 3d am einarbeiten, da ich dies bei einem Lehrer gehabt hab, wo
+ich nicht gerade viel gelernt hab. Ausserdem sind Kollisionsberechnungen wie
+z.B. Sphere-Triangle und orientet Bounding Box - Triangle, die auf
+Geschwindigkeit optimiert werden müssen nicht gerade die einfachsten.
+Schwerer wirds dann noch wenn ich Treppen usw. realisieren will, wo man dann
+auch noch über polygone hinwegsteigen können sollte. Da frag ich mich dann
+wirklich, wie ich sowas mach. Wenn jemand eine gute Idee hat, bitte melden! ;-)</p>
+<img alt="../level2.jpg" class="align-center" src="../level2.jpg" />
+<img alt="../level1.jpg" class="align-center" src="../level1.jpg" />
+<p>Hier ist leider noch was dazwischengerutscht, sry ;)</p>
+<img alt="../level3.jpg" class="align-center" src="../level3.jpg" />
+
+
+  
+    <div class="tags">
+      <p>This entry was tagged
+      
+        <a href="/code/tags/delphi/">delphi</a>, 
+        <a href="/code/tags/game/">game</a>, 
+        <a href="/code/tags/gui/">gui</a> and 
+        <a href="/code/tags/matura/">matura</a></p>
+    </div>
+  
+
+  
+    
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_shortname = 'jedidjah-code'; // required: replace example with your forum shortname
+    
+    
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">blog comments powered by <span class="logo-disqus">Disqus</span></a>
+
+  
+
+            </div>
+        </div>
+
+        <script type="text/javascript">
+          var _gaq = _gaq || [];
+          _gaq.push(['_setAccount', 'UA-37770631-1']);
+          _gaq.push(['_trackPageview']);
+          (function() {
+            var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+            var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+          })();
+        </script>
+        <script type="text/javascript" src="/static/hyphenator.js"></script>
+        <script type="text/javascript">
+            Hyphenator.run();
+        </script>
+
+    </body>
+</html>
