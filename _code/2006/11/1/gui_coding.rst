@@ -8,7 +8,7 @@ GUI - Coding
 .. note ::
 
     This is about a game I once wrote, which was part of my high school
-    thesis. Unfortunately, it's in German.
+    thesis. Unfortunately, it's written in German.
 
 Ich hab in den Herbstferien und auch in den folgenden Wochen ziemlich lange
 Zeit mit dem proggen einer selbst entworfenen GUI (graphical user interface)
