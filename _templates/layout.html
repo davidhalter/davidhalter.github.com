@@ -30,19 +30,21 @@
     </head>
     <body>
         <div id="wrapper">
-            <div id="blogtitle">jedidjah</div>
-            <ul id="mainnav">
-                <li><a href="/">home</a></li>
-                <li><a href="/archive/">archive</a></li>
-                <li><a href="/tags/">tags</a></li>
-                <li class="last"><a href="/about/">about</a></li>
-            </ul>
+            {% block wrapper %}
+                <div id="blogtitle">jedidjah</div>
+                <ul id="mainnav">
+                    <li><a href="/">home</a></li>
+                    <li><a href="/archive/">archive</a></li>
+                    <li><a href="/tags/">tags</a></li>
+                    <li class="last"><a href="/about/">about</a></li>
+                </ul>
 
-            <div class="clearboth"></div>
+                <div class="clearboth"></div>
 
-            <div id="content" class="hyphenate">
-                {% block body %}{% endblock %}
-            </div>
+                <div id="content" class="hyphenate">
+                    {% block body %}{% endblock %}
+                </div>
+            {% endblock %}
         </div>
 
         <script type="text/javascript">
