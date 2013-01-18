@@ -58,8 +58,8 @@ def build():
     local('mv _build/static/_pygments.min.css _build/static/_pygments.css')
 
     # Add timestamp to css files
-    local('find _build -type f -exec sed -i "s/\(link.*\)style.css/\\1style.css?1358541794?%s/g" {} \;' % int(time.time()))
-    local('find _build -type f -exec sed -i "s/\(link.*\)_pygments.css/\\1_pygments.css?1358541795?%s/g" {} \;' % int(time.time()))
+    local('find _build -type f -exec sed -i "s/\(link.*\)style.css/\\1style.css?1358542929?%s/g" {} \;' % int(time.time()))
+    local('find _build -type f -exec sed -i "s/\(link.*\)_pygments.css/\\1_pygments.css?1358542930?%s/g" {} \;' % int(time.time()))
 
 
 def publish():
