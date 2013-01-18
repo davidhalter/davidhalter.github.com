@@ -2,6 +2,7 @@ import time
 import os
 from fabric.api import local, settings
 
+SUB_BLOGS = ['code', 'leben']
 
 
 def push():
@@ -27,13 +28,24 @@ def sync():
     local('git checkout dev')
 
 
+def build_sub_blogs():
+    for sub_blog in SUB_BLOGS:
+        os.chdir('_%s' % sub_blog)
+        local('rm -rf _build/ && run-rstblog build')
+        local('rm -rf ../_build/%s' % sub_blog)
+        local('mv _build/%s ../_build/' % sub_blog)
+        os.chdir('..')
+
+
 def serve():
+    build_sub_blogs()
     local('run-rstblog serve')
 
 
 def build():
     # Build HTML
     local('rm -rf _build/ && run-rstblog build')
+    build_sub_blogs()
 
     # Generate sitemaps
     local('python gensitemap.py > _build/sitemap.xml')
