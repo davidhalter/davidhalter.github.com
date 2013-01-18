@@ -2,6 +2,7 @@
 active_modules: [pygments, tags, blog, disqus, latex, videos]
 author: David Halter
 canonical_url: http://jedidjah.ch/
+ignore_files: ['*.py', '*.pyc', 'requirements.txt', '.*', '_*', '*.conf']
 modules:
     pygments:
         style: tango
