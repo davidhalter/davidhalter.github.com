@@ -1,6 +1,6 @@
 public: true
 tags: [Afghanistan]
-summay: Afghanistan, der Beginn einer Reise.
+summary: Afghanistan, der Beginn einer Reise.
 
 Grüetzi & Afghanistan
 =====================
