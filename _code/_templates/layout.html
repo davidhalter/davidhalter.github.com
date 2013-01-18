@@ -6,14 +6,12 @@
         <!-- meta -->
         <meta name="author" content="David Halter">
         <meta name="dc.language" content="en-US">
-        <meta name="dc.license" content="http://creativecommons.org/licenses/by-sa/3.0/">
         {% if ctx and ctx.summary %}<meta name="description" content="{{ ctx.summary }}">{% endif %}
         {% if ctx and ctx.tags %}<meta name="keywords" content="{{ ctx.tags|sort(case_sensitive=true)|join(', ') }}">{% endif %}
         {% if ctx and ctx.pub_date %}
             <meta name="dc.date.created" content="{{ ctx.pub_date.date().isoformat() }}">
             <meta name="dc.date.issued" content="{{ ctx.pub_date.date().isoformat() }}">
         {% endif %}
-        <meta name="google-site-verification" content="uJWWR6d5ESb8torD0v97T_07HLMGX7VzQ-smcUTc_IQ" />
 
         <!-- favicon -->
         <link rel="icon" href="/favicon.ico" type="image/x-icon">
