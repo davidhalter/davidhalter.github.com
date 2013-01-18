@@ -3,7 +3,7 @@ tags: [game, delphi, gui, matura]
 summary: High school thesis game release of "Terrorist's revenge"
 
 Game Relase: Terrorist's Revenge
-==========
+================================
 
 .. note ::
 
@@ -24,11 +24,11 @@ Der Download funktioniert wieder, diesmal auf einem Server wos immer gehen
 sollte.
 
 `Download Terrorist's Revenge (Game-25mb)
-</static/high_school_thesis/terrorists_revenge_installer.exe>`
+</static/high_school_thesis/terrorists_revenge_installer.exe>`_
 
-`Download Maturaarbeit (Thesis-5mb) </static/high_school_thesis/thesis.pdf>`
+`Download Maturaarbeit (Thesis-5mb) </static/high_school_thesis/thesis.pdf>`_
 
-`Download Code/Source File (PDF-2mb) </static/high_school_thesis/source.pdf>`
+`Download Code/Source File (PDF-2mb) </static/high_school_thesis/source.pdf>`_
 
 hier kann nebenbei auch noch die Maturaarbeit und die Source (in einem File)
 heruntergeladen werden. Wer die Source einzeln haben will, soll mir bitte eine

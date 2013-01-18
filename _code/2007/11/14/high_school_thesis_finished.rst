@@ -18,38 +18,62 @@ auch bald funktioniert, wenn nicht auch egal.
 
 Hier noch ein paar Bilder:
 
-.. image:: screen0.jpg
+.. image:: ../screen0.jpg
    :align: center
+   :width: 800
+   :height: 613
 
-.. image:: screen1.jpg
+.. image:: ../screen1.jpg
    :align: center
+   :width: 800
+   :height: 613
 
-.. image:: screen2.jpg
+.. image:: ../screen2.jpg
    :align: center
+   :width: 800
+   :height: 613
 
-.. image:: screen3.jpg
+.. image:: ../screen3.jpg
    :align: center
+   :width: 800
+   :height: 613
 
-.. image:: screen4.jpg
+.. image:: ../screen4.jpg
    :align: center
+   :width: 800
+   :height: 613
 
-.. image:: screen5.jpg
+.. image:: ../screen5.jpg
    :align: center
+   :width: 800
+   :height: 613
 
-.. image:: screen6.jpg
+.. image:: ../screen6.jpg
    :align: center
+   :width: 800
+   :height: 613
 
-.. image:: screen7.jpg
+.. image:: ../screen7.jpg
    :align: center
+   :width: 800
+   :height: 613
 
-.. image:: screen8.jpg
+.. image:: ../screen8.jpg
    :align: center
+   :width: 800
+   :height: 613
 
-.. image:: screen9.jpg
+.. image:: ../screen9.jpg
    :align: center
+   :width: 800
+   :height: 613
 
-.. image:: screen10.jpg
+.. image:: ../screen10.jpg
    :align: center
+   :width: 800
+   :height: 613
 
-.. image:: screen11.jpg
+.. image:: ../screen11.jpg
    :align: center
+   :width: 800
+   :height: 613
