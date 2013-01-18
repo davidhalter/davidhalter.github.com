@@ -4,11 +4,9 @@ disqus: no
 About me
 ========
 
-.. image:: /static/img/me.jpg
+.. image:: /static/me_small.jpg
     :alt: Me
     :align: right
-    :width: 144
-    :height: 205
 
 Hi. I'm David Halter. I wish I would still be 23, but that's not the case
 anymore. I studied computer science @zhaw.ch. I'm currently working on open
