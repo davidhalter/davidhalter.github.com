@@ -35,6 +35,8 @@ Buy-Window:
 
 .. image:: ../buy_window.jpg
    :align: center
+   :width: 800
+   :height: 613
 
 Wie man sieht, sieht das ganze noch wirklich schlecht aus. Das wird aber
 sicherlich noch kommen, genau das ist das, was ich mit einem richtigen Anstrich
