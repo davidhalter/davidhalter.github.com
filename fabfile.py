@@ -11,15 +11,15 @@ def push():
 
 def sync():
     # this is special because of github pages, pure html goes into master
-    if not os.path.exists('build'):
+    if not os.path.exists('_build'):
         raise ValueError('Build directory must exist.')
     last_commit = local('git log -n 1 --pretty=%B', capture=True)
     local('git checkout master')
-    local('ls | grep -v build | xargs -n 1 rm -r')
-    local('cp -r build/* .')
-    local('mv build .build')
+    local('ls | grep -v _build | xargs -n 1 rm -r')
+    local('cp -r _build/* .')
+    local('mv _build .build')
     local('git add *')
-    local('mv .build build')
+    local('mv .build _build')
     com = last_commit.replace('"', r'\"')
     with settings(warn_only=True):
         local('git commit -a -m "new release: %s"' % com)
