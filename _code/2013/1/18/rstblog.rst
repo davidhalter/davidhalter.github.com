@@ -6,8 +6,8 @@ rstblog - what a charm!
 ==============================
 
 I never really had the motivation to have my own website. But because I'm going
-to be in Afghanistan and I want to do a little bit of blogging, I decided to
-start for a `blag <http://xkcd.com/148/>`_ after all.
+to be in Afghanistan for a while, I wanted to do a little bit of blogging, so I
+decided to start a `blag <http://xkcd.com/148/>`_ after all.
 
 The reason why I was not going for tumblr, blogspot, etc. was that once your
 content is there, it's hard to get it away from there. I always like to have
