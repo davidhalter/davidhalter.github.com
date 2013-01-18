@@ -33,6 +33,8 @@ Hier noch die Screenshots, die sagen wohl am meisten aus:
 
 .. image:: ../gui_editor.jpg
    :align: center
+   :width: 800
+   :height: 613
 
 PS: Im übrigen ist zu sagen, dass ich natürlich nicht nur an der GUI
 drangesessen bin, während der langen Zeit zwischen den Posts. Ich kann jetzt

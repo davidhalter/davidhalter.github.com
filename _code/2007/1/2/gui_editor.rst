@@ -28,9 +28,13 @@ meinem Projekt weiterzuarbeiten, dies sollte sich aber nun wieder bessern.
 
 .. image:: ../sample6.jpg
    :align: center
+   :width: 800
+   :height: 613
 
 .. image:: ../sample7.jpg
    :align: center
+   :width: 800
+   :height: 613
 
 Und noch der Changelog der letzten Zeit der GUI:
 
