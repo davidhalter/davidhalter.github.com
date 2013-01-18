@@ -1,4 +1,4 @@
--e git+git://github.com/dbrgn/rstblog.git@integrate#egg=rstblog-dev
+-e git+git://github.com/davidhalter-archive/rstblog.git#egg=rstblog-dev
 jinja2
 Pygments==1.5
 Fabric==1.4.3
