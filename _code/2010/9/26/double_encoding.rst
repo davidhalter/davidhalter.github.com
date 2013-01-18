@@ -1,9 +1,14 @@
 public: yes
 tags: [mysql]
-summary: Start blogging with rstblog.
+summary: Double encoding problems with mysql
 
 Double Encoding / Full Text Problems with MySQL 5.1
 ===================================================
+
+.. note ::
+
+    This is an old blog post. I don't recommend to use mysql at all.
+    Switch to postgres, as I did, it's so much better.
 
 As I updated MySQL from 5.0 to 5.1 (due to Debian I'm not always as uptodate as
 others) I realized that I had huge problems with the fulltext indexes.
