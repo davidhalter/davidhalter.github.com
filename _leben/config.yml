@@ -6,5 +6,5 @@ modules:
     pygments:
         style: tango
     disqus:
-        shortname: jedidjah-code
+        shortname: jedidjah-leben
 language: de
