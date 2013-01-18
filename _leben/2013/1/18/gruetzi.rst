@@ -17,7 +17,7 @@ wars halt Afghanistan. Ich werde mit `PACTEC <http://www.pactec.org/>`_
 unterwegs sein, einem NGO, dass andere humanitäre NGO unterstützt um
 Kommunikations- und Transporthürden zu überwinden. Konkret heisst das z.B.
 medizinische Hilfsgüter in abgelegene Regionen Afghanistans zu fliegen, damit
-Organisationen wie `World Vision <http://www.worldvision.ch/de/home/>` dort
+Organisationen wie `World Vision <http://www.worldvision.ch/de/home/>`_ dort
 arbeiten können. Andererseits werden für diese Organisationen auch VSAT
 Installationen gemacht, das heisst es werden Satellitenschüsseln aufgestellt,
 um den Organisationen Zugang zum Internet und somit den Kontakt nach aussen zu
@@ -25,6 +25,6 @@ gewährleisten.
 
 Meine Arbeit in Kabul betrifft logischerweise nicht die Fliegerei, sondern die
 IT (Man sollte ein Kellerkind nicht zu sehr der Sonne aussetzen :-)). Ich bin
-hauptsächlich da, um die bestehenden Mitarbeiter zu schulen.
+hauptsächlich da, um die bestehenden afghanischen Mitarbeiter zu schulen.
 
 Ihr seid natürlich herzlich eingeladen mitzulesen und zu kommentieren!
