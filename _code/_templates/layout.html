@@ -6,6 +6,7 @@
         <!-- meta -->
         <meta name="author" content="David Halter">
         <meta name="dc.language" content="en-US">
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         {% if ctx and ctx.summary %}<meta name="description" content="{{ ctx.summary }}">{% endif %}
         {% if ctx and ctx.tags %}<meta name="keywords" content="{{ ctx.tags|sort(case_sensitive=true)|join(', ') }}">{% endif %}
         {% if ctx and ctx.pub_date %}

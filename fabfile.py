@@ -38,8 +38,9 @@ def build_sub_blogs():
 
 
 def serve():
+    local('rm -rf _build/ && mkdir _build')
     build_sub_blogs()
-    local('rm -rf _build/ && run-rstblog serve')
+    local('run-rstblog serve')
 
 
 def build():
