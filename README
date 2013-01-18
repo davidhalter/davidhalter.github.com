@@ -1,0 +1,5 @@
+This is my blog, the master branch is full of pure html (github pages needs the
+master branch).
+
+The actual source code is in the dev branch. So if you want to fix an error,
+don't fix it in the master branch, use the dev branch. It's an rstblog.
