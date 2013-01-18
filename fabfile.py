@@ -18,7 +18,7 @@ def sync():
     local('ls | grep -v build | xargs -n 1 rm -r')
     local('cp -r build/* .')
     local('mv build .build')
-    local('ls | xargs git add')
+    local('git add *')
     local('mv .build build')
     com = last_commit.replace('"', r'\"')
     with settings(warn_only=True):
