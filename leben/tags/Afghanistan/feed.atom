@@ -9,9 +9,9 @@
   <generator>Werkzeug</generator>
   <entry xml:base="http://jedidjah.ch/leben/feed.atom">
     <title type="text">Grüetzi &amp; Afghanistan</title>
-    <id>http://jedidjah.ch/2013/1/18/gruetzi</id>
+    <id>http://jedidjah.ch/2013/1/18/blog_start</id>
     <updated>2013-01-18T00:00:00Z</updated>
-    <link href="http://jedidjah.ch/2013/1/18/gruetzi" />
+    <link href="http://jedidjah.ch/2013/1/18/blog_start" />
     <author>
       <name>David Halter</name>
     </author>
