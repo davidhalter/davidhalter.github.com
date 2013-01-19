@@ -1,0 +1,201 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <title>Why Jedi not Rope</title>
+
+        <!-- meta -->
+        <meta name="author" content="David Halter">
+        <meta name="dc.language" content="en-US">
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta name="description" content="A comparison between the autocompletion libraries Jedi and rope.">
+        <meta name="keywords" content="comparison, jedi, python, rope">
+        
+            <meta name="dc.date.created" content="2013-01-19">
+            <meta name="dc.date.issued" content="2013-01-19">
+        
+
+        <!-- favicon -->
+        <link rel="icon" href="/favicon.ico" type="image/x-icon">
+
+        <!-- newsfeed -->
+        <link href="/feed.atom" rel="alternate" title="Feed" type="application/atom+xml">
+
+        <!-- assets -->
+        <link href="https://fonts.googleapis.com/css?family=Linden+Hill:400,400italic" rel="stylesheet" type="text/css">
+        <link rel="stylesheet" href="/static/style.css?1358558741" type="text/css">
+            <link rel="stylesheet" href="/static/_pygments.css?1358558744" type="text/css">
+    </head>
+    <body>
+        <div id="wrapper">
+            <div id="blogtitle">code.jedidjah</div>
+            <ul id="mainnav">
+                <li><a href="/code">code</a></li>
+                <li><a href="/code/archive">archive</a></li>
+                <li><a href="/code/tags">tags</a></li>
+                <li><a href="/">jedidjah.ch</a></li>
+                <li class="last"><a href="/about">about</a></li>
+            </ul>
+
+            <div class="clearboth"></div>
+
+            <div id="content" class="hyphenate">
+                
+  <h1 class="title">Why Jedi not Rope</h1>
+
+  
+    <div class="date">
+      <p>written on Saturday, January 19, 2013</p>
+    </div>
+  
+
+  <p>Recently <a class="reference external" href="http://www.reddit.com/r/Python/comments/15604u/pycharm_sale_75_off/c7qw8kv?context=3">I was asked</a>
+to compare Jedi with Rope, because saying &quot;it's better&quot; was just not good
+enough. :-)</p>
+<p>Now, in the python world there are 3 fairly good auto-completion systems:</p>
+<ul class="simple">
+<li><a class="reference external" href="http://rope.sourceforge.net/">Rope</a></li>
+<li>PyCharm (commercial IDE, not a library)</li>
+<li><a class="reference external" href="http://jedi.jedidjah.ch/">Jedi</a></li>
+</ul>
+<p>The only other autocompletion library is <cite>PySmell</cite>, which is just very simple.
+Doesn't understand code that is a little bit more complicated. Other solutions
+include <cite>PyDev</cite>, <cite>PyDiction</cite>, and <cite>pythoncomplete</cite>, which are all fine but
+don't offer a good autocompletion system.</p>
+<p>I will compare Rope and Jedi now. I'm not comparing with PyCharm now, it's not
+as good as Jedi, but I'll talk about that another day.</p>
+<p>So the main difference between Rope and Jedi is their goal. You can see that in
+the description:</p>
+<ul class="simple">
+<li>Rope, a python refactoring library.</li>
+<li>Jedi, an awesome autocompletion library for Python.</li>
+</ul>
+<p>Rope was never really intended to be an autocompletion library and therefore
+has a natural disadvantage in this field.</p>
+<div class="section" id="completion-comparison">
+<h2>Completion comparison</h2>
+<p>So I went down to the real business: Checking for cases that might work in one
+library, but not in the other. So I sat down and used Spyder to compare a few
+things (Spyder is using rope, but <a class="reference external" href="https://github.com/davidhalter/jedi/issues/102">is considering</a> to switch to Jedi).  As
+expected I haven't found anything that is working in rope, but not in Jedi.
+With rope the following things don't complete (work in Jedi though):</p>
+<ul class="simple">
+<li>generators/iterators</li>
+<li><cite>__call__</cite> and other magic methods</li>
+<li>completion within classes/functions</li>
+<li>dynamic arrays</li>
+<li><cite>*args</cite>, <cite>**kwargs</cite></li>
+<li>lambdas</li>
+<li>simple sys.path manipulations</li>
+<li>invalid code, rope cannot handle too many errors, in Jedi it will always work
+if some parts of the code are valid.</li>
+<li>performance in big files</li>
+</ul>
+<p>Rope isn't &quot;bad&quot;. It's just not as good as Jedi for autocompletion. But it's
+pretty clear that rope fails to understand some basic principles of Python. For
+example <cite>list.append</cite> in one place will already make rope useless.</p>
+</div>
+<div class="section" id="api-goodness">
+<h2>API goodness</h2>
+<p>Jedi has a very nice and user-friendly API:</p>
+<div class="highlight"><pre><span class="o">&gt;&gt;&gt;</span> <span class="kn">import</span> <span class="nn">jedi</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">source</span> <span class="o">=</span> <span class="s">&#39;&#39;&#39;import json; json.l&#39;&#39;&#39;</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">script</span> <span class="o">=</span> <span class="n">jedi</span><span class="o">.</span><span class="n">Script</span><span class="p">(</span><span class="n">source</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">19</span><span class="p">,</span> <span class="s">&#39;example.py&#39;</span><span class="p">)</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">script</span>
+<span class="o">&lt;</span><span class="n">Script</span><span class="p">:</span> <span class="s">&#39;example.py&#39;</span><span class="o">&gt;</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">completions</span> <span class="o">=</span> <span class="n">script</span><span class="o">.</span><span class="n">complete</span><span class="p">()</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">completions</span>
+<span class="p">[</span><span class="o">&lt;</span><span class="n">Completion</span><span class="p">:</span> <span class="n">load</span><span class="o">&gt;</span><span class="p">,</span> <span class="o">&lt;</span><span class="n">Completion</span><span class="p">:</span> <span class="n">loads</span><span class="o">&gt;</span><span class="p">]</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">completions</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">complete</span>
+<span class="s">&#39;oad&#39;</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">completions</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">word</span>
+<span class="s">&#39;load&#39;</span>
+</pre></div>
+<p>So, what about rope? The documentation says something like this:</p>
+<div class="highlight"><pre><span class="kn">from</span> <span class="nn">rope.base.project</span> <span class="kn">import</span> <span class="n">Project</span>
+<span class="n">project</span> <span class="o">=</span> <span class="n">Project</span><span class="p">(</span><span class="s">&#39;.ropeproject&#39;</span><span class="p">)</span>
+
+<span class="kn">from</span> <span class="nn">rope.contrib</span> <span class="kn">import</span> <span class="n">codeassist</span>
+<span class="c"># Get the proposals; you might want to pass a Resource</span>
+<span class="n">proposals</span> <span class="o">=</span> <span class="n">codeassist</span><span class="o">.</span><span class="n">code_assist</span><span class="p">(</span><span class="n">project</span><span class="p">,</span> <span class="n">source_code</span><span class="p">,</span> <span class="n">offset</span><span class="p">)</span>
+<span class="n">proposals</span> <span class="o">=</span> <span class="n">codeassist</span><span class="o">.</span><span class="n">sorted_proposals</span><span class="p">(</span><span class="n">proposals</span><span class="p">)</span>
+
+<span class="n">proposal</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">name</span>
+</pre></div>
+<p>While I don't know it it's possible to do the same with rope and Jedi, it's
+certainly clear that there's <a class="reference external" href="http://rope.sourceforge.net/library.html#rope-contrib-codeassist">no documentation</a> around for
+rope. It's also not clear how rope would check for relative imports, because
+rope simply doesn't know where the file it is completing is situated at (the
+project folder might be in an other directory).</p>
+</div>
+<div class="section" id="refactoring">
+<h2>Refactoring</h2>
+<p>This is really the place where rope shines. I don't want to talk about this too
+long, but Jedi has only very limited refactoring possibilities like renaming.
+There's a <a class="reference external" href="https://github.com/davidhalter/jedi/issues/103">discussion</a> going
+on on github, how to improve the refactoring in Jedi. But rope will probably
+always be better there.</p>
+</div>
+<div class="section" id="conclusion">
+<h2>Conclusion</h2>
+<p>As Jedi is not really suited for refactoring, Rope is not really suited for
+autocompletion. In a fully fledged IDE I would recommend to use Jedi for
+autocompletion and Rope for refactorings. I think these two complement one
+another very well.  would recommend to use Jedi for IDE features like</p>
+<p>But if you are asking yourself: <strong>Which one should I choose</strong> for my editor
+(vim, emacs, sublime, etc)?* The answer should always be <strong>Jedi</strong>. You can
+always add refactoring later on. But what you want in the beginning is a good
+and rock-solid autocompletion library.</p>
+</div>
+
+
+  
+    <div class="tags">
+      <p>This entry was tagged
+      
+        <a href="/code/tags/comparison/">comparison</a>, 
+        <a href="/code/tags/jedi/">jedi</a>, 
+        <a href="/code/tags/python/">python</a> and 
+        <a href="/code/tags/rope/">rope</a></p>
+    </div>
+  
+
+  
+    
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_shortname = 'jedidjah-code'; // required: replace example with your forum shortname
+    
+    
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">blog comments powered by <span class="logo-disqus">Disqus</span></a>
+
+  
+
+            </div>
+        </div>
+
+        <script type="text/javascript">
+          var _gaq = _gaq || [];
+          _gaq.push(['_setAccount', 'UA-37770631-1']);
+          _gaq.push(['_setDomainName', 'jedidjah.ch']);
+          _gaq.push(['_trackPageview']);
+          (function() {
+            var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+            var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+          })();
+        </script>
+        <script type="text/javascript" src="/static/hyphenator.js"></script>
+        <script type="text/javascript">
+            Hyphenator.run();
+        </script>
+
+    </body>
+</html>
