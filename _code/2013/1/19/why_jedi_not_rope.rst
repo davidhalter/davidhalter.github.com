@@ -1,6 +1,6 @@
 public: yes
 tags: [python, jedi, rope, comparison]
-summary: A comparison between the autocompletion libraries Jedi and rope.
+summary: A comparison between the autocompletion libraries Jedi and Rope.
 
 Why Jedi not Rope
 =================
@@ -38,10 +38,10 @@ Completion comparison
 
 So I went down to the real business: Checking for cases that might work in one
 library, but not in the other. So I sat down and used Spyder to compare a few
-things (Spyder is using rope, but `is considering
+things (Spyder is using Rope, but `is considering
 <https://github.com/davidhalter/jedi/issues/102>`_ to switch to Jedi).  As
-expected I haven't found anything that is working in rope, but not in Jedi.
-With rope the following things don't complete (work in Jedi though):
+expected I haven't found anything that is working in Rope, but not in Jedi.
+With Rope the following things don't complete (work in Jedi though):
 
 - generators/iterators
 - `__call__` and other magic methods
@@ -50,13 +50,13 @@ With rope the following things don't complete (work in Jedi though):
 - `*args`, `**kwargs`
 - lambdas
 - simple sys.path manipulations
-- invalid code, rope cannot handle too many errors, in Jedi it will always work
+- invalid code, Rope cannot handle too many errors, in Jedi it will always work
   if some parts of the code are valid.
 - performance in big files
 
 Rope isn't "bad". It's just not as good as Jedi for autocompletion. But it's
-pretty clear that rope fails to understand some basic principles of Python. For
-example `list.append` in one place will already make rope useless.
+pretty clear that Rope fails to understand some basic principles of Python. For
+example `list.append` in one place will already make Rope useless.
 
 
 API goodness
@@ -79,7 +79,7 @@ Jedi has a very nice and user-friendly API:
     >>> completions[0].word
     'load'
 
-So, what about rope? The documentation says something like this:
+So, what about Rope? The documentation says something like this:
 
 .. sourcecode:: python
 
@@ -93,29 +93,29 @@ So, what about rope? The documentation says something like this:
 
     proposal[0].name
 
-While I don't know it it's possible to do the same with rope and Jedi, it's
+While I don't know it it's possible to do the same with Rope and Jedi, it's
 certainly clear that there's `no documentation
 <http://rope.sourceforge.net/library.html#rope-contrib-codeassist>`_ around for
-rope. It's also not clear how rope would check for relative imports, because
-rope simply doesn't know where the file it is completing is situated at (the
+Rope. It's also not clear how Rope would check for relative imports, because
+Rope simply doesn't know where the file it is completing is situated at (the
 project folder might be in an other directory).
 
 Refactoring
 -----------
 
-This is really the place where rope shines. I don't want to talk about this too
+This is really the place where Rope shines. I don't want to talk about this too
 long, but Jedi has only very limited refactoring possibilities like renaming.
 There's a `discussion <https://github.com/davidhalter/jedi/issues/103>`_ going
-on on github, how to improve the refactoring in Jedi. But rope will probably
+on on github, how to improve the refactoring in Jedi. But Rope will probably
 always be better there.
 
 Conclusion
 ----------
 
-As Jedi is not really suited for refactoring, Rope is not really suited for
+Like Jedi is not really suited for refactoring, Rope is not really suited for
 autocompletion. In a fully fledged IDE I would recommend to use Jedi for
 autocompletion and Rope for refactorings. I think these two complement one
-another very well.  would recommend to use Jedi for IDE features like 
+another very well.
 
 But if you are asking yourself: **Which one should I choose** for my editor
 (vim, emacs, sublime, etc)?* The answer should always be **Jedi**. You can
