@@ -72,9 +72,9 @@ has a natural disadvantage in this field.&lt;/p&gt;
 &lt;h2&gt;Completion comparison&lt;/h2&gt;
 &lt;p&gt;So I went down to the real business: Checking for cases that might work in one
 library, but not in the other. So I sat down and used Spyder to compare a few
-things (Spyder is using rope, but &lt;a class="reference external" href="https://github.com/davidhalter/jedi/issues/102"&gt;is considering&lt;/a&gt; to switch to Jedi).  As
-expected I haven't found anything that is working in rope, but not in Jedi.
-With rope the following things don't complete (work in Jedi though):&lt;/p&gt;
+things (Spyder is using Rope, but &lt;a class="reference external" href="https://github.com/davidhalter/jedi/issues/102"&gt;is considering&lt;/a&gt; to switch to Jedi).  As
+expected I haven't found anything that is working in Rope, but not in Jedi.
+With Rope the following things don't complete (work in Jedi though):&lt;/p&gt;
 &lt;ul class="simple"&gt;
 &lt;li&gt;generators/iterators&lt;/li&gt;
 &lt;li&gt;&lt;cite&gt;__call__&lt;/cite&gt; and other magic methods&lt;/li&gt;
@@ -83,13 +83,13 @@ With rope the following things don't complete (work in Jedi though):&lt;/p&gt;
 &lt;li&gt;&lt;cite&gt;*args&lt;/cite&gt;, &lt;cite&gt;**kwargs&lt;/cite&gt;&lt;/li&gt;
 &lt;li&gt;lambdas&lt;/li&gt;
 &lt;li&gt;simple sys.path manipulations&lt;/li&gt;
-&lt;li&gt;invalid code, rope cannot handle too many errors, in Jedi it will always work
+&lt;li&gt;invalid code, Rope cannot handle too many errors, in Jedi it will always work
 if some parts of the code are valid.&lt;/li&gt;
 &lt;li&gt;performance in big files&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;Rope isn't &amp;quot;bad&amp;quot;. It's just not as good as Jedi for autocompletion. But it's
-pretty clear that rope fails to understand some basic principles of Python. For
-example &lt;cite&gt;list.append&lt;/cite&gt; in one place will already make rope useless.&lt;/p&gt;
+pretty clear that Rope fails to understand some basic principles of Python. For
+example &lt;cite&gt;list.append&lt;/cite&gt; in one place will already make Rope useless.&lt;/p&gt;
 &lt;/div&gt;
 &lt;div class="section" id="api-goodness"&gt;
 &lt;h2&gt;API goodness&lt;/h2&gt;
@@ -107,7 +107,7 @@ example &lt;cite&gt;list.append&lt;/cite&gt; in one place will already make rope
 &lt;span class="o"&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class="n"&gt;completions&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;word&lt;/span&gt;
 &lt;span class="s"&gt;&amp;#39;load&amp;#39;&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;So, what about rope? The documentation says something like this:&lt;/p&gt;
+&lt;p&gt;So, what about Rope? The documentation says something like this:&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;rope.base.project&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;Project&lt;/span&gt;
 &lt;span class="n"&gt;project&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;Project&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;.ropeproject&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
 
@@ -118,26 +118,26 @@ example &lt;cite&gt;list.append&lt;/cite&gt; in one place will already make rope
 
 &lt;span class="n"&gt;proposal&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;name&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;While I don't know it it's possible to do the same with rope and Jedi, it's
+&lt;p&gt;While I don't know it it's possible to do the same with Rope and Jedi, it's
 certainly clear that there's &lt;a class="reference external" href="http://rope.sourceforge.net/library.html#rope-contrib-codeassist"&gt;no documentation&lt;/a&gt; around for
-rope. It's also not clear how rope would check for relative imports, because
-rope simply doesn't know where the file it is completing is situated at (the
+Rope. It's also not clear how Rope would check for relative imports, because
+Rope simply doesn't know where the file it is completing is situated at (the
 project folder might be in an other directory).&lt;/p&gt;
 &lt;/div&gt;
 &lt;div class="section" id="refactoring"&gt;
 &lt;h2&gt;Refactoring&lt;/h2&gt;
-&lt;p&gt;This is really the place where rope shines. I don't want to talk about this too
+&lt;p&gt;This is really the place where Rope shines. I don't want to talk about this too
 long, but Jedi has only very limited refactoring possibilities like renaming.
 There's a &lt;a class="reference external" href="https://github.com/davidhalter/jedi/issues/103"&gt;discussion&lt;/a&gt; going
-on on github, how to improve the refactoring in Jedi. But rope will probably
+on on github, how to improve the refactoring in Jedi. But Rope will probably
 always be better there.&lt;/p&gt;
 &lt;/div&gt;
 &lt;div class="section" id="conclusion"&gt;
 &lt;h2&gt;Conclusion&lt;/h2&gt;
-&lt;p&gt;As Jedi is not really suited for refactoring, Rope is not really suited for
+&lt;p&gt;Like Jedi is not really suited for refactoring, Rope is not really suited for
 autocompletion. In a fully fledged IDE I would recommend to use Jedi for
 autocompletion and Rope for refactorings. I think these two complement one
-another very well.  would recommend to use Jedi for IDE features like&lt;/p&gt;
+another very well.&lt;/p&gt;
 &lt;p&gt;But if you are asking yourself: &lt;strong&gt;Which one should I choose&lt;/strong&gt; for my editor
 (vim, emacs, sublime, etc)?* The answer should always be &lt;strong&gt;Jedi&lt;/strong&gt;. You can
 always add refactoring later on. But what you want in the beginning is a good
