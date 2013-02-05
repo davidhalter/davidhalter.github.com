@@ -109,7 +109,7 @@ autocompletion. In a fully fledged IDE I would recommend to use Jedi for
 autocompletion and Rope for refactorings. I think these two complement one
 another very well.&lt;/p&gt;
 &lt;p&gt;But if you are asking yourself: &lt;strong&gt;Which one should I choose&lt;/strong&gt; for my editor
-(vim, emacs, sublime, etc)?* The answer should always be &lt;strong&gt;Jedi&lt;/strong&gt;. You can
+(vim, emacs, sublime, etc)? The answer should always be &lt;strong&gt;Jedi&lt;/strong&gt;. You can
 always add refactoring later on. But what you want in the beginning is a good
 and rock-solid autocompletion library.&lt;/p&gt;
 &lt;/div&gt;

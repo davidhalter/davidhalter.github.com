@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title type="text">Recent Blog Posts</title>
+  <id>http://jedidjah.ch/music/feed.atom</id>
+  <updated>2013-02-05T00:00:00Z</updated>
+  <link href="http://jedidjah.ch/music/" />
+  <link href="http://jedidjah.ch/music/feed.atom" rel="self" />
+  <subtitle type="text">Recent blog posts</subtitle>
+  <generator>Werkzeug</generator>
+  <entry xml:base="http://jedidjah.ch/music/feed.atom">
+    <title type="text">Passenger - Manchester Lyrics</title>
+    <id>http://jedidjah.ch/music/2013/2/5/passenger_manchester</id>
+    <updated>2013-02-05T00:00:00Z</updated>
+    <link href="http://jedidjah.ch/music/2013/2/5/passenger_manchester" />
+    <author>
+      <name>David Halter</name>
+    </author>
+    <content type="html">&lt;iframe src="http://www.youtube.com/embed/oxlaMbnh0hk"     width="500" height="281" frameborder="0"     webkitAllowFullScreen mozallowfullscreen allowfullscreen     class="align-none"&gt;&lt;/iframe&gt;&lt;p&gt;I haven't found the lyrics for the extremely beautful song of &lt;strong&gt;Passenger&lt;/strong&gt;:
+&lt;strong&gt;Manchester&lt;/strong&gt; online, so I tried to write them down:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;Well Manchester you and me we&amp;#39;re free to be whatever we
+decide but like the weather we never really know.
+It&amp;#39;s time beneath your gray sky singing to my throats dry
+And you would never ask why, because we both already know.
+
+Well Manchester you and I are tangled like a fishing line
+dangled from your city spire and hanging down below.
+I stand beneath your doorways and listen to your stories,
+you&amp;#39;re struggeling in more ways than one I suppose.
+
+Oh Manchester take me I&amp;#39;m yours for the ?keeping?
+though the rain fills my shoes
+from the sky always leaking,
+you&amp;#39;re a baby that&amp;#39;s laughing,
+you&amp;#39;re a widow that&amp;#39;s weeping,
+and I feel your heart beating tonight.
+
+Well Manchester me and you we&amp;#39;re aging you know it&amp;#39;s true,
+with each passing year or two our shadows grow long
+the lines on my face are like the cracks in this place
+but you&amp;#39;ll still be standing long after I&amp;#39;m gone.
+
+So Manchester take me I&amp;#39;m yours...
+
+Well Manchester me and you we&amp;#39;re aging...
+
+So Manchester take me I&amp;#39;m yours...
+
+Oh Manchester take me I&amp;#39;ll never stop asking
+though your answer is silent it is honest and lasting.
+There&amp;#39;s a beauty that&amp;#39;s here
+And it&amp;#39;s never caught ?buskin?
+and I feel your heart beating tonight.
+I feel your heart beating tonight.
+I feel your heart beating tonight.
+&lt;/pre&gt;&lt;/div&gt;
+</content>
+  </entry>
+  <entry xml:base="http://jedidjah.ch/music/feed.atom">
+    <title type="text">Passenger - Settled Lyrics</title>
+    <id>http://jedidjah.ch/music/2013/2/5/passenger_settled</id>
+    <updated>2013-02-05T00:00:00Z</updated>
+    <link href="http://jedidjah.ch/music/2013/2/5/passenger_settled" />
+    <author>
+      <name>David Halter</name>
+    </author>
+    <content type="html">&lt;iframe src="http://www.youtube.com/embed/S1H3_PFN5lg"     width="500" height="281" frameborder="0"     webkitAllowFullScreen mozallowfullscreen allowfullscreen     class="align-none"&gt;&lt;/iframe&gt;&lt;p&gt;I haven't found the lyrics for the beautful song of &lt;strong&gt;Passenger&lt;/strong&gt;:
+&lt;strong&gt;Settled&lt;/strong&gt; online, so I tried to write them down:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;Well it&amp;#39;s funny with age
+you get to the stage
+you had in your heart
+down on the same page
+your heart will wait forever
+but your skin says you&amp;#39;re getting old.
+
+Good things come to those who wait
+the lights were up and it&amp;#39;s getting late.
+She wore my coat cause she said that it was cold.
+
+Funny how quick a coat turns into the ring
+Looking back now I don&amp;#39;t remember a thing
+
+Refrain:
+------------------------------------------------------
+We don&amp;#39;t talk about the writings on the wall
+Somedays we don&amp;#39;t talk at all
+And when the lights are dim and my time is free
+
+I sometimes think about the good times that I missed
+Sometimes think about the girls I could have kissed.
+But I set old for her and she set old for me.
+------------------------------------------------------
+
+Well it&amp;#39;s funny how time just seems to fly,
+you blink your eyes and it will pass you by
+For too long you&amp;#39;re getting on the bus for free.
+Same old routine, same old blue jeans,
+Same old nightmares, different dreams.
+
+Funny how quick the days turn into years,
+Funny some people stay, some disapear.
+
+We don&amp;#39;t talk about the writing on the wall...
+
+Ain&amp;#39;t it funny how you miss someone and
+you sat there next to them at home
+Ain&amp;#39;t it funny how hard we are to change,
+like we&amp;#39;re made out of stone.
+
+We don&amp;#39;t talk about the writing on the wall...
+&lt;/pre&gt;&lt;/div&gt;
+</content>
+  </entry>
+</feed>
+
