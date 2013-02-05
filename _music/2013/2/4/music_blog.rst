@@ -1,5 +1,5 @@
 public: yes
-tags: [rstblog, blog, rst, python]
+tags: [music]
 summary: Start a blog about ?my? music.
 
 Another music blog
