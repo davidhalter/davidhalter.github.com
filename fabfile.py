@@ -2,7 +2,7 @@ import time
 import os
 from fabric.api import local, settings
 
-SUB_BLOGS = ['code', 'leben']
+SUB_BLOGS = ['code', 'leben', 'music']
 
 
 def push():
