@@ -118,6 +118,6 @@ autocompletion and Rope for refactorings. I think these two complement one
 another very well.
 
 But if you are asking yourself: **Which one should I choose** for my editor
-(vim, emacs, sublime, etc)?* The answer should always be **Jedi**. You can
+(vim, emacs, sublime, etc)? The answer should always be **Jedi**. You can
 always add refactoring later on. But what you want in the beginning is a good
 and rock-solid autocompletion library.
