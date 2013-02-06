@@ -36,10 +36,6 @@ I haven't found the lyrics for the extremely beautful song of **Passenger**:
 
     So Manchester take me I'm yours...
 
-    Well Manchester me and you we're aging...
-
-    So Manchester take me I'm yours...
-
     Oh Manchester take me I'll never stop asking
     though your answer is silent it is honest and lasting.
     There's a beauty that's here
