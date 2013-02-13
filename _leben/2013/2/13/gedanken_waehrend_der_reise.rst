@@ -10,12 +10,18 @@ zusammenfassen. Da ich mich aber andersweit prima beschäftigen konnte, mach
 ichs jetzt bei 5h Wartezeit am Flughafen Dubai. In Dubai fühlt man sich auf
 jeden Fall noch fast wie in Europa und nicht in der arabischen Welt.
 
-Einige haben mir abgeraten nach Afghanistan zu gehen, was das TODO auch
+Einige haben mir abgeraten nach Afghanistan zu gehen, was das EDA auch
 bestätigt:
 
 .. sourcecode:: text
 
-   Es wird abgeraten ....
+   Von Reisen nach Afghanistan wird abgeraten.
+
+   Die Sicherheitslage ist nicht gewährleistet: Im ganzen Land besteht das
+   Risiko von Terroranschlägen, Entführungen, Raubüberfällen, Landminen und
+   Blindgängern. In verschiedenen Landesteilen bekämpfen ausländische und
+   afghanische Truppen Verbände der Taliban.
+
 
 Wieder andere haben mir geraten den Bart wachsen zu lassen... Irgendwie
 begreiflich. Allerdings wurde mir dann von der Organisation geraten dies
@@ -51,4 +57,4 @@ Mal nur ein T-Shirt zu tragen. In Afghanistan ist es selbst im Sommer bei
 
 Ich habe dann schnell gemerkt, dass es die *grossen* Dinge sind die ich
 vermissen werde. Allem voran die gute Zeit mit Freunden und Familie. Naja.
-Freuen tue ich mich trotzdem. :-)
+Freuen tue ich mich trotzdem auf ein Abenteuer. :-)
