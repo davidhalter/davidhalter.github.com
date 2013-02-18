@@ -31,7 +31,7 @@ Zu viel wärs jetzt grad.
 Naja ich bi denn abgholt worde vo Bekannte us dä Schwiz und bi jetzt imne
 relativ schöne Apparment (äs hed sogar ä Duschi, isch also ä Fehlinformation
 gsi. Ufem gliche "Compound" wohnt au no ä Ami-Familie. Das wär d'Umgebig (mis
-Apparment ganz links, aber spöter meh zu dem):
+Apparment ganz links, aber spöter meh zu dem)):
 
 .. image:: ../compound.JPG
 
@@ -39,9 +39,9 @@ Natürlich gits au äs Nochbarshus mit Ischusslöcher:
 
 .. image:: ../nachbar.JPG
 
-A därä Stell mueni ufpasse dasi eu nur di schlechte Hüser und schlechte Sache
-zeige. Äs git durchus au einigi schöni Hüser i üsem Teil vo dä Stadt (eine vo
-dä richere).
+A därä Stell mueni ufpasse dasi eu nid nur di schlechte Hüser und schlechte
+Sache zeige. Äs git durchus au einigi schöni Hüser i üsem Teil vo dä Stadt
+(eine vo dä richere).
 
 Mir sind denn richtig Markt gange. Dött gseht mer durchus seinte oder andere
 lustige, unter anderem di extreme Unterschied im "riche" Teil vo Kabul:
@@ -89,7 +89,7 @@ Naja mir händ üs denn chönne us dä Situation stehle idem dä Ami ä Orange
 .. image:: ../afghanischer_junge.JPG
 
 Kabul isch im übrige umgäh vo Berge und hed so 350 täg im Johr Sunne (usser a
-dem Tag woni acho bin :-)
+dem Tag woni acho bin :-))
 
 .. image:: ../berge.JPG
 
