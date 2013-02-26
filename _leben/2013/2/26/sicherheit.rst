@@ -56,6 +56,12 @@ denn au no än GPS Tracker däbi:
 
 Handy, GPS-Tracker, Funkgrät und dApplikation im Hintergrund
 
+Dött woni schaffe ischd Sicherheit schinbar au recht wichtig.. Näbäd dä übliche
+hoche Muure mit Stacheldroht gits ä Türe mit zwei Wächter wo immer nur eini
+offe isch. Das heisst wenn irgendöpper wett agriffe chunnter gar nid ersch inä
+durd dTüre wil immer eini verschlosse isch. Ein Wächter nennt dä erscht Ruum
+"Kill Room", wil är halt als erschte wür drufgoh wenn öpper wür agriffe :-)
+
 
 Sturmgwehr überall
 ------------------
