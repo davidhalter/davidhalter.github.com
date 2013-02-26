@@ -31,9 +31,15 @@ Gebiet goh, wil dött grad dä Gheimdienst uf än Suizidbomber gschosse hed...
 Mini Organisation selber hed ä paar klari Regle:
 
 - Äs mues immer öpper wüsse wo du bisch. Wenn ich usem Huus wett, denn lütich
-  öpperem a und sägä ich gang was go ichaufe.
+  öpperem a und sägä, dass ich gang was go ichaufe und wie lang ich öppe ha.
+  Wenni wieder dihei bin lüti nomol a zum bestätige dasis gschafft ha. Falls
+  mer denn nid dihei isch wird noch eim gfandet (nogfroget am telefon, sus
+  gsuecht).
 - Mir dörfed üs nur imnä bestimmte Gebiet bewege. Wenn mir witer weg wend, 
   müend mir dErlaubnis vom Security-Team hole.
+- Jede obig gits än Check-in. Mä mue sich bis am 20:45 gmolde ha, dasmer dihei
+  isch. Dä hani notürli au scho ziemli konsquent verpasst (vergesse). Denn
+  lütets mir a.
 - Mir händ immer äs Handy däbi und wenn möglich au sFunkgrät.
 
 Mich dunkts mängisch das die Regle nid unbedingt mir viel Sicherheit bringed,
