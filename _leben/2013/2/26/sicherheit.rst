@@ -74,7 +74,7 @@ teilwis vo dä Supermärkt (grössi: chline Coop).
 
 30 Johr Chrieg händ sich i vielne Chöpf feschtbohred. Glichzitig händ aber au
 die meischte Lüt dä Chrieg eifach nur satt. Leider isch dä Chrieg ersch denn
-verbi wenn sich alli bewaffnete Truppe zu Chrieg 
+verbi wenn sich alli bewaffnete Truppe zum Friede bekenned.
 
 Än Franzos womer letztens begegnet isch und miteme NGO ä französischi Bäckeri
 betriebe hed (und näbäd bi no einigi anderi Sache macht), isch wiederholt vom
