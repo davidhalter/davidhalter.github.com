@@ -34,7 +34,7 @@ I haven't found the lyrics for the beautful song of **Passenger**:
 
     I sometimes think about the good times that I missed
     Sometimes think about the girls I could have kissed.
-    But I set old for her and she set old for me.
+    But I settled for her and she settled for me.
     ------------------------------------------------------
 
     Well it's funny how time just seems to fly,
