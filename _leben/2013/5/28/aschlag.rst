@@ -28,8 +28,9 @@ Und wemer doch was mitbechunnt
 
 Dä `Aschlag ufs Verteidiungsministerium
 <http://abcnews.go.com/International/suicide-attacks-mar-arrival-us-secretary-defense-chuck/story?id=18691709>`__
-woni 2h vorher verbi gfahre bi. Dörfsch eifach nid zur falsche Ziit am falsche
-Ort si. Das isch aber für üsi ganz Organisation no nie äs Problem gsi... 
+isch so öppis vom erste gsi woni mitbecho ha. Zwor nid aktiv, aber bi 2h vorher
+verbi gfahre. Dörfsch eifach nid zur falsche Ziit am falsche Ort si. Das
+isch aber für üsi ganz Organisation no nie äs Problem gsi... 
 
 Mä chunnt würkli selte was mit über und wil ich michs nid gwohnt bi, merkis
 meistens ersch viel spöter. Die wenige mol wo gschosse worde isch hani zersch
@@ -37,6 +38,9 @@ immer gmeint äs sigi Fürwerk. Eimol zum Bispiel hed ä Familie imnä Auto dä
 Awisige vo dä Polizei nid gfolged und denn isch uf si gschosse worde. Das isch
 relativ nöch gsi und seinzige mol wo i üsem Quartier was passiert isch bis
 jetzt. Usserdem hani no paar mol Schüss us dä ferni ghört. 
+
+Äs gmüetlichs Wuchenend im 4* Hotel
+-----------------------------------
 
 Bis letzt Wuchenend. Denn ischs plötzlich abgange. Do gohsch mit dä ganze
 Organisation gmüetlich dä alljöhrlichi "Retreat" is beste Hotel in ganz
@@ -59,7 +63,7 @@ Hotel dArmee uf." hed är denn no agfüet.
 
 "Bisch denn nid chli agspannt wenn so was passiert?" - "Nei, weisch sit äm
 `Aschlag ufs Parlament
-<http://latimesblogs.latimes.com/world_now/2012/04/attacks-in-afghanistan-target-nato-embassies-parliament.html>`__
+<http://indiatoday.intoday.in/story/militants-launch-series-of-attacks-in-kabul/1/184593.html>`__
 wos über 10h permanent gschosse händ, isch das chline Geballer nüme so
 bedütend." Ghört hämmer das denn no über di nöchste 5h ab und zue mol. Dä
 Kolleg vo obe hed denn üserer ganze Organisation mol no äs Update gäh: "Also äs
@@ -89,6 +93,6 @@ wil ä Organisation wo nur für NGO schafft üs die Infos git.
 Interessant sind z.B. au dBilder vo dä NY Times, das sind zwor Actionbilder,
 aber sus isch das eigentlich nid so gwöhnlich. Äs gseht jo scho komisch us wenn
 normali Polizei mit AKs umälauft... Aber das isch do Realität. Do hed sogar dä
-Verchehrspolizischt wo i dä Mitti vom Chreisel stoht ä AK-47. Än Polizist in
-Afghanistan ohni AK-47 isch wie dä Aargau ohni Autobahne... Irgendwie
-unbruchbar :-)
+Verchehrspolizischt wo i dä Mitti vom Chreisel stoht äs Maschinegwehr. Än
+Polizist in Afghanistan ohni AK-47 isch wie dä Aargau ohni Autobahne...
+Irgendwie unbruchbar :-)
