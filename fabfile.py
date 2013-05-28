@@ -32,6 +32,8 @@ def build_sub_blogs():
     for sub_blog in SUB_BLOGS:
         os.chdir('_%s' % sub_blog)
         local('rm -rf _build/ && run-rstblog build')
+        r = r's/http:\/\/jedidjah.ch\/\([0-9]\)/http:\/\/jedidjah.ch\/%s\/\1/g' % sub_blog
+        local('sed -i "%s" _build/%s/feed.atom' % (r, sub_blog))
         local('rm -rf ../_build/%s' % sub_blog)
         local('mv _build/%s ../_build/' % sub_blog)
         os.chdir('..')
