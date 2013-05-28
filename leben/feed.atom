@@ -9,9 +9,9 @@
   <generator>Werkzeug</generator>
   <entry xml:base="http://jedidjah.ch/leben/feed.atom">
     <title type="text">"Sie warted jetzt no bis är sich id Luft jagt"</title>
-    <id>http://jedidjah.ch/2013/5/28/aschlag</id>
+    <id>http://jedidjah.ch/leben/2013/5/28/aschlag</id>
     <updated>2013-05-28T00:00:00Z</updated>
-    <link href="http://jedidjah.ch/2013/5/28/aschlag" />
+    <link href="http://jedidjah.ch/leben/2013/5/28/aschlag" />
     <author>
       <name>David Halter</name>
     </author>
@@ -93,9 +93,9 @@ Irgendwie unbruchbar :-)&lt;/p&gt;
   </entry>
   <entry xml:base="http://jedidjah.ch/leben/feed.atom">
     <title type="text">Darul-Aman-Palast</title>
-    <id>http://jedidjah.ch/2013/5/20/darulaman</id>
+    <id>http://jedidjah.ch/leben/2013/5/20/darulaman</id>
     <updated>2013-05-20T00:00:00Z</updated>
-    <link href="http://jedidjah.ch/2013/5/20/darulaman" />
+    <link href="http://jedidjah.ch/leben/2013/5/20/darulaman" />
     <author>
       <name>David Halter</name>
     </author>
@@ -128,9 +128,9 @@ sRecht gäh sini Bilder do zveröffentliche:&lt;/p&gt;
   </entry>
   <entry xml:base="http://jedidjah.ch/leben/feed.atom">
     <title type="text">TV Mountain</title>
-    <id>http://jedidjah.ch/2013/5/3/tv_mountain</id>
+    <id>http://jedidjah.ch/leben/2013/5/3/tv_mountain</id>
     <updated>2013-05-03T00:00:00Z</updated>
-    <link href="http://jedidjah.ch/2013/5/3/tv_mountain" />
+    <link href="http://jedidjah.ch/leben/2013/5/3/tv_mountain" />
     <author>
       <name>David Halter</name>
     </author>
@@ -226,9 +226,9 @@ vom TV-Mountain beschosse werded. :-)&lt;/p&gt;
   </entry>
   <entry xml:base="http://jedidjah.ch/leben/feed.atom">
     <title type="text">Freunde</title>
-    <id>http://jedidjah.ch/2013/3/23/freunde</id>
+    <id>http://jedidjah.ch/leben/2013/3/23/freunde</id>
     <updated>2013-03-23T00:00:00Z</updated>
-    <link href="http://jedidjah.ch/2013/3/23/freunde" />
+    <link href="http://jedidjah.ch/leben/2013/3/23/freunde" />
     <author>
       <name>David Halter</name>
     </author>
@@ -287,9 +287,9 @@ schneller spielt.&lt;/p&gt;
   </entry>
   <entry xml:base="http://jedidjah.ch/leben/feed.atom">
     <title type="text">Charikar &amp; Früehligsstart</title>
-    <id>http://jedidjah.ch/2013/3/8/charikar</id>
+    <id>http://jedidjah.ch/leben/2013/3/8/charikar</id>
     <updated>2013-03-08T00:00:00Z</updated>
-    <link href="http://jedidjah.ch/2013/3/8/charikar" />
+    <link href="http://jedidjah.ch/leben/2013/3/8/charikar" />
     <author>
       <name>David Halter</name>
     </author>
@@ -336,9 +336,9 @@ Bild, ha leider kei anders):&lt;/p&gt;
   </entry>
   <entry xml:base="http://jedidjah.ch/leben/feed.atom">
     <title type="text">Sicherheit</title>
-    <id>http://jedidjah.ch/2013/2/26/sicherheit</id>
+    <id>http://jedidjah.ch/leben/2013/2/26/sicherheit</id>
     <updated>2013-02-26T00:00:00Z</updated>
-    <link href="http://jedidjah.ch/2013/2/26/sicherheit" />
+    <link href="http://jedidjah.ch/leben/2013/2/26/sicherheit" />
     <author>
       <name>David Halter</name>
     </author>
@@ -438,9 +438,9 @@ recht gmüetlich läbä.&lt;/p&gt;
   </entry>
   <entry xml:base="http://jedidjah.ch/leben/feed.atom">
     <title type="text">s'Läbä in Kabul</title>
-    <id>http://jedidjah.ch/2013/2/19/leben</id>
+    <id>http://jedidjah.ch/leben/2013/2/19/leben</id>
     <updated>2013-02-19T00:00:00Z</updated>
-    <link href="http://jedidjah.ch/2013/2/19/leben" />
+    <link href="http://jedidjah.ch/leben/2013/2/19/leben" />
     <author>
       <name>David Halter</name>
     </author>
@@ -540,9 +540,9 @@ Riis und immer däzue &amp;quot;Nan&amp;quot; - afghanischs Brot.&lt;/p&gt;
   </entry>
   <entry xml:base="http://jedidjah.ch/leben/feed.atom">
     <title type="text">Ersti Iidrück us Kabul</title>
-    <id>http://jedidjah.ch/2013/2/15/erste_eindruecke</id>
+    <id>http://jedidjah.ch/leben/2013/2/15/erste_eindruecke</id>
     <updated>2013-02-15T00:00:00Z</updated>
-    <link href="http://jedidjah.ch/2013/2/15/erste_eindruecke" />
+    <link href="http://jedidjah.ch/leben/2013/2/15/erste_eindruecke" />
     <author>
       <name>David Halter</name>
     </author>
@@ -614,9 +614,9 @@ dem Tag woni acho bin :-))&lt;/p&gt;
   </entry>
   <entry xml:base="http://jedidjah.ch/leben/feed.atom">
     <title type="text">Die Reise</title>
-    <id>http://jedidjah.ch/2013/2/13/gedanken_waehrend_der_reise</id>
+    <id>http://jedidjah.ch/leben/2013/2/13/gedanken_waehrend_der_reise</id>
     <updated>2013-02-13T00:00:00Z</updated>
-    <link href="http://jedidjah.ch/2013/2/13/gedanken_waehrend_der_reise" />
+    <link href="http://jedidjah.ch/leben/2013/2/13/gedanken_waehrend_der_reise" />
     <author>
       <name>David Halter</name>
     </author>
@@ -665,9 +665,9 @@ Freuen tue ich mich trotzdem auf ein Abenteuer. :-)&lt;/p&gt;
   </entry>
   <entry xml:base="http://jedidjah.ch/leben/feed.atom">
     <title type="text">Grüetzi &amp; Afghanistan</title>
-    <id>http://jedidjah.ch/2013/1/18/blog_start</id>
+    <id>http://jedidjah.ch/leben/2013/1/18/blog_start</id>
     <updated>2013-01-18T00:00:00Z</updated>
-    <link href="http://jedidjah.ch/2013/1/18/blog_start" />
+    <link href="http://jedidjah.ch/leben/2013/1/18/blog_start" />
     <author>
       <name>David Halter</name>
     </author>
