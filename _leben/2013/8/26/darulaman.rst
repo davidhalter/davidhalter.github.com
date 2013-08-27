@@ -1,9 +1,9 @@
 public: true
 tags: [Kabul, Eid, Ramadan]
-summary: Ramadan und 
+summary: Die zwei grosse Ereignis im muslimische Johr.
 
-Ramadan
-=======
+Ramadan & Eid al-Fitr
+=====================
 
 Wasser. Verdammt. So han ich mich grad gescht Abig und denn hüt Morge gfühlt.
 Das hed zwor meh miteme kaputte Wasserfilter i üsem Huus ztue als mitem
@@ -40,7 +40,7 @@ wil ich kei Reserve hegi:
 
 - tushna asti? 
 - No, it's not a problem for fat guys like me, it's hard for skinny boys like
-you, because I can use my resserves.
+  you, because I can use my reserves.
 
 Do gseht mer au das äs in Afghanistan nüt negativs isch "dick" zsi, einigi vo
 mine Kollege währed sogar gern chli schwerer. Aber jetzt zum Protokoll.
