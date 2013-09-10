@@ -1,6 +1,8 @@
 public: yes
 tags: [python, jedi, builtins]
-summary: A comparison between the autocompletion libraries Jedi and Rope.
+summary: 
+    Pythons dir function is what developers use all the time, but it
+    doesn't return correct results when used with classes.
 
 Why Python's dir function is wrong
 ==================================
