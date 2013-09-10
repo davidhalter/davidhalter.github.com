@@ -2,11 +2,111 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
   <title type="text">Recent Blog Posts</title>
   <id>http://jedidjah.ch/code/feed.atom</id>
-  <updated>2013-01-19T00:00:00Z</updated>
+  <updated>2013-09-08T00:00:00Z</updated>
   <link href="http://jedidjah.ch/code/" />
   <link href="http://jedidjah.ch/code/feed.atom" rel="self" />
   <subtitle type="text">Recent blog posts</subtitle>
   <generator>Werkzeug</generator>
+  <entry xml:base="http://jedidjah.ch/code/feed.atom">
+    <title type="text">Why Python's dir function is wrong</title>
+    <id>http://jedidjah.ch/code/2013/9/8/wrong_dir_function</id>
+    <updated>2013-09-08T00:00:00Z</updated>
+    <link href="http://jedidjah.ch/code/2013/9/8/wrong_dir_function" />
+    <author>
+      <name>David Halter</name>
+    </author>
+    <content type="html">&lt;p&gt;In this post I want to describe why Pythons &lt;tt class="docutils literal"&gt;dir&lt;/tt&gt; function is not working
+correctly. It's something that I've stumbled upon by developing &lt;a class="reference external" href="https://github.com/davidhalter/jedi-vim"&gt;Jedi&lt;/a&gt;. This
+also describes how the &lt;tt class="docutils literal"&gt;type&lt;/tt&gt; and &lt;tt class="docutils literal"&gt;object&lt;/tt&gt; internals work.&lt;/p&gt;
+&lt;p&gt;Have you ever noted how the &lt;tt class="docutils literal"&gt;dir&lt;/tt&gt; function is not returning all the
+attributes of an object? (Note: all examples are Python 3.2, but I've tested it
+with the latest revisions as well)&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="nb"&gt;dir&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nb"&gt;str&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="o"&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class="nb"&gt;dir&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nb"&gt;str&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;  &lt;span class="c"&gt;# note: no __bases__&lt;/span&gt;
+&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;__add__&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s"&gt;&amp;#39;__class__&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s"&gt;&amp;#39;__contains__&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="o"&gt;...&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
+&lt;span class="o"&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class="nb"&gt;str&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;__bases__&lt;/span&gt;  &lt;span class="c"&gt;# note: no AttributeError&lt;/span&gt;
+&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="k"&gt;class&lt;/span&gt; &lt;span class="err"&gt;&amp;#39;&lt;/span&gt;&lt;span class="nc"&gt;object&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;&amp;gt;,)&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;&lt;tt class="docutils literal"&gt;dir&lt;/tt&gt; obviously doesn't return all the methods it should. Why? &lt;tt class="docutils literal"&gt;str&lt;/tt&gt; is a
+&lt;tt class="docutils literal"&gt;type&lt;/tt&gt; and an &lt;tt class="docutils literal"&gt;object&lt;/tt&gt;:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="o"&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class="nb"&gt;isinstance&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nb"&gt;str&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="nb"&gt;object&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="bp"&gt;True&lt;/span&gt;
+&lt;span class="o"&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class="nb"&gt;isinstance&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nb"&gt;str&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="nb"&gt;type&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="bp"&gt;True&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Well is everything a &lt;tt class="docutils literal"&gt;type&lt;/tt&gt; then?&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="o"&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class="nb"&gt;isinstance&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nb"&gt;type&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="nb"&gt;type&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="bp"&gt;True&lt;/span&gt;
+&lt;span class="o"&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class="nb"&gt;isinstance&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nb"&gt;str&lt;/span&gt;&lt;span class="p"&gt;(),&lt;/span&gt; &lt;span class="nb"&gt;type&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="bp"&gt;False&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;This also shows how &lt;tt class="docutils literal"&gt;type&lt;/tt&gt; is a &lt;tt class="docutils literal"&gt;type&lt;/tt&gt;. If you want to understand that, you
+may want to read some things about &lt;a class="reference external" href="http://stackoverflow.com/questions/100003/what-is-a-metaclass-in-python"&gt;metaclasses&lt;/a&gt;.&lt;/p&gt;
+&lt;div class="section" id="an-improved-dir-function"&gt;
+&lt;h2&gt;An improved dir function&lt;/h2&gt;
+&lt;p&gt;To simplify things, let us just create a different &lt;tt class="docutils literal"&gt;dir&lt;/tt&gt; function, where
+&lt;tt class="docutils literal"&gt;old_dir&lt;/tt&gt; would be how the &lt;tt class="docutils literal"&gt;dir&lt;/tt&gt; function currently behaves:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;NotDefined&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nb"&gt;object&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+&lt;span class="n"&gt;old_dir&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nb"&gt;dir&lt;/span&gt;
+
+&lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;dir&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;obj&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;NotDefined&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+    &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="n"&gt;obj&lt;/span&gt; &lt;span class="ow"&gt;is&lt;/span&gt; &lt;span class="n"&gt;NotDefined&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+        &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="n"&gt;old_dir&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+
+    &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="nb"&gt;isinstance&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;obj&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="nb"&gt;type&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+        &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="nb"&gt;sorted&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nb"&gt;set&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;old_dir&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;obj&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt; &lt;span class="o"&gt;|&lt;/span&gt; &lt;span class="nb"&gt;set&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;old_dir&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;obj&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;__class__&lt;/span&gt;&lt;span class="p"&gt;)))&lt;/span&gt;
+    &lt;span class="k"&gt;else&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+        &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="n"&gt;old_dir&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nb"&gt;object&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="section" id="why-does-this-happen"&gt;
+&lt;h2&gt;Why does this happen?&lt;/h2&gt;
+&lt;p&gt;For C code analysis I'm going to switch to the latest revisions (Python
+3.4.0a1+). Somewhere in Python &amp;gt; 3.2 &lt;tt class="docutils literal"&gt;__dir__&lt;/tt&gt; methods have been added to
+all the normal objects (You could've customized your functions for a long time
+now). The &lt;tt class="docutils literal"&gt;dir&lt;/tt&gt; function looks up the magic functions for an object and
+executes it.&lt;/p&gt;
+&lt;p&gt;There are two different kind of &lt;tt class="docutils literal"&gt;__dir__&lt;/tt&gt; functions, one for objects - one
+for types, let's look at the C code documentation:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="cm"&gt;/* __dir__ for generic objects: returns __dict__, __class__,&lt;/span&gt;
+&lt;span class="cm"&gt;   and recursively up the __class__.__bases__ chain.&lt;/span&gt;
+&lt;span class="cm"&gt;*/&lt;/span&gt;
+&lt;span class="k"&gt;static&lt;/span&gt; &lt;span class="n"&gt;PyObject&lt;/span&gt; &lt;span class="o"&gt;*&lt;/span&gt;
+&lt;span class="nf"&gt;object_dir&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;PyObject&lt;/span&gt; &lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="n"&gt;self&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;PyObject&lt;/span&gt; &lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="n"&gt;args&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="p"&gt;{&lt;/span&gt;
+    &lt;span class="cm"&gt;/* the comments above say everything */&lt;/span&gt;
+&lt;span class="p"&gt;}&lt;/span&gt;
+
+&lt;span class="cm"&gt;/* __dir__ for type objects: returns __dict__ and __bases__.&lt;/span&gt;
+&lt;span class="cm"&gt;   We deliberately don&amp;#39;t suck up its __class__, as methods belonging to the&lt;/span&gt;
+&lt;span class="cm"&gt;   metaclass would probably be more confusing than helpful.&lt;/span&gt;
+&lt;span class="cm"&gt;*/&lt;/span&gt;
+&lt;span class="k"&gt;static&lt;/span&gt; &lt;span class="n"&gt;PyObject&lt;/span&gt; &lt;span class="o"&gt;*&lt;/span&gt;
+&lt;span class="nf"&gt;type_dir&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;PyObject&lt;/span&gt; &lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="n"&gt;self&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;PyObject&lt;/span&gt; &lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="n"&gt;args&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="p"&gt;{&lt;/span&gt;
+    &lt;span class="n"&gt;PyObject&lt;/span&gt; &lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="n"&gt;result&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nb"&gt;NULL&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+    &lt;span class="n"&gt;PyObject&lt;/span&gt; &lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="n"&gt;dict&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;PyDict_New&lt;/span&gt;&lt;span class="p"&gt;();&lt;/span&gt;
+
+    &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;dict&lt;/span&gt; &lt;span class="o"&gt;!=&lt;/span&gt; &lt;span class="nb"&gt;NULL&lt;/span&gt; &lt;span class="o"&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span class="n"&gt;merge_class_dict&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;dict&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;self&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+        &lt;span class="n"&gt;result&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;PyDict_Keys&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;dict&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+
+    &lt;span class="n"&gt;Py_XDECREF&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;dict&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+    &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="n"&gt;result&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+    &lt;span class="cm"&gt;/* full source code, not shortened*/&lt;/span&gt;
+&lt;span class="p"&gt;}&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;As you can see there's a note in front of the &lt;tt class="docutils literal"&gt;type_dir&lt;/tt&gt; method, that says:
+&lt;em&gt;&amp;quot;We deliberately don't suck up its __class__, as methods belonging to the
+metaclass would probably be more confusing than helpful.&amp;quot;&lt;/em&gt; &lt;strong&gt;This is the
+explanation.&lt;/strong&gt; I think that's not correct, because people would like to know that
+there's a &lt;tt class="docutils literal"&gt;__bases__&lt;/tt&gt; variable and a very useful &lt;tt class="docutils literal"&gt;__subclasses__&lt;/tt&gt; method in
+classes. &lt;tt class="docutils literal"&gt;dir&lt;/tt&gt; is the tool Python programmers typically find out about it.&lt;/p&gt;
+&lt;p&gt;Solution? Just change the &lt;tt class="docutils literal"&gt;type_dir&lt;/tt&gt; function, please! I will also suggest
+this in the Python issue tracker.&lt;/p&gt;
+&lt;p&gt;Why did I research this? Because I want &lt;a class="reference external" href="https://github.com/davidhalter/jedi-vim"&gt;Jedi&lt;/a&gt; to be correct. Really.&lt;/p&gt;
+&lt;/div&gt;
+</content>
+  </entry>
   <entry xml:base="http://jedidjah.ch/code/feed.atom">
     <title type="text">Why Jedi not Rope</title>
     <id>http://jedidjah.ch/code/2013/1/19/why_jedi_not_rope</id>
@@ -420,61 +520,6 @@ verbessern, bzw. verschönern.&lt;/p&gt;
 drangesessen bin, während der langen Zeit zwischen den Posts. Ich kann jetzt
 schon Levels laden und das ganze sieht auch noch ziemlich gut aus, dazu jedoch
 nächste Woche.&lt;/p&gt;
-</content>
-  </entry>
-  <entry xml:base="http://jedidjah.ch/code/feed.atom">
-    <title type="text">GUI Editor</title>
-    <id>http://jedidjah.ch/code/2007/1/2/gui_editor</id>
-    <updated>2007-01-02T00:00:00Z</updated>
-    <link href="http://jedidjah.ch/code/2007/1/2/gui_editor" />
-    <author>
-      <name>David Halter</name>
-    </author>
-    <content type="html">&lt;div class="note"&gt;
-&lt;p class="first admonition-title"&gt;Note&lt;/p&gt;
-&lt;p class="last"&gt;This is about a game I once wrote, which was part of my high school
-thesis. Unfortunately, it's written in German.&lt;/p&gt;
-&lt;/div&gt;
-&lt;p&gt;Ich habe seit der letzten GUI Version vorallem noch das Streamen (laden &amp;amp;
-speichern) gemacht und somit kann ich nun auch alle Komponenten speichern und
-laden.&lt;/p&gt;
-&lt;p&gt;Nachdem ich nun an der GUI eigentlich nur noch Bugfixes und ein paar kleine
-Änderungen zu machen hatte, startete ich dann mit dem programmieren des
-GUI-Editors, welcher mittlerweile schon sehr weit fortgeschritten ist. Daran
-müssen eigentlich nur noch ein paar kleine Änderungen gemacht werden, wie z.B.
-das ändern von Frames, Popupmenus und Comboboxes.&lt;/p&gt;
-&lt;p&gt;Durch Schulstress hatte ich allerdings auch nicht wirklich viel zeit um an
-meinem Projekt weiterzuarbeiten, dies sollte sich aber nun wieder bessern.&lt;/p&gt;
-&lt;p&gt;Überzeugt euch nun aber selbst:&lt;/p&gt;
-&lt;img alt="../sample6.jpg" class="align-center" src="../sample6.jpg" style="width: 800px; height: 613px;" /&gt;
-&lt;img alt="../sample7.jpg" class="align-center" src="../sample7.jpg" style="width: 800px; height: 613px;" /&gt;
-&lt;p&gt;Und noch der Changelog der letzten Zeit der GUI:&lt;/p&gt;
-&lt;ul class="simple"&gt;
-&lt;li&gt;09.12.06: Nun habe ich mich ein bisschen in GIMP eingearbeitet (welches
-übrigens ein sehr gutes Zeichenprogramm ist) um
-neue GUI - Texturen machen zu können. Ausserdem habe ich das Rendern der
-Buttons abgeändert.&lt;/li&gt;
-&lt;li&gt;14.12.06: Z-Abfragen funktionieren nun viel besser, ausserdem habe ich
-angefangen eine Speichermethode zu implementieren...&lt;/li&gt;
-&lt;li&gt;25.12.06: Streaming fertiggestellt (save &amp;amp; load) aber Bugs müssen noch
-ausgemerzt werden.&lt;/li&gt;
-&lt;li&gt;26.12.06: Beinahe alle Pointer abgeschafft, weil diese das ganze nur
-kompliziert machten und Bug-anfällig.&lt;/li&gt;
-&lt;li&gt;29.12.06: Streaming läuft nun perfekt, alle Bugs behoben.
-Comboboxes und PopUpMenus hatten einen Bug, wo die Zählvariabeln i und j
-vertauscht wurden (in onMousedown und onMouseup). Fixed.
-Durch Streaming wurde nun Version 1.1 erreicht. Das nächste Ziel wird der
-Editor sein.
-PopUpMenus werden nun beim klicken auf irgendetwas geschlossen.
-Das aktive Fenster wird nun im Z Wert höher gestellt wie normal.&lt;/li&gt;
-&lt;li&gt;31.12.06: Z wurde vielfach falsch gesetzt. Fixed.&lt;/li&gt;
-&lt;li&gt;01.01.07: Space ist nun der bezeichner für den Abstand zwischen den
-Combobox-Zeilen, nicht mehr Height.&lt;/li&gt;
-&lt;li&gt;02.01.07: Der Editor steht nun, man muss nur noch ein paar sachen verbessern.
-Edits und EditFields gaben eine Exception von sich, wenn man an den falschen
-Ort klickte.
-Update auf Version 1.2.&lt;/li&gt;
-&lt;/ul&gt;
 </content>
   </entry>
 </feed>

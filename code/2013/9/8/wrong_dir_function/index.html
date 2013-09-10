@@ -1,0 +1,192 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <title>Why Python&#39;s dir function is wrong</title>
+
+        <!-- meta -->
+        <meta name="author" content="David Halter">
+        <meta name="dc.language" content="en-US">
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta name="description" content="A comparison between the autocompletion libraries Jedi and Rope.">
+        <meta name="keywords" content="builtins, jedi, python">
+        
+            <meta name="dc.date.created" content="2013-09-08">
+            <meta name="dc.date.issued" content="2013-09-08">
+        
+
+        <!-- favicon -->
+        <link rel="icon" href="/favicon.ico" type="image/x-icon">
+
+        <!-- newsfeed -->
+        <link href="/code/feed.atom" rel="alternate" title="Feed" type="application/atom+xml">
+
+        <!-- assets -->
+        <link href="https://fonts.googleapis.com/css?family=Linden+Hill:400,400italic" rel="stylesheet" type="text/css">
+        <link rel="stylesheet" href="/static/style.css?1378844453" type="text/css">
+            <link rel="stylesheet" href="/static/_pygments.css?1378844461" type="text/css">
+    </head>
+    <body>
+        <div id="wrapper">
+            <div id="blogtitle">code.jedidjah</div>
+            <ul id="mainnav">
+                <li><a href="/code">code</a></li>
+                <li><a href="/code/archive">archive</a></li>
+                <li><a href="/code/tags">tags</a></li>
+                <li><a href="/">jedidjah.ch</a></li>
+                <li class="last"><a href="/about">about</a></li>
+            </ul>
+
+            <div class="clearboth"></div>
+
+            <div id="content" class="hyphenate">
+                
+  <h1 class="title">Why Python's dir function is wrong</h1>
+
+  
+    <div class="date">
+      <p>written on Sunday, September 8, 2013</p>
+    </div>
+  
+
+  <p>In this post I want to describe why Pythons <tt class="docutils literal">dir</tt> function is not working
+correctly. It's something that I've stumbled upon by developing <a class="reference external" href="https://github.com/davidhalter/jedi-vim">Jedi</a>. This
+also describes how the <tt class="docutils literal">type</tt> and <tt class="docutils literal">object</tt> internals work.</p>
+<p>Have you ever noted how the <tt class="docutils literal">dir</tt> function is not returning all the
+attributes of an object? (Note: all examples are Python 3.2, but I've tested it
+with the latest revisions as well)</p>
+<div class="highlight"><pre><span class="nb">dir</span><span class="p">(</span><span class="nb">str</span><span class="p">)</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="nb">dir</span><span class="p">(</span><span class="nb">str</span><span class="p">)</span>  <span class="c"># note: no __bases__</span>
+<span class="p">[</span><span class="s">&#39;__add__&#39;</span><span class="p">,</span> <span class="s">&#39;__class__&#39;</span><span class="p">,</span> <span class="s">&#39;__contains__&#39;</span><span class="p">,</span> <span class="o">...</span><span class="p">]</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="nb">str</span><span class="o">.</span><span class="n">__bases__</span>  <span class="c"># note: no AttributeError</span>
+<span class="p">(</span><span class="o">&lt;</span><span class="k">class</span> <span class="err">&#39;</span><span class="nc">object</span><span class="s">&#39;&gt;,)</span>
+</pre></div>
+<p><tt class="docutils literal">dir</tt> obviously doesn't return all the methods it should. Why? <tt class="docutils literal">str</tt> is a
+<tt class="docutils literal">type</tt> and an <tt class="docutils literal">object</tt>:</p>
+<div class="highlight"><pre><span class="o">&gt;&gt;&gt;</span> <span class="nb">isinstance</span><span class="p">(</span><span class="nb">str</span><span class="p">,</span> <span class="nb">object</span><span class="p">)</span>
+<span class="bp">True</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="nb">isinstance</span><span class="p">(</span><span class="nb">str</span><span class="p">,</span> <span class="nb">type</span><span class="p">)</span>
+<span class="bp">True</span>
+</pre></div>
+<p>Well is everything a <tt class="docutils literal">type</tt> then?</p>
+<div class="highlight"><pre><span class="o">&gt;&gt;&gt;</span> <span class="nb">isinstance</span><span class="p">(</span><span class="nb">type</span><span class="p">,</span> <span class="nb">type</span><span class="p">)</span>
+<span class="bp">True</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="nb">isinstance</span><span class="p">(</span><span class="nb">str</span><span class="p">(),</span> <span class="nb">type</span><span class="p">)</span>
+<span class="bp">False</span>
+</pre></div>
+<p>This also shows how <tt class="docutils literal">type</tt> is a <tt class="docutils literal">type</tt>. If you want to understand that, you
+may want to read some things about <a class="reference external" href="http://stackoverflow.com/questions/100003/what-is-a-metaclass-in-python">metaclasses</a>.</p>
+<div class="section" id="an-improved-dir-function">
+<h2>An improved dir function</h2>
+<p>To simplify things, let us just create a different <tt class="docutils literal">dir</tt> function, where
+<tt class="docutils literal">old_dir</tt> would be how the <tt class="docutils literal">dir</tt> function currently behaves:</p>
+<div class="highlight"><pre><span class="n">NotDefined</span> <span class="o">=</span> <span class="nb">object</span><span class="p">()</span>
+<span class="n">old_dir</span> <span class="o">=</span> <span class="nb">dir</span>
+
+<span class="k">def</span> <span class="nf">dir</span><span class="p">(</span><span class="n">obj</span><span class="o">=</span><span class="n">NotDefined</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">obj</span> <span class="ow">is</span> <span class="n">NotDefined</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">old_dir</span><span class="p">()</span>
+
+    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">obj</span><span class="p">,</span> <span class="nb">type</span><span class="p">):</span>
+        <span class="k">return</span> <span class="nb">sorted</span><span class="p">(</span><span class="nb">set</span><span class="p">(</span><span class="n">old_dir</span><span class="p">(</span><span class="n">obj</span><span class="p">))</span> <span class="o">|</span> <span class="nb">set</span><span class="p">(</span><span class="n">old_dir</span><span class="p">(</span><span class="n">obj</span><span class="o">.</span><span class="n">__class__</span><span class="p">)))</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">old_dir</span><span class="p">(</span><span class="nb">object</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="section" id="why-does-this-happen">
+<h2>Why does this happen?</h2>
+<p>For C code analysis I'm going to switch to the latest revisions (Python
+3.4.0a1+). Somewhere in Python &gt; 3.2 <tt class="docutils literal">__dir__</tt> methods have been added to
+all the normal objects (You could've customized your functions for a long time
+now). The <tt class="docutils literal">dir</tt> function looks up the magic functions for an object and
+executes it.</p>
+<p>There are two different kind of <tt class="docutils literal">__dir__</tt> functions, one for objects - one
+for types, let's look at the C code documentation:</p>
+<div class="highlight"><pre><span class="cm">/* __dir__ for generic objects: returns __dict__, __class__,</span>
+<span class="cm">   and recursively up the __class__.__bases__ chain.</span>
+<span class="cm">*/</span>
+<span class="k">static</span> <span class="n">PyObject</span> <span class="o">*</span>
+<span class="nf">object_dir</span><span class="p">(</span><span class="n">PyObject</span> <span class="o">*</span><span class="n">self</span><span class="p">,</span> <span class="n">PyObject</span> <span class="o">*</span><span class="n">args</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="cm">/* the comments above say everything */</span>
+<span class="p">}</span>
+
+<span class="cm">/* __dir__ for type objects: returns __dict__ and __bases__.</span>
+<span class="cm">   We deliberately don&#39;t suck up its __class__, as methods belonging to the</span>
+<span class="cm">   metaclass would probably be more confusing than helpful.</span>
+<span class="cm">*/</span>
+<span class="k">static</span> <span class="n">PyObject</span> <span class="o">*</span>
+<span class="nf">type_dir</span><span class="p">(</span><span class="n">PyObject</span> <span class="o">*</span><span class="n">self</span><span class="p">,</span> <span class="n">PyObject</span> <span class="o">*</span><span class="n">args</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="n">PyObject</span> <span class="o">*</span><span class="n">result</span> <span class="o">=</span> <span class="nb">NULL</span><span class="p">;</span>
+    <span class="n">PyObject</span> <span class="o">*</span><span class="n">dict</span> <span class="o">=</span> <span class="n">PyDict_New</span><span class="p">();</span>
+
+    <span class="k">if</span> <span class="p">(</span><span class="n">dict</span> <span class="o">!=</span> <span class="nb">NULL</span> <span class="o">&amp;&amp;</span> <span class="n">merge_class_dict</span><span class="p">(</span><span class="n">dict</span><span class="p">,</span> <span class="n">self</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span>
+        <span class="n">result</span> <span class="o">=</span> <span class="n">PyDict_Keys</span><span class="p">(</span><span class="n">dict</span><span class="p">);</span>
+
+    <span class="n">Py_XDECREF</span><span class="p">(</span><span class="n">dict</span><span class="p">);</span>
+    <span class="k">return</span> <span class="n">result</span><span class="p">;</span>
+    <span class="cm">/* full source code, not shortened*/</span>
+<span class="p">}</span>
+</pre></div>
+<p>As you can see there's a note in front of the <tt class="docutils literal">type_dir</tt> method, that says:
+<em>&quot;We deliberately don't suck up its __class__, as methods belonging to the
+metaclass would probably be more confusing than helpful.&quot;</em> <strong>This is the
+explanation.</strong> I think that's not correct, because people would like to know that
+there's a <tt class="docutils literal">__bases__</tt> variable and a very useful <tt class="docutils literal">__subclasses__</tt> method in
+classes. <tt class="docutils literal">dir</tt> is the tool Python programmers typically find out about it.</p>
+<p>Solution? Just change the <tt class="docutils literal">type_dir</tt> function, please! I will also suggest
+this in the Python issue tracker.</p>
+<p>Why did I research this? Because I want <a class="reference external" href="https://github.com/davidhalter/jedi-vim">Jedi</a> to be correct. Really.</p>
+</div>
+
+
+  
+    <div class="tags">
+      <p>This entry was tagged
+      
+        <a href="/code/tags/builtins/">builtins</a>, 
+        <a href="/code/tags/jedi/">jedi</a> and 
+        <a href="/code/tags/python/">python</a></p>
+    </div>
+  
+
+  
+    
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_shortname = 'jedidjah-code'; // required: replace example with your forum shortname
+    
+    
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">blog comments powered by <span class="logo-disqus">Disqus</span></a>
+
+  
+
+            </div>
+        </div>
+
+        <script type="text/javascript">
+          var _gaq = _gaq || [];
+          _gaq.push(['_setAccount', 'UA-37770631-1']);
+          _gaq.push(['_setDomainName', 'jedidjah.ch']);
+          _gaq.push(['_trackPageview']);
+          (function() {
+            var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+            var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+          })();
+        </script>
+        <script type="text/javascript" src="/static/hyphenator.js"></script>
+        <script type="text/javascript">
+            Hyphenator.run();
+        </script>
+
+    </body>
+</html>
