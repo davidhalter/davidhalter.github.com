@@ -109,15 +109,17 @@ for types, let's look at the C code documentation:
     }
 
 
-As you can see there's a note in front of the ``type_dir`` method, that says:
-*"We deliberately don't suck up its __class__, as methods belonging to the
-metaclass would probably be more confusing than helpful."* **This is the
-explanation.** I think that's not correct, because people would like to know that
-there's a ``__bases__`` variable and a very useful ``__subclasses__`` method in
-classes. ``dir`` is the tool Python programmers typically find out about it.
+As you can see there's a note in front of the ``type_dir`` method (in
+``Objects/typeobject.c``), that says: *"We deliberately don't suck up its
+__class__, as methods belonging to the metaclass would probably be more
+confusing than helpful."* **This is the explanation.** I think that's not
+correct, because people would like to know that there's a ``__bases__``
+variable and a very useful ``__subclasses__`` method in classes. ``dir`` is the
+tool Python programmers typically find out about it.
 
 Solution? Just change the ``type_dir`` function, please! I will also suggest
-this in the Python issue tracker.
+this in the Python issue tracker. Edit: `I just did
+<http://bugs.python.org/msg197471>`_.
 
 Why did I research this? Because I want Jedi_ to be correct. Really.
 
