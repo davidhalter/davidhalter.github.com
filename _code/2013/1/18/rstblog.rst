@@ -2,8 +2,14 @@ public: yes
 tags: [rstblog, blog, rst, python]
 summary: Start blogging with rstblog.
 
-rstblog - what a charm!
-==============================
+Switching to rstblog
+====================
+
+.. note ::
+
+    I would not recommend ``rstblog`` anymore for anyone who is interested in
+    blogging with ``rst`` files. Use `pelican <https://github.com/getpelican/pelican>`_
+    instead.
 
 I never really had the motivation to have my own website. But because I'm going
 to be in Afghanistan for a while, I wanted to do a little bit of blogging, so I
