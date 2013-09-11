@@ -95,14 +95,15 @@ for types, let's look at the C code documentation:&lt;/p&gt;
     &lt;span class="cm"&gt;/* full source code, not shortened*/&lt;/span&gt;
 &lt;span class="p"&gt;}&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;As you can see there's a note in front of the &lt;tt class="docutils literal"&gt;type_dir&lt;/tt&gt; method, that says:
-&lt;em&gt;&amp;quot;We deliberately don't suck up its __class__, as methods belonging to the
-metaclass would probably be more confusing than helpful.&amp;quot;&lt;/em&gt; &lt;strong&gt;This is the
-explanation.&lt;/strong&gt; I think that's not correct, because people would like to know that
-there's a &lt;tt class="docutils literal"&gt;__bases__&lt;/tt&gt; variable and a very useful &lt;tt class="docutils literal"&gt;__subclasses__&lt;/tt&gt; method in
-classes. &lt;tt class="docutils literal"&gt;dir&lt;/tt&gt; is the tool Python programmers typically find out about it.&lt;/p&gt;
+&lt;p&gt;As you can see there's a note in front of the &lt;tt class="docutils literal"&gt;type_dir&lt;/tt&gt; method (in
+&lt;tt class="docutils literal"&gt;Objects/typeobject.c&lt;/tt&gt;), that says: &lt;em&gt;&amp;quot;We deliberately don't suck up its
+__class__, as methods belonging to the metaclass would probably be more
+confusing than helpful.&amp;quot;&lt;/em&gt; &lt;strong&gt;This is the explanation.&lt;/strong&gt; I think that's not
+correct, because people would like to know that there's a &lt;tt class="docutils literal"&gt;__bases__&lt;/tt&gt;
+variable and a very useful &lt;tt class="docutils literal"&gt;__subclasses__&lt;/tt&gt; method in classes. &lt;tt class="docutils literal"&gt;dir&lt;/tt&gt; is the
+tool Python programmers typically find out about it.&lt;/p&gt;
 &lt;p&gt;Solution? Just change the &lt;tt class="docutils literal"&gt;type_dir&lt;/tt&gt; function, please! I will also suggest
-this in the Python issue tracker.&lt;/p&gt;
+this in the Python issue tracker. Edit: &lt;a class="reference external" href="http://bugs.python.org/msg197471"&gt;I just did&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt;Why did I research this? Because I want &lt;a class="reference external" href="https://github.com/davidhalter/jedi-vim"&gt;Jedi&lt;/a&gt; to be correct. Really.&lt;/p&gt;
 &lt;/div&gt;
 </content>
@@ -216,14 +217,20 @@ and rock-solid autocompletion library.&lt;/p&gt;
 </content>
   </entry>
   <entry xml:base="http://jedidjah.ch/code/feed.atom">
-    <title type="text">rstblog - what a charm!</title>
+    <title type="text">Switching to rstblog</title>
     <id>http://jedidjah.ch/code/2013/1/18/rstblog</id>
     <updated>2013-01-18T00:00:00Z</updated>
     <link href="http://jedidjah.ch/code/2013/1/18/rstblog" />
     <author>
       <name>David Halter</name>
     </author>
-    <content type="html">&lt;p&gt;I never really had the motivation to have my own website. But because I'm going
+    <content type="html">&lt;div class="note"&gt;
+&lt;p class="first admonition-title"&gt;Note&lt;/p&gt;
+&lt;p class="last"&gt;I would not recommend &lt;tt class="docutils literal"&gt;rstblog&lt;/tt&gt; anymore for anyone who is interested in
+blogging with &lt;tt class="docutils literal"&gt;rst&lt;/tt&gt; files. Use &lt;a class="reference external" href="https://github.com/getpelican/pelican"&gt;pelican&lt;/a&gt;
+instead.&lt;/p&gt;
+&lt;/div&gt;
+&lt;p&gt;I never really had the motivation to have my own website. But because I'm going
 to be in Afghanistan for a while, I wanted to do a little bit of blogging, so I
 decided to start a &lt;a class="reference external" href="http://xkcd.com/148/"&gt;blag&lt;/a&gt; after all.&lt;/p&gt;
 &lt;p&gt;The reason why I was not going for tumblr, blogspot, etc. was that once your

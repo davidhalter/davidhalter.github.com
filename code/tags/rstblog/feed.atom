@@ -8,14 +8,20 @@
   <subtitle type="text">Recent blog posts</subtitle>
   <generator>Werkzeug</generator>
   <entry xml:base="http://jedidjah.ch/code/feed.atom">
-    <title type="text">rstblog - what a charm!</title>
+    <title type="text">Switching to rstblog</title>
     <id>http://jedidjah.ch/code/2013/1/18/rstblog</id>
     <updated>2013-01-18T00:00:00Z</updated>
     <link href="http://jedidjah.ch/code/2013/1/18/rstblog" />
     <author>
       <name>David Halter</name>
     </author>
-    <content type="html">&lt;p&gt;I never really had the motivation to have my own website. But because I'm going
+    <content type="html">&lt;div class="note"&gt;
+&lt;p class="first admonition-title"&gt;Note&lt;/p&gt;
+&lt;p class="last"&gt;I would not recommend &lt;tt class="docutils literal"&gt;rstblog&lt;/tt&gt; anymore for anyone who is interested in
+blogging with &lt;tt class="docutils literal"&gt;rst&lt;/tt&gt; files. Use &lt;a class="reference external" href="https://github.com/getpelican/pelican"&gt;pelican&lt;/a&gt;
+instead.&lt;/p&gt;
+&lt;/div&gt;
+&lt;p&gt;I never really had the motivation to have my own website. But because I'm going
 to be in Afghanistan for a while, I wanted to do a little bit of blogging, so I
 decided to start a &lt;a class="reference external" href="http://xkcd.com/148/"&gt;blag&lt;/a&gt; after all.&lt;/p&gt;
 &lt;p&gt;The reason why I was not going for tumblr, blogspot, etc. was that once your
