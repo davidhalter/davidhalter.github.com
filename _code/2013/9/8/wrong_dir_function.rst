@@ -139,7 +139,11 @@ code. The reason why I'm mentioning this is because it has really confused me
 Some argue that ``__bases__`` is not relevant. That's true in a lot of cases.
 But most of the other magic methods are also not relevant. I mean seriously,
 who knows what ``str.__reduce_ex__`` even does? Who would use it? ``__bases__``
-is something that a lot of people have used in contrary.
+is something that a lot of people have used in contrary. So IMHO there are two
+options: Either show all the methods or none. I think it's perfectly ok to now
+show magic methods in ``dir``. You could also change the function to 
+``dir(object, magic=False)``, that's also ok. I just think that the current
+implementation is confusing.
 
 
 .. _Jedi: https://github.com/davidhalter/jedi-vim
