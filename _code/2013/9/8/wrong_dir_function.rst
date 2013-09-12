@@ -145,6 +145,10 @@ show magic methods in ``dir``. You could also change the function to
 ``dir(object, magic=False)``, that's also ok. I just think that the current
 implementation is confusing.
 
+If you still don't believe me, even the awesome ``ipython`` `rewrote dir
+<https://github.com/ipython/ipython/blob/f645e5c044efeacf1aa523ec43f6a25d439e287b/IPython/utils/dir2.py>`_
+and included the ``type`` methods.
+
 
 .. _Jedi: https://github.com/davidhalter/jedi-vim
 .. _metaclasses: http://stackoverflow.com/questions/100003/what-is-a-metaclass-in-python
