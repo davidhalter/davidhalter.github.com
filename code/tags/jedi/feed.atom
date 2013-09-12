@@ -214,6 +214,19 @@ tool Python programmers typically find out about it.&lt;/p&gt;
 this in the Python issue tracker. Edit: &lt;a class="reference external" href="http://bugs.python.org/msg197471"&gt;I just did&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt;Why did I research this? Because I want &lt;a class="reference external" href="https://github.com/davidhalter/jedi-vim"&gt;Jedi&lt;/a&gt; to be correct. Really.&lt;/p&gt;
 &lt;/div&gt;
+&lt;div class="section" id="update"&gt;
+&lt;h2&gt;Update&lt;/h2&gt;
+&lt;p&gt;Thank you for the discussion on &lt;a class="reference external" href="http://www.reddit.com/r/Python/comments/1m6zrq/pythons_dir_function_is_wrong/"&gt;reddit&lt;/a&gt;,
+I want to clarify a few things:&lt;/p&gt;
+&lt;p&gt;&lt;a class="reference external" href="https://github.com/davidhalter/jedi-vim"&gt;Jedi&lt;/a&gt; doesn't actually use the &lt;tt class="docutils literal"&gt;dir&lt;/tt&gt; and &lt;tt class="docutils literal"&gt;__dir__&lt;/tt&gt; function. I
+just realized that I haven't made this clear. Jedi generally doesn't execute
+code. The reason why I'm mentioning this is because it has really confused me
+(I'm using the interactive shell to introspect).&lt;/p&gt;
+&lt;p&gt;Some argue that &lt;tt class="docutils literal"&gt;__bases__&lt;/tt&gt; is not relevant. That's true in a lot of cases.
+But most of the other magic methods are also not relevant. I mean seriously,
+who knows what &lt;tt class="docutils literal"&gt;str.__reduce_ex__&lt;/tt&gt; even does? Who would use it? &lt;tt class="docutils literal"&gt;__bases__&lt;/tt&gt;
+is something that a lot of people have used in contrary.&lt;/p&gt;
+&lt;/div&gt;
 </content>
   </entry>
 </feed>

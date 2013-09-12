@@ -22,8 +22,8 @@
 
         <!-- assets -->
         <link href="https://fonts.googleapis.com/css?family=Linden+Hill:400,400italic" rel="stylesheet" type="text/css">
-        <link rel="stylesheet" href="/static/style.css?1378881563" type="text/css">
-            <link rel="stylesheet" href="/static/_pygments.css?1378881565" type="text/css">
+        <link rel="stylesheet" href="/static/style.css?1379008216" type="text/css">
+            <link rel="stylesheet" href="/static/_pygments.css?1379008232" type="text/css">
     </head>
     <body>
         <div id="wrapper">
@@ -138,6 +138,19 @@ tool Python programmers typically find out about it.</p>
 <p>Solution? Just change the <tt class="docutils literal">type_dir</tt> function, please! I will also suggest
 this in the Python issue tracker. Edit: <a class="reference external" href="http://bugs.python.org/msg197471">I just did</a>.</p>
 <p>Why did I research this? Because I want <a class="reference external" href="https://github.com/davidhalter/jedi-vim">Jedi</a> to be correct. Really.</p>
+</div>
+<div class="section" id="update">
+<h2>Update</h2>
+<p>Thank you for the discussion on <a class="reference external" href="http://www.reddit.com/r/Python/comments/1m6zrq/pythons_dir_function_is_wrong/">reddit</a>,
+I want to clarify a few things:</p>
+<p><a class="reference external" href="https://github.com/davidhalter/jedi-vim">Jedi</a> doesn't actually use the <tt class="docutils literal">dir</tt> and <tt class="docutils literal">__dir__</tt> function. I
+just realized that I haven't made this clear. Jedi generally doesn't execute
+code. The reason why I'm mentioning this is because it has really confused me
+(I'm using the interactive shell to introspect).</p>
+<p>Some argue that <tt class="docutils literal">__bases__</tt> is not relevant. That's true in a lot of cases.
+But most of the other magic methods are also not relevant. I mean seriously,
+who knows what <tt class="docutils literal">str.__reduce_ex__</tt> even does? Who would use it? <tt class="docutils literal">__bases__</tt>
+is something that a lot of people have used in contrary.</p>
 </div>
 
 
