@@ -124,5 +124,23 @@ this in the Python issue tracker. Edit: `I just did
 Why did I research this? Because I want Jedi_ to be correct. Really.
 
 
+Update
+------
+
+Thank you for the discussion on `reddit
+<http://www.reddit.com/r/Python/comments/1m6zrq/pythons_dir_function_is_wrong/>`_,
+I want to clarify a few things:
+
+Jedi_ doesn't actually use the ``dir`` and ``__dir__`` function. I
+just realized that I haven't made this clear. Jedi generally doesn't execute
+code. The reason why I'm mentioning this is because it has really confused me 
+(I'm using the interactive shell to introspect).
+
+Some argue that ``__bases__`` is not relevant. That's true in a lot of cases.
+But most of the other magic methods are also not relevant. I mean seriously,
+who knows what ``str.__reduce_ex__`` even does? Who would use it? ``__bases__``
+is something that a lot of people have used in contrary.
+
+
 .. _Jedi: https://github.com/davidhalter/jedi-vim
 .. _metaclasses: http://stackoverflow.com/questions/100003/what-is-a-metaclass-in-python
