@@ -22,8 +22,8 @@
 
         <!-- assets -->
         <link href="https://fonts.googleapis.com/css?family=Linden+Hill:400,400italic" rel="stylesheet" type="text/css">
-        <link rel="stylesheet" href="/static/style.css?1379008216" type="text/css">
-            <link rel="stylesheet" href="/static/_pygments.css?1379008232" type="text/css">
+        <link rel="stylesheet" href="/static/style.css?1379009361" type="text/css">
+            <link rel="stylesheet" href="/static/_pygments.css?1379009365" type="text/css">
     </head>
     <body>
         <div id="wrapper">
@@ -150,7 +150,11 @@ code. The reason why I'm mentioning this is because it has really confused me
 <p>Some argue that <tt class="docutils literal">__bases__</tt> is not relevant. That's true in a lot of cases.
 But most of the other magic methods are also not relevant. I mean seriously,
 who knows what <tt class="docutils literal">str.__reduce_ex__</tt> even does? Who would use it? <tt class="docutils literal">__bases__</tt>
-is something that a lot of people have used in contrary.</p>
+is something that a lot of people have used in contrary. So IMHO there are two
+options: Either show all the methods or none. I think it's perfectly ok to now
+show magic methods in <tt class="docutils literal">dir</tt>. You could also change the function to
+<tt class="docutils literal">dir(object, magic=False)</tt>, that's also ok. I just think that the current
+implementation is confusing.</p>
 </div>
 
 

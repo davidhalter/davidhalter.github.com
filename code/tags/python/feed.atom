@@ -261,7 +261,11 @@ code. The reason why I'm mentioning this is because it has really confused me
 &lt;p&gt;Some argue that &lt;tt class="docutils literal"&gt;__bases__&lt;/tt&gt; is not relevant. That's true in a lot of cases.
 But most of the other magic methods are also not relevant. I mean seriously,
 who knows what &lt;tt class="docutils literal"&gt;str.__reduce_ex__&lt;/tt&gt; even does? Who would use it? &lt;tt class="docutils literal"&gt;__bases__&lt;/tt&gt;
-is something that a lot of people have used in contrary.&lt;/p&gt;
+is something that a lot of people have used in contrary. So IMHO there are two
+options: Either show all the methods or none. I think it's perfectly ok to now
+show magic methods in &lt;tt class="docutils literal"&gt;dir&lt;/tt&gt;. You could also change the function to
+&lt;tt class="docutils literal"&gt;dir(object, magic=False)&lt;/tt&gt;, that's also ok. I just think that the current
+implementation is confusing.&lt;/p&gt;
 &lt;/div&gt;
 </content>
   </entry>
