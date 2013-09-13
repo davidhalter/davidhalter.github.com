@@ -4,7 +4,7 @@ summary:
     Pythons dir function is what developers use all the time, but it
     doesn't return correct results when used with classes.
 
-Why Python's dir function is wrong
+Why Pythons dir function is wrong
 ==================================
 
 In this post I want to describe why Pythons ``dir`` function is not working
