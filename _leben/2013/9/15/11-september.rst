@@ -53,9 +53,9 @@ paar wenig Schüss ghöred ihr bi öppe 1:40):
 .. youtube:: TaAB-Y_pk-8
 
 Jedefalls ischs extrem schön gsi, dAfghane mol so glücklich gseh. Das isch di
-erscht Fiir wohrschinli überhaupt so als Land. Fasch allne andere
+erscht Fiir sit langem (30 Johr) so als Land. Fasch allne andere
 "Festlichkeite" hafted entweder religiöse Fundamentalismus oder sustigi
-Diskriminierig Problem a. Grad paar Täg vorher händs dä "Massoud" gfiired, än
+Diskriminierigs Problem a. Grad paar Täg vorher händs dä "Massoud" gfiired, än
 umstrittne Ma. Das freut ä paar, aber isch halt keis Volksfescht. Isch scho
 speziell, wie äs paar Fuessballspiel di ganz Nation präge cha - und zumnä
 gwüsse Mass au eine cha.
