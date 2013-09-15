@@ -50,7 +50,7 @@ do fasch kei Schüss - aber mir wohned au imnä Quartier wos viel Polizei/Guards
 hed, und wemer denn usnahmswis mol dörf schüsse, denn macht mer das au :-) (Ä
 paar wenig Schüss ghöred ihr bi öppe 1:40):
 
-.. youtube:: DSHg_DLNACw
+.. youtube:: TaAB-Y_pk-8
 
 Jedefalls ischs extrem schön gsi, dAfghane mol so glücklich gseh. Das isch di
 erscht Fiir wohrschinli überhaupt so als Land. Fasch allne andere
