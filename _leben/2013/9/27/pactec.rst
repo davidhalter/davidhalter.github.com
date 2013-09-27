@@ -8,7 +8,8 @@ PACTEC
 Wer weiss eigentlich was ich do mache in Afghanistan? Viel denked eifach dases
 chli crazy isch uf Afghanistan zgoh, aber für was? Ich bi grad in Ishkashem -
 meh däzue spöter imnä Blog post. Naja und denn han ich denkt ich mue mini
-Organisation mol nöcher beschriebe, was mir ganz praktisch mached:
+`Organisation - PACTEC <http://pactec.org>`_ mol nöcher beschriebe, was mir
+ganz praktisch mached:
 
 .. youtube:: Qw3QcA5trzM
 
