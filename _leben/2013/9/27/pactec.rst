@@ -1,6 +1,6 @@
 public: true
 tags: [Ishkashem, PACTEC]
-summary: Nomol vo vorne: Was machich eigentlich in Afghanistan?
+summary: Nomol vo vorne - Was macht dä eigentlich in Afghanistan?
 
 PACTEC
 ======
