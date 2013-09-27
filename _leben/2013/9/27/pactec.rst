@@ -28,7 +28,7 @@ Also wiener gseh händ hämmir 2 Standbei:
 - ICT (VSATs - Satellitealage installiere um dä NGOs i dä Regione Internet
   zgäh - isch meh wienes Buisness - kei EU Unterstützig
 
-Mir händ än Hangar (Bild: `Balz <balzkubli.com>`_):
+Mir händ än Hangar (Bild: `Balz <http://balzkubli.com>`_):
 
 .. image:: ../hangar.jpg
 
