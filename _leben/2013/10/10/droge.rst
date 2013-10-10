@@ -19,6 +19,14 @@ Härdöpfel brölet. Au sus gsehnder do nochli wie Afghane so läbäd:
 
 .. youtube:: vUlBoLGnEHI
 
+dHärdöpfel sind übrigens sehr guet gsi. Das ganze mitem "Lehmofe" wird notürli
+nid immer so gmacht... Afghane choched eigentlich ganz normal mit ämnä Gasherd.
+Die Art isch meh öppis festlichs ufem Land (relativ günstig und guet). Aber do
+i dä Stadt ischs Lebe allgemein scho recht modern.
+
+Pakistan
+--------
+
 So am Rand, wilis obe erwähnt ha: Pakistan isch chli paradox - sie `finanziered
 <http://en.wikipedia.org/wiki/Inter-Services_Intelligence#Afghanistan>`_ dä
 Chrieg vo dä Taliban gägä Afghanistan, bekämpfed dTaliban aber i ihrem eigene
