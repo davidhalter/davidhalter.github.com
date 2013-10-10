@@ -8,36 +8,6 @@
   <subtitle type="text">Recent blog posts</subtitle>
   <generator>Werkzeug</generator>
   <entry xml:base="http://jedidjah.ch/leben/feed.atom">
-    <title type="text">Grüetzi &amp; Afghanistan</title>
-    <id>http://jedidjah.ch/2013/1/18/blog_start</id>
-    <updated>2013-01-18T00:00:00Z</updated>
-    <link href="http://jedidjah.ch/2013/1/18/blog_start" />
-    <author>
-      <name>David Halter</name>
-    </author>
-    <content type="html">&lt;p&gt;Wie einige sicher bereits wissen, werde ich Mitte Februar nach Afghanistan
-fliegen um dort 4 Monate einen humanitären Einsatz zu leisten. Meine Zeit werde
-ich wohl hauptsächlich in Kabul verbringen. Da ich meinen Freunden, Verwandten
-und Bekannten gerne mitteilen möchte, was da so läuft, habe ich nun beschlossen
-diesen Blog zu starten.&lt;/p&gt;
-&lt;p&gt;Der eine oder andere fragt sich nun sicher: Warum gerade Afghanistan?
-Eigentlich ists ganz leicht, man wird angefragt und sagt ja. In meinem Fall
-wars halt Afghanistan. Ich werde mit &lt;a class="reference external" href="http://www.pactec.org/"&gt;PACTEC&lt;/a&gt;
-unterwegs sein, einem NGO, dass andere humanitäre NGO unterstützt um
-Kommunikations- und Transporthürden zu überwinden. Konkret heisst das z.B.
-medizinische Hilfsgüter in abgelegene Regionen Afghanistans zu fliegen, damit
-Organisationen wie &lt;a class="reference external" href="http://www.worldvision.ch/de/home/"&gt;World Vision&lt;/a&gt; dort
-arbeiten können. Andererseits werden für diese Organisationen auch VSAT
-Installationen gemacht, das heisst es werden Satellitenschüsseln aufgestellt,
-um den Organisationen Zugang zum Internet und somit den Kontakt nach aussen zu
-gewährleisten.&lt;/p&gt;
-&lt;p&gt;Meine Arbeit in Kabul betrifft logischerweise nicht die Fliegerei, sondern die
-IT (Man sollte ein Kellerkind nicht zu sehr der Sonne aussetzen :-)). Ich bin
-hauptsächlich da, um die bestehenden afghanischen Mitarbeiter zu schulen.&lt;/p&gt;
-&lt;p&gt;Ihr seid natürlich herzlich eingeladen mitzulesen und zu kommentieren!&lt;/p&gt;
-</content>
-  </entry>
-  <entry xml:base="http://jedidjah.ch/leben/feed.atom">
     <title type="text">Hanf und anderi Hobbies</title>
     <id>http://jedidjah.ch/2013/10/10/droge</id>
     <updated>2013-10-10T00:00:00Z</updated>
