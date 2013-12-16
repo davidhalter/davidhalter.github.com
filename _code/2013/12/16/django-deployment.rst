@@ -38,13 +38,13 @@ especially if they don't like Linux (e.g. ``WAMP`` people).
 Solution: Travis-ci?
 --------------------
 
-Anybody using `Travis-ci <travis>`_? **Awesome**, right?  It just solves
-testing for you. That is how I imagine depl_ to be. Travis also does something
-like a deployment. Your code is completely running on their servers and can be
-tested. In comparison to e.g. Heroku (which is also pretty cool), travis uses a
-more explicit way to deploy. I like travis way better, because travis yaml
-files allow for a more flexibility and complete control. I also like to know
-what's going on.
+Anybody using `Travis-ci <https://travis-ci.org>`_? **Awesome**, right?  It
+just solves testing for you. That is how I imagine depl_ to be. Travis also
+does something like a deployment. Your code is completely running on their
+servers and can be tested. In comparison to e.g. Heroku (which is also pretty
+cool), travis uses a more explicit way to deploy. I like travis way better,
+because travis yaml files allow for a more flexibility and complete control. I
+also like to know what's going on.
 
 My solution provides defaults for typical use cases. It leaves more complex use
 cases to awesome software like ansible_. If you really need 10 different
@@ -59,8 +59,9 @@ use case. I don't want dozens of files just for deploying my very simple Django
 project. I want at most one (something like travis). But to give you an
 overview:
 
-- ansible_ is awesome for deploying big projects, you could check out
-  `this <ansible-django>`_ for a Django deployment.
+- ansible_ is awesome for deploying big projects, you could check out `this 
+  <http://www.stavros.io/posts/example-provisioning-and-deployment-ansible/>`_
+  for a Django deployment with ansible.
 - chef_/puppet_ do the same thing. But I like ansible_ with its ``.yml`` files
   better somehow. It's a cleaner approach IMHO.
 - docker_ is awesome, but you still have to deploy your software into docker
@@ -68,7 +69,7 @@ overview:
 - vagrant_ is cool(for development), but again - how do you deploy in the first
   place. And also I wouldn't trust virtualbox for deploying things.
 
-I have analyzed those options and `Platform as a Service <paas>`_ providers
+I have analyzed those options and `Platform as a Service`_ providers
 briefly. I realized that there is nothing to deploy Django easily (in an
 in-house setting), so I started creating depl_. Not just for Django. For all
 the frameworks out there that still struggle with deployment.
@@ -93,9 +94,8 @@ However both really haven't inspired me. The only positive inspiration is
 travis and the fact that all things should be easy in life. :-)
 
 .. _depl: https://github.com/davidhalter/depl
-.. _travis: https://github.com/ansible/ansible
 .. _ansible: https://github.com/ansible/ansible
-.. _ansible-django: http://www.stavros.io/posts/example-provisioning-and-deployment-ansible/
+.. _ansible-django: 
 .. _vagrant: https://github.com/mitchellh/vagrant
 .. _docker: http://www.docker.io
 .. _chef: https://github.com/opscode/chef
@@ -103,4 +103,4 @@ travis and the fact that all things should be easy in life. :-)
 .. _horrible: http://me.veekun.com/blog/2012/04/09/php-a-fractal-of-bad-design/
 .. _wercker: http://gigaom.com/2012/10/11/wercker-aims-to-fix-the-app-dev-universe/
 .. _capistrano: https://github.com/capistrano/capistrano
-.. _paas: http://jedidjah.ch/code/2013/12/16/paas/
+.. _Platform as a Service: /code/2013/12/16/paas/
