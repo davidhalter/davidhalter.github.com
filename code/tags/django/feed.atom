@@ -30,8 +30,8 @@ things really easy!&lt;/p&gt;
 &lt;p&gt;Let's face it, PHP is &lt;a class="reference external" href="http://me.veekun.com/blog/2012/04/09/php-a-fractal-of-bad-design/"&gt;horrible&lt;/a&gt;. But the PHP eco system has always done one
 thing fairly well: Deploying is easy. You can argue that Nginx is better than
 Apache, but still all the new sexy systems (Django/Rails/Node/Flask) are far
-more complicated than &lt;tt class="docutils literal"&gt;&lt;span class="pre"&gt;apt-get&lt;/span&gt; install php5&lt;/tt&gt;, if you want to deploy to your
-own server.&lt;/p&gt;
+more complicated to set up than &lt;tt class="docutils literal"&gt;&lt;span class="pre"&gt;apt-get&lt;/span&gt; install php5&lt;/tt&gt;, if you want to deploy
+to your own server.&lt;/p&gt;
 &lt;p&gt;Now - I don't want (old) PHP deployment back. There's often no easy way of
 making a difference between debug and production. People screw up dependencies
 and permissions. But let's face it. PHP has something really valuable there for
