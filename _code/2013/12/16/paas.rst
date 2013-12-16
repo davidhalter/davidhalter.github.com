@@ -1,6 +1,8 @@
 public: yes
 tags: [python, depl, deploy, paas]
 summary: 
+    PaaS offers a new way to deploy. It's awesome. Sometimes. But why is it not
+    enough?
 
 Platform as a Service: A Market Analysis
 ========================================
@@ -10,7 +12,7 @@ market research. By creating it open source and not as a business, it does not
 make sense to create it if something clearly better is out there. Platform as a
 Service (`PaaS <wiki>`_) is a very easy way of getting your website deployed.
 Sometimes. In a few blog posts I am thinking out loud about deploying. See
-also TODO_
+also the article on `deploying Django <django-deployment>`_ .
 
 The thing that current PaaS solves
 ----------------------------------
@@ -78,3 +80,4 @@ approach. Especially the configuration API.
 .. _depl: https://github.com/davidhalter/depl
 .. _docker: http://www.docker.io
 .. _wiki: http://en.wikipedia.org/wiki/Platform_as_a_service
+.. _django-deployment: http://jedidjah.ch/code/2013/12/16/django-deployment/
