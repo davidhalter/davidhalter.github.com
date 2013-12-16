@@ -25,8 +25,8 @@ PHP Goodness?!
 Let's face it, PHP is horrible_. But the PHP eco system has always done one
 thing fairly well: Deploying is easy. You can argue that Nginx is better than
 Apache, but still all the new sexy systems (Django/Rails/Node/Flask) are far
-more complicated than ``apt-get install php5``, if you want to deploy to your
-own server.
+more complicated to set up than ``apt-get install php5``, if you want to deploy
+to your own server.
 
 Now - I don't want (old) PHP deployment back. There's often no easy way of
 making a difference between debug and production. People screw up dependencies
