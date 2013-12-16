@@ -2,11 +2,156 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
   <title type="text">Recent Blog Posts</title>
   <id>http://jedidjah.ch/code/feed.atom</id>
-  <updated>2013-09-08T00:00:00Z</updated>
+  <updated>2013-12-16T00:00:00Z</updated>
   <link href="http://jedidjah.ch/code/" />
   <link href="http://jedidjah.ch/code/feed.atom" rel="self" />
   <subtitle type="text">Recent blog posts</subtitle>
   <generator>Werkzeug</generator>
+  <entry xml:base="http://jedidjah.ch/code/feed.atom">
+    <title type="text">Platform as a Service: A Market Analysis</title>
+    <id>http://jedidjah.ch/code/2013/12/16/paas</id>
+    <updated>2013-12-16T00:00:00Z</updated>
+    <link href="http://jedidjah.ch/code/2013/12/16/paas" />
+    <author>
+      <name>David Halter</name>
+    </author>
+    <content type="html">&lt;p&gt;Trying to create a really developer friendly deploy tool &lt;a class="reference external" href="https://github.com/davidhalter/depl"&gt;depl&lt;/a&gt;, I did some
+market research. By creating it open source and not as a business, it does not
+make sense to create it if something clearly better is out there. Platform as a
+Service (&lt;a class="reference external" href="http://en.wikipedia.org/wiki/Platform_as_a_service"&gt;PaaS&lt;/a&gt;) is a very easy way of getting your website deployed.
+Sometimes. In a few blog posts I am thinking out loud about deploying. See also
+the article on &lt;a class="reference external" href="/code/2013/12/16/django-deployment/"&gt;deploying Django&lt;/a&gt;.&lt;/p&gt;
+&lt;div class="section" id="the-thing-that-current-paas-solves"&gt;
+&lt;h2&gt;The thing that current PaaS solves&lt;/h2&gt;
+&lt;p&gt;There are quite a few companies trying to compete for a developer friendly
+hosting/deploy platform. Among those are &lt;a class="reference external" href="http://www.heroku.com"&gt;heroku&lt;/a&gt;, &lt;a class="reference external" href="https://www.openshift.com/"&gt;openshift&lt;/a&gt; and &lt;a class="reference external" href="http://cloudfoundry.com"&gt;cloudfoundry&lt;/a&gt;,
+to name the biggest players.&lt;/p&gt;
+&lt;p&gt;PaaS essentially solves the struggle to deploy apps (typically web apps) to the
+internet. What you could have done with a few build scripts, &lt;a class="reference external" href="https://github.com/ansible/ansible"&gt;ansible&lt;/a&gt; or &lt;a class="reference external" href="https://github.com/opscode/chef"&gt;chef&lt;/a&gt;
+is now possible without any hassle, especially because it solves:&lt;/p&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;No downtime, also during deploy (depends on hoster).&lt;/li&gt;
+&lt;li&gt;Automatic app detection, typically with heroku buildpacks, even &lt;a class="reference external" href="https://github.com/progrium/dokku"&gt;dokku&lt;/a&gt; uses
+those. Which means no configuration at all.&lt;/li&gt;
+&lt;li&gt;An integrated backup solution - backup is not an issue anymore.&lt;/li&gt;
+&lt;li&gt;Multiple staging/deployment &amp;quot;clusters&amp;quot;, that one can target (see &lt;a class="reference external" href="http://cloudfoundry.com"&gt;cloudfoundry&lt;/a&gt;)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;I know, some of the PaaS solutions may not solve all of those points, but they
+are basically things that are not so easy to solve with &amp;quot;just another deploy
+tool&amp;quot;.&lt;/p&gt;
+&lt;p&gt;It is important to note at this point, that PaaS are not an option for a lot of
+in-house apps, because even if they are created open source - like &lt;a class="reference external" href="https://www.openshift.com/"&gt;openshift&lt;/a&gt;
+and &lt;a class="reference external" href="http://cloudfoundry.com"&gt;cloudfoundry&lt;/a&gt; - it's not that easy to set them up, because your own cloud
+still requires a lot of ressources and maintenance.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="section" id="why-is-paas-not-enough"&gt;
+&lt;h2&gt;Why is PaaS not enough?&lt;/h2&gt;
+&lt;p&gt;The big problem with PaaS is basically that they don't really give you power
+over the servers you are using. The most visible manifestation of that is that
+almost nobody uses static files with &lt;a class="reference external" href="http://www.heroku.com"&gt;heroku&lt;/a&gt; (and there's probably the same
+issue with &lt;a class="reference external" href="https://www.openshift.com/"&gt;openshift&lt;/a&gt;).&lt;/p&gt;
+&lt;p&gt;I really don't want app development - I want software development, where you as
+a developer have control over the machine. This means configuring nginx and so
+on. Being limited as a web developer reminds me too much of the old PHP shared
+hosting times. What if you realize that you can gain a lot of speed by using a
+certain cache, but your PaaS doesn't support that? Maybe it doesn't support
+memcached?&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="section" id="but-really-paas-could-also-allow-more-configuration"&gt;
+&lt;h2&gt;But really - PaaS could also allow more configuration&lt;/h2&gt;
+&lt;p&gt;I think one of the problems that PaaS has right now is that people thought too
+much about billing customers. I know cashflow is important - but having happy
+customers also allows for that. They invest a lot into new services, but not
+into a multitude of configurations of services. I think a combination of a
+&lt;a class="reference external" href="https://github.com/davidhalter/depl"&gt;depl&lt;/a&gt; style configurations and a good &lt;a class="reference external" href="http://www.docker.io"&gt;docker&lt;/a&gt; service with backup capability
+and HA load balancers could be a really interesting new PaaS for example.&lt;/p&gt;
+&lt;p&gt;Do you agree? I would really like to have your opinion on &lt;a class="reference external" href="https://github.com/davidhalter/depl"&gt;depl&lt;/a&gt; and its
+approach. Especially the configuration API.&lt;/p&gt;
+&lt;/div&gt;
+</content>
+  </entry>
+  <entry xml:base="http://jedidjah.ch/code/feed.atom">
+    <title type="text">The current state of deploying Django applications</title>
+    <id>http://jedidjah.ch/code/2013/12/16/django-deployment</id>
+    <updated>2013-12-16T00:00:00Z</updated>
+    <link href="http://jedidjah.ch/code/2013/12/16/django-deployment" />
+    <author>
+      <name>David Halter</name>
+    </author>
+    <content type="html">&lt;p&gt;I've recently tried to release a Django application in a small intranet. It was
+hell all over again. I'm not very experienced with nginx, uwsgi and gunicorn,
+so I always have to read a lot.&lt;/p&gt;
+&lt;p&gt;The fact is: &lt;strong&gt;Deploying Django in 2013 is hard!&lt;/strong&gt; As a guy who writes 2-3
+small web apps a year, I don't want to fight with nginx and gunicorn. I just
+want to use something like &lt;tt class="docutils literal"&gt;deploy test.example.org&lt;/tt&gt; in my Django directory.&lt;/p&gt;
+&lt;p&gt;So I decided to write my own (and yet) little deployment software. If people
+like it, I'm willing to invest some of my time. I would be very happy to
+receive feedback on how we could create an API that makes deploying simple
+things really easy!&lt;/p&gt;
+&lt;div class="section" id="php-goodness"&gt;
+&lt;h2&gt;PHP Goodness?!&lt;/h2&gt;
+&lt;p&gt;Let's face it, PHP is &lt;a class="reference external" href="http://me.veekun.com/blog/2012/04/09/php-a-fractal-of-bad-design/"&gt;horrible&lt;/a&gt;. But the PHP eco system has always done one
+thing fairly well: Deploying is easy. You can argue that Nginx is better than
+Apache, but still all the new sexy systems (Django/Rails/Node/Flask) are far
+more complicated than &lt;tt class="docutils literal"&gt;&lt;span class="pre"&gt;apt-get&lt;/span&gt; install php5&lt;/tt&gt;, if you want to deploy to your
+own server.&lt;/p&gt;
+&lt;p&gt;Now - I don't want (old) PHP deployment back. There's often no easy way of
+making a difference between debug and production. People screw up dependencies
+and permissions. But let's face it. PHP has something really valuable there for
+beginners and &amp;quot;app programmers&amp;quot; that don't like dealing with systems,
+especially if they don't like Linux (e.g. &lt;tt class="docutils literal"&gt;WAMP&lt;/tt&gt; people).&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="section" id="solution-travis-ci"&gt;
+&lt;h2&gt;Solution: Travis-ci?&lt;/h2&gt;
+&lt;p&gt;Anybody using &lt;a class="reference external" href="https://travis-ci.org"&gt;Travis-ci&lt;/a&gt;? &lt;strong&gt;Awesome&lt;/strong&gt;, right?  It
+just solves testing for you. That is how I imagine &lt;a class="reference external" href="https://github.com/davidhalter/depl"&gt;depl&lt;/a&gt; to be. Travis also
+does something like a deployment. Your code is completely running on their
+servers and can be tested. In comparison to e.g. Heroku (which is also pretty
+cool), travis uses a more explicit way to deploy. I like travis way better,
+because travis yaml files allow for a more flexibility and complete control. I
+also like to know what's going on.&lt;/p&gt;
+&lt;p&gt;My solution provides defaults for typical use cases. It leaves more complex use
+cases to awesome software like &lt;a class="reference external" href="https://github.com/ansible/ansible"&gt;ansible&lt;/a&gt;. If you really need 10 different
+databases, custom paths, etc, you shouldn't be using &lt;a class="reference external" href="https://github.com/davidhalter/depl"&gt;depl&lt;/a&gt;.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="section" id="some-deployment-options"&gt;
+&lt;h2&gt;Some Deployment Options&lt;/h2&gt;
+&lt;p&gt;There are a variety of tools to deploy, but non of them really fit the simple
+use case. I don't want dozens of files just for deploying my very simple Django
+project. I want at most one (something like travis). But to give you an
+overview:&lt;/p&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;&lt;a class="reference external" href="https://github.com/ansible/ansible"&gt;ansible&lt;/a&gt; is awesome for deploying big projects, you could check out &lt;a class="reference external" href="http://www.stavros.io/posts/example-provisioning-and-deployment-ansible/"&gt;this&lt;/a&gt;
+for a Django deployment with ansible.&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference external" href="https://github.com/opscode/chef"&gt;chef&lt;/a&gt;/&lt;a class="reference external" href="https://github.com/puppetlabs/puppet"&gt;puppet&lt;/a&gt; do the same thing. But I like &lt;a class="reference external" href="https://github.com/ansible/ansible"&gt;ansible&lt;/a&gt; with its &lt;tt class="docutils literal"&gt;.yml&lt;/tt&gt; files
+better somehow. It's a cleaner approach IMHO.&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference external" href="http://www.docker.io"&gt;docker&lt;/a&gt; is awesome, but you still have to deploy your software into docker
+containers - that's where &lt;a class="reference external" href="https://github.com/davidhalter/depl"&gt;depl&lt;/a&gt; could step in.&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference external" href="https://github.com/mitchellh/vagrant"&gt;vagrant&lt;/a&gt; is cool(for development), but again - how do you deploy in the first
+place. And also I wouldn't trust virtualbox for deploying things.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;I have analyzed those options and &lt;a class="reference external" href="/code/2013/12/16/paas/"&gt;Platform as a Service&lt;/a&gt; providers
+briefly. I realized that there is nothing to deploy Django easily (in an
+in-house setting), so I started creating &lt;a class="reference external" href="https://github.com/davidhalter/depl"&gt;depl&lt;/a&gt;. Not just for Django. For all
+the frameworks out there that still struggle with deployment.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="section" id="on-a-side-note-similar-ideas-to-depl"&gt;
+&lt;h2&gt;On a Side Note: Similar ideas to depl&lt;/h2&gt;
+&lt;p&gt;I've found two projects that are similar to what I imagine a good deploy tool
+should be like. The first one is &lt;a class="reference external" href="https://github.com/capistrano/capistrano"&gt;capistrano&lt;/a&gt; for ruby/rails. My problem with
+capistrano is that I don't really understand it - but I also don't really
+understand the ruby world, so I won't complain here.  Something just smells
+bad, because the tool can not be explained in one page.&lt;/p&gt;
+&lt;p&gt;Quite with the same problems struggles the second tool &amp;quot;&lt;a class="reference external" href="http://gigaom.com/2012/10/11/wercker-aims-to-fix-the-app-dev-universe/"&gt;wercker&lt;/a&gt;&amp;quot;. It's a
+little bit too hard to explain, because it also includes a
+testing/deploying/whatever platform. It seems to be a very complete and
+complicated model - too complicated for a normal open source developer. Might
+be interesting for professionals deploying web applications very often.&lt;/p&gt;
+&lt;p&gt;However both really haven't inspired me. The only positive inspiration is
+travis and the fact that all things should be easy in life. :-)&lt;/p&gt;
+&lt;/div&gt;
+</content>
+  </entry>
   <entry xml:base="http://jedidjah.ch/code/feed.atom">
     <title type="text">Why Pythons dir function is wrong</title>
     <id>http://jedidjah.ch/code/2013/9/8/wrong_dir_function</id>
@@ -474,78 +619,6 @@ einem anderen Editor schreiben.&lt;/p&gt;
 &lt;p&gt;Das ist ein kleines Beispiel, was man mit Shadern so alles falsch machen kann.
 Dies sollte eigentlich ein Comic Shader sein, aber irgendwie verhält er sich
 ein bisschen anders ;)&lt;/p&gt;
-</content>
-  </entry>
-  <entry xml:base="http://jedidjah.ch/code/feed.atom">
-    <title type="text">Game Levels</title>
-    <id>http://jedidjah.ch/code/2007/3/30/game_levels</id>
-    <updated>2007-03-30T00:00:00Z</updated>
-    <link href="http://jedidjah.ch/code/2007/3/30/game_levels" />
-    <author>
-      <name>David Halter</name>
-    </author>
-    <content type="html">&lt;div class="note"&gt;
-&lt;p class="first admonition-title"&gt;Note&lt;/p&gt;
-&lt;p class="last"&gt;This is about a game I once wrote, which was part of my high school
-thesis. Unfortunately, it's written in German.&lt;/p&gt;
-&lt;/div&gt;
-&lt;p&gt;Ich habe jetzt das Levelladen und den Leveleditor eigentlich fertiggestellt.
-Das ganze ist so aufgebaut, dass man von &lt;cite&gt;.3ds&lt;/cite&gt; Dateien laden kann, die dann
-verarbeitet werden intern und in ein eigenes Format übergehen.&lt;/p&gt;
-&lt;p&gt;Das schöne daran ist, dass ich einfach Levels in &lt;cite&gt;3ds Max&lt;/cite&gt; konstruieren kann,
-die dann in meinem Spiel optimiert werden. Auf den Bildern werden überall die
-Nodes der Octrees angezeigt, die max. 500 dreiecke enthalten.&lt;/p&gt;
-&lt;p&gt;Wie man auf einigen Bildern sieht, sind teilweise Objekte relativ krass Polygon
-- intensiv, wie z.B. dieser Busch hier.&lt;/p&gt;
-&lt;p&gt;Ausserdem habe ich Frustum Culling eingebaut, sodass nur die Würfel, die vor
-der Kamera liegen angezeigt werden.&lt;/p&gt;
-&lt;p&gt;Weiterhin werde ich noch PVS (potentially visible sets) einbauen, die dann
-helfen werden Würfel auszublenden, die hinter anderen Objekten verdeckt werden.&lt;/p&gt;
-&lt;p&gt;Momentan arbeite ich fest an den Kollisionen und bin mich heftig in
-Vektorgeometrie 3d am einarbeiten, da ich dies bei einem Lehrer gehabt hab, wo
-ich nicht gerade viel gelernt hab. Ausserdem sind Kollisionsberechnungen wie
-z.B. Sphere-Triangle und orientet Bounding Box - Triangle, die auf
-Geschwindigkeit optimiert werden müssen nicht gerade die einfachsten.
-Schwerer wirds dann noch wenn ich Treppen usw. realisieren will, wo man dann
-auch noch über polygone hinwegsteigen können sollte. Da frag ich mich dann
-wirklich, wie ich sowas mach. Wenn jemand eine gute Idee hat, bitte melden! ;-)&lt;/p&gt;
-&lt;img alt="../level2.jpg" class="align-center" src="../level2.jpg" /&gt;
-&lt;img alt="../level1.jpg" class="align-center" src="../level1.jpg" /&gt;
-&lt;p&gt;Hier ist leider noch was dazwischengerutscht, sry ;)&lt;/p&gt;
-&lt;img alt="../level3.jpg" class="align-center" src="../level3.jpg" /&gt;
-</content>
-  </entry>
-  <entry xml:base="http://jedidjah.ch/code/feed.atom">
-    <title type="text">Gui goes final</title>
-    <id>http://jedidjah.ch/code/2007/3/3/gui_goes_final</id>
-    <updated>2007-03-03T00:00:00Z</updated>
-    <link href="http://jedidjah.ch/code/2007/3/3/gui_goes_final" />
-    <author>
-      <name>David Halter</name>
-    </author>
-    <content type="html">&lt;div class="note"&gt;
-&lt;p class="first admonition-title"&gt;Note&lt;/p&gt;
-&lt;p class="last"&gt;This is about a game I once wrote, which was part of my high school
-thesis. Unfortunately, it's written in German.&lt;/p&gt;
-&lt;/div&gt;
-&lt;p&gt;Ich habe jetzt meine GUI soweit beendet, mittlerweile habe ich noch sehr viele
-Bugs gefixt. Ausserdem sind nun die Fenster immer schön geordnet im Vorder-
-bzw. Hintergrund.&lt;/p&gt;
-&lt;p&gt;Ich habe auch einen neuen Skin entworfen, was mich ziemlich viel Zeit kostete,
-jedoch bin ich gut zufrieden damit, da er wirklich viel besser aussieht, wie
-der Standart-Windows Skin.&lt;/p&gt;
-&lt;p&gt;Nun habe ich die GUI auch ins Game eingebaut, die Fenster sind zwar vielfach
-noch nicht wirklich mit allen Optionen ausgestattet, jedoch reicht mir das
-ganze so wie es jetzt ist, für den Moment. Das ganze werde ich sicher noch
-verbessern, bzw. verschönern.&lt;/p&gt;
-&lt;p&gt;Hier noch die Screenshots, die sagen wohl am meisten aus:&lt;/p&gt;
-&lt;img alt="../gui1.jpg" class="align-center" src="../gui1.jpg" /&gt;
-&lt;img alt="../gui2.jpg" class="align-center" src="../gui2.jpg" /&gt;
-&lt;img alt="../gui_editor.jpg" class="align-center" src="../gui_editor.jpg" style="width: 800px; height: 613px;" /&gt;
-&lt;p&gt;PS: Im übrigen ist zu sagen, dass ich natürlich nicht nur an der GUI
-drangesessen bin, während der langen Zeit zwischen den Posts. Ich kann jetzt
-schon Levels laden und das ganze sieht auch noch ziemlich gut aus, dazu jedoch
-nächste Woche.&lt;/p&gt;
 </content>
   </entry>
 </feed>

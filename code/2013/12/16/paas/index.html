@@ -1,0 +1,166 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <title>Platform as a Service: A Market Analysis</title>
+
+        <!-- meta -->
+        <meta name="author" content="David Halter">
+        <meta name="dc.language" content="en-US">
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta name="description" content="PaaS offers a new way to deploy. It&#39;s awesome. Sometimes. But why is it not enough?">
+        <meta name="keywords" content="depl, deploy, paas, python">
+        
+            <meta name="dc.date.created" content="2013-12-16">
+            <meta name="dc.date.issued" content="2013-12-16">
+        
+
+        <!-- favicon -->
+        <link rel="icon" href="/favicon.ico" type="image/x-icon">
+
+        <!-- newsfeed -->
+        <link href="/code/feed.atom" rel="alternate" title="Feed" type="application/atom+xml">
+
+        <!-- assets -->
+        <link href="https://fonts.googleapis.com/css?family=Linden+Hill:400,400italic" rel="stylesheet" type="text/css">
+        <link rel="stylesheet" href="/static/style.css?1387209084" type="text/css">
+            <link rel="stylesheet" href="/static/_pygments.css?1387209092" type="text/css">
+    </head>
+    <body>
+        <div id="wrapper">
+            <div id="blogtitle">code.jedidjah</div>
+            <ul id="mainnav">
+                <li><a href="/code">code</a></li>
+                <li><a href="/code/archive">archive</a></li>
+                <li><a href="/code/tags">tags</a></li>
+                <li><a href="/">jedidjah.ch</a></li>
+                <li class="last"><a href="/about">about</a></li>
+            </ul>
+
+            <div class="clearboth"></div>
+
+            <div id="content" class="hyphenate">
+                
+  <h1 class="title">Platform as a Service: A Market Analysis</h1>
+
+  
+    <div class="date">
+      <p>written on Monday, December 16, 2013</p>
+    </div>
+  
+
+  <p>Trying to create a really developer friendly deploy tool <a class="reference external" href="https://github.com/davidhalter/depl">depl</a>, I did some
+market research. By creating it open source and not as a business, it does not
+make sense to create it if something clearly better is out there. Platform as a
+Service (<a class="reference external" href="http://en.wikipedia.org/wiki/Platform_as_a_service">PaaS</a>) is a very easy way of getting your website deployed.
+Sometimes. In a few blog posts I am thinking out loud about deploying. See also
+the article on <a class="reference external" href="/code/2013/12/16/django-deployment/">deploying Django</a>.</p>
+<div class="section" id="the-thing-that-current-paas-solves">
+<h2>The thing that current PaaS solves</h2>
+<p>There are quite a few companies trying to compete for a developer friendly
+hosting/deploy platform. Among those are <a class="reference external" href="http://www.heroku.com">heroku</a>, <a class="reference external" href="https://www.openshift.com/">openshift</a> and <a class="reference external" href="http://cloudfoundry.com">cloudfoundry</a>,
+to name the biggest players.</p>
+<p>PaaS essentially solves the struggle to deploy apps (typically web apps) to the
+internet. What you could have done with a few build scripts, <a class="reference external" href="https://github.com/ansible/ansible">ansible</a> or <a class="reference external" href="https://github.com/opscode/chef">chef</a>
+is now possible without any hassle, especially because it solves:</p>
+<ul class="simple">
+<li>No downtime, also during deploy (depends on hoster).</li>
+<li>Automatic app detection, typically with heroku buildpacks, even <a class="reference external" href="https://github.com/progrium/dokku">dokku</a> uses
+those. Which means no configuration at all.</li>
+<li>An integrated backup solution - backup is not an issue anymore.</li>
+<li>Multiple staging/deployment &quot;clusters&quot;, that one can target (see <a class="reference external" href="http://cloudfoundry.com">cloudfoundry</a>)</li>
+</ul>
+<p>I know, some of the PaaS solutions may not solve all of those points, but they
+are basically things that are not so easy to solve with &quot;just another deploy
+tool&quot;.</p>
+<p>It is important to note at this point, that PaaS are not an option for a lot of
+in-house apps, because even if they are created open source - like <a class="reference external" href="https://www.openshift.com/">openshift</a>
+and <a class="reference external" href="http://cloudfoundry.com">cloudfoundry</a> - it's not that easy to set them up, because your own cloud
+still requires a lot of ressources and maintenance.</p>
+</div>
+<div class="section" id="why-is-paas-not-enough">
+<h2>Why is PaaS not enough?</h2>
+<p>The big problem with PaaS is basically that they don't really give you power
+over the servers you are using. The most visible manifestation of that is that
+almost nobody uses static files with <a class="reference external" href="http://www.heroku.com">heroku</a> (and there's probably the same
+issue with <a class="reference external" href="https://www.openshift.com/">openshift</a>).</p>
+<p>I really don't want app development - I want software development, where you as
+a developer have control over the machine. This means configuring nginx and so
+on. Being limited as a web developer reminds me too much of the old PHP shared
+hosting times. What if you realize that you can gain a lot of speed by using a
+certain cache, but your PaaS doesn't support that? Maybe it doesn't support
+memcached?</p>
+</div>
+<div class="section" id="but-really-paas-could-also-allow-more-configuration">
+<h2>But really - PaaS could also allow more configuration</h2>
+<p>I think one of the problems that PaaS has right now is that people thought too
+much about billing customers. I know cashflow is important - but having happy
+customers also allows for that. They invest a lot into new services, but not
+into a multitude of configurations of services. I think a combination of a
+<a class="reference external" href="https://github.com/davidhalter/depl">depl</a> style configurations and a good <a class="reference external" href="http://www.docker.io">docker</a> service with backup capability
+and HA load balancers could be a really interesting new PaaS for example.</p>
+<p>Do you agree? I would really like to have your opinion on <a class="reference external" href="https://github.com/davidhalter/depl">depl</a> and its
+approach. Especially the configuration API.</p>
+</div>
+
+
+  <hr />
+
+  <p>
+    Thank you for reading! You can follow me on 
+    <a href="https://github.com/davidhalter">github</a>
+    or
+    <a href="https://twitter.com/">twitter</a>. If you like my OS projects, you
+    could consider a donation on
+    <a href="https://www.gittip.com/davidhalter/">gittip</a>.
+  </p>
+  
+    <div class="tags">
+      <p>This entry was tagged
+      
+        <a href="/code/tags/depl/">depl</a>, 
+        <a href="/code/tags/deploy/">deploy</a>, 
+        <a href="/code/tags/paas/">paas</a> and 
+        <a href="/code/tags/python/">python</a></p>
+    </div>
+  
+
+  
+    
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_shortname = 'jedidjah-code'; // required: replace example with your forum shortname
+    
+    
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">blog comments powered by <span class="logo-disqus">Disqus</span></a>
+
+  
+
+            </div>
+        </div>
+
+        <script type="text/javascript">
+          var _gaq = _gaq || [];
+          _gaq.push(['_setAccount', 'UA-37770631-1']);
+          _gaq.push(['_setDomainName', 'jedidjah.ch']);
+          _gaq.push(['_trackPageview']);
+          (function() {
+            var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+            var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+          })();
+        </script>
+        <script type="text/javascript" src="/static/hyphenator.js"></script>
+        <script type="text/javascript">
+            Hyphenator.run();
+        </script>
+
+    </body>
+</html>

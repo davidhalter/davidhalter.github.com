@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title type="text">Recent Blog Posts</title>
+  <id>http://jedidjah.ch/code/feed.atom</id>
+  <updated>2013-12-16T00:00:00Z</updated>
+  <link href="http://jedidjah.ch/code/" />
+  <link href="http://jedidjah.ch/code/feed.atom" rel="self" />
+  <subtitle type="text">Recent blog posts</subtitle>
+  <generator>Werkzeug</generator>
+  <entry xml:base="http://jedidjah.ch/code/feed.atom">
+    <title type="text">The current state of deploying Django applications</title>
+    <id>http://jedidjah.ch/code/2013/12/16/django-deployment</id>
+    <updated>2013-12-16T00:00:00Z</updated>
+    <link href="http://jedidjah.ch/code/2013/12/16/django-deployment" />
+    <author>
+      <name>David Halter</name>
+    </author>
+    <content type="html">&lt;p&gt;I've recently tried to release a Django application in a small intranet. It was
+hell all over again. I'm not very experienced with nginx, uwsgi and gunicorn,
+so I always have to read a lot.&lt;/p&gt;
+&lt;p&gt;The fact is: &lt;strong&gt;Deploying Django in 2013 is hard!&lt;/strong&gt; As a guy who writes 2-3
+small web apps a year, I don't want to fight with nginx and gunicorn. I just
+want to use something like &lt;tt class="docutils literal"&gt;deploy test.example.org&lt;/tt&gt; in my Django directory.&lt;/p&gt;
+&lt;p&gt;So I decided to write my own (and yet) little deployment software. If people
+like it, I'm willing to invest some of my time. I would be very happy to
+receive feedback on how we could create an API that makes deploying simple
+things really easy!&lt;/p&gt;
+&lt;div class="section" id="php-goodness"&gt;
+&lt;h2&gt;PHP Goodness?!&lt;/h2&gt;
+&lt;p&gt;Let's face it, PHP is &lt;a class="reference external" href="http://me.veekun.com/blog/2012/04/09/php-a-fractal-of-bad-design/"&gt;horrible&lt;/a&gt;. But the PHP eco system has always done one
+thing fairly well: Deploying is easy. You can argue that Nginx is better than
+Apache, but still all the new sexy systems (Django/Rails/Node/Flask) are far
+more complicated than &lt;tt class="docutils literal"&gt;&lt;span class="pre"&gt;apt-get&lt;/span&gt; install php5&lt;/tt&gt;, if you want to deploy to your
+own server.&lt;/p&gt;
+&lt;p&gt;Now - I don't want (old) PHP deployment back. There's often no easy way of
+making a difference between debug and production. People screw up dependencies
+and permissions. But let's face it. PHP has something really valuable there for
+beginners and &amp;quot;app programmers&amp;quot; that don't like dealing with systems,
+especially if they don't like Linux (e.g. &lt;tt class="docutils literal"&gt;WAMP&lt;/tt&gt; people).&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="section" id="solution-travis-ci"&gt;
+&lt;h2&gt;Solution: Travis-ci?&lt;/h2&gt;
+&lt;p&gt;Anybody using &lt;a class="reference external" href="https://travis-ci.org"&gt;Travis-ci&lt;/a&gt;? &lt;strong&gt;Awesome&lt;/strong&gt;, right?  It
+just solves testing for you. That is how I imagine &lt;a class="reference external" href="https://github.com/davidhalter/depl"&gt;depl&lt;/a&gt; to be. Travis also
+does something like a deployment. Your code is completely running on their
+servers and can be tested. In comparison to e.g. Heroku (which is also pretty
+cool), travis uses a more explicit way to deploy. I like travis way better,
+because travis yaml files allow for a more flexibility and complete control. I
+also like to know what's going on.&lt;/p&gt;
+&lt;p&gt;My solution provides defaults for typical use cases. It leaves more complex use
+cases to awesome software like &lt;a class="reference external" href="https://github.com/ansible/ansible"&gt;ansible&lt;/a&gt;. If you really need 10 different
+databases, custom paths, etc, you shouldn't be using &lt;a class="reference external" href="https://github.com/davidhalter/depl"&gt;depl&lt;/a&gt;.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="section" id="some-deployment-options"&gt;
+&lt;h2&gt;Some Deployment Options&lt;/h2&gt;
+&lt;p&gt;There are a variety of tools to deploy, but non of them really fit the simple
+use case. I don't want dozens of files just for deploying my very simple Django
+project. I want at most one (something like travis). But to give you an
+overview:&lt;/p&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;&lt;a class="reference external" href="https://github.com/ansible/ansible"&gt;ansible&lt;/a&gt; is awesome for deploying big projects, you could check out &lt;a class="reference external" href="http://www.stavros.io/posts/example-provisioning-and-deployment-ansible/"&gt;this&lt;/a&gt;
+for a Django deployment with ansible.&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference external" href="https://github.com/opscode/chef"&gt;chef&lt;/a&gt;/&lt;a class="reference external" href="https://github.com/puppetlabs/puppet"&gt;puppet&lt;/a&gt; do the same thing. But I like &lt;a class="reference external" href="https://github.com/ansible/ansible"&gt;ansible&lt;/a&gt; with its &lt;tt class="docutils literal"&gt;.yml&lt;/tt&gt; files
+better somehow. It's a cleaner approach IMHO.&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference external" href="http://www.docker.io"&gt;docker&lt;/a&gt; is awesome, but you still have to deploy your software into docker
+containers - that's where &lt;a class="reference external" href="https://github.com/davidhalter/depl"&gt;depl&lt;/a&gt; could step in.&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference external" href="https://github.com/mitchellh/vagrant"&gt;vagrant&lt;/a&gt; is cool(for development), but again - how do you deploy in the first
+place. And also I wouldn't trust virtualbox for deploying things.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;I have analyzed those options and &lt;a class="reference external" href="/code/2013/12/16/paas/"&gt;Platform as a Service&lt;/a&gt; providers
+briefly. I realized that there is nothing to deploy Django easily (in an
+in-house setting), so I started creating &lt;a class="reference external" href="https://github.com/davidhalter/depl"&gt;depl&lt;/a&gt;. Not just for Django. For all
+the frameworks out there that still struggle with deployment.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="section" id="on-a-side-note-similar-ideas-to-depl"&gt;
+&lt;h2&gt;On a Side Note: Similar ideas to depl&lt;/h2&gt;
+&lt;p&gt;I've found two projects that are similar to what I imagine a good deploy tool
+should be like. The first one is &lt;a class="reference external" href="https://github.com/capistrano/capistrano"&gt;capistrano&lt;/a&gt; for ruby/rails. My problem with
+capistrano is that I don't really understand it - but I also don't really
+understand the ruby world, so I won't complain here.  Something just smells
+bad, because the tool can not be explained in one page.&lt;/p&gt;
+&lt;p&gt;Quite with the same problems struggles the second tool &amp;quot;&lt;a class="reference external" href="http://gigaom.com/2012/10/11/wercker-aims-to-fix-the-app-dev-universe/"&gt;wercker&lt;/a&gt;&amp;quot;. It's a
+little bit too hard to explain, because it also includes a
+testing/deploying/whatever platform. It seems to be a very complete and
+complicated model - too complicated for a normal open source developer. Might
+be interesting for professionals deploying web applications very often.&lt;/p&gt;
+&lt;p&gt;However both really haven't inspired me. The only positive inspiration is
+travis and the fact that all things should be easy in life. :-)&lt;/p&gt;
+&lt;/div&gt;
+</content>
+  </entry>
+</feed>
+
